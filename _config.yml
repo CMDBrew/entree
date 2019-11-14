@@ -49,3 +49,9 @@ theme: cmd-site
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+
+# Specify sass files paths
+sass:
+  load_paths:
+    - _sass
+    - node_modules
