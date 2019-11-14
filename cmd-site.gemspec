@@ -6,9 +6,9 @@ Gem::Specification.new do |spec|
   spec.authors  = ['Nelson Lee']
   spec.email    = ['nelson@cmdbrew.com']
 
-  spec.summary  = 'TODO: Write a short summary, because Rubygems requires one.'
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
-  spec.license  = 'MIT'
+  spec.summary  = 'CMDBrew static site theme'
+  spec.homepage = 'https://www.cmdbrew.com'
+  spec.license  = 'CMDBrew Studio Inc.'
 
   spec.files = `git ls-files -z`.split("\x0").select do |f|
     f.match(/^(assets|_layouts|_includes|_sass|LICENSE|README)/i)
