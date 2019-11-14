@@ -10,12 +10,17 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://www.cmdbrew.com'
   spec.license  = 'CMDBrew Studio Inc.'
 
+  spec.metadata['plugin_type'] = 'theme'
+
   spec.files = `git ls-files -z`.split("\x0").select do |f|
     f.match(/^(assets|_layouts|_includes|_sass|LICENSE|README)/i)
   end
 
-  spec.add_runtime_dependency 'jekyll', '~> 4.0'
+  spec.required_ruby_version = '>= 2.3'
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'rake', '~> 12.0'
+  spec.add_runtime_dependency 'jekyll', '~> 4.0'
+  spec.add_runtime_dependency 'jekyll-feed', '~> 0.9'
+  spec.add_runtime_dependency 'jekyll-seo-tag', '~> 2.1'
+
+  spec.add_development_dependency 'bundler', '~> 2.0.2'
 end
