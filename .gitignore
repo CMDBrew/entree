@@ -7,3 +7,6 @@ Gemfile.lock
 
 # Ignore rbenv files
 .ruby-version
+
+# Ignore node_modules
+/node_modules
