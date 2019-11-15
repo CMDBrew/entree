@@ -1,0 +1,49 @@
+***REMOVED***
+- - :whitelist
+  - MIT
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-10-17 22:07:22.406754000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-11-15 00:25:33.666930000 Z
+- - :whitelist
+  - CMDBrew Studio Inc.
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-11-15 00:27:34.877740000 Z
+- - :whitelist
+  - ruby
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-11-15 00:27:51.620358000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-11-15 00:28:16.109145000 Z
+- - :whitelist
+  - New BSD
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-11-15 00:28:27.293253000 Z
+- - :whitelist
+  - ruby, GPL-2.0
+  - :who:
+    :why:
+    :versions: []
+    :when: 2019-11-15 00:28:44.632157000 Z
+- - :approve
+  - em-websocket
+  - :who:
+    :why: Part of Jekyll
+    :versions: []
+    :when: 2019-11-15 00:32:17.766383000 Z
