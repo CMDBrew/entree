@@ -1,3 +1,10 @@
 @charset 'utf-8';
 
+@import 'variables/bootstrap';
+@import 'variables/custom';
 @import 'bootstrap/scss/bootstrap';
+@import 'mixins/utilities';
+@import 'mixins/layout';
+@import 'placeholders/background';
+@import 'layouts/default';
+@import 'components/backdrop';

@@ -1,6 +1,7 @@
 *.gem
 .bundle
 .jekyll-cache
+.jekyll-metadata
 .sass-cache
 _site
 Gemfile.lock
@@ -8,7 +9,7 @@ Gemfile.lock
 # Ignore rbenv files
 .ruby-version
 
-# Ignore node_modules
+# Ignore js files
 /node_modules
 
 # Ignore reports
