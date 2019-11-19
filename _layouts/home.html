@@ -5,17 +5,16 @@
 
   <body class="layout-default">
     <main id="main">
-      {%- include header.html navbar_class="navbar-light bg-white border-bottom" -%}
-      <div class="container offset-header">
-        {{ content }}
-      </div>
+      {%- include header.html navbar_class="navbar-dark" -%}
+      {{ content }}
     </main>
     <aside id="aside" class="collapse">
       <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
       <div id="actions" class="container py-3 bg-light">
         {%- include action_items.html -%}
 
-        <button id="aside-cancel" class="btn btn-secondary btn-lg btn-block" data-toggle="collapse" data-target="#aside">Cancel</button>
+        <button id="aside-cancel" class="btn btn-secondary btn-lg btn-block" data-toggle="collapse"
+          data-target="#aside">Cancel</button>
       </div>
     </aside>
   </body>

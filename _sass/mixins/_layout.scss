@@ -1,0 +1,8 @@
+@mixin layout($template) {
+  @at-root {
+    body.layout-#{$template} {
+      @content;
+    }
+  }
+}
+

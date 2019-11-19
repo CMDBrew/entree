@@ -2,9 +2,10 @@
   "name": "cmd-site",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental",
+    "build": "./node_modules/.bin/webpack | bundle exec jekyll build"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,15 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
