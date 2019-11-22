@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
+  {% assign layout_class = "layout-default " | append: include.layout_class %}
   {%- include head.html -%}
 
-  <body class="layout-default">
+  <body class="{{ layout_class | strip }}">
     <main id="main">
-      {%- include header.html navbar_class="navbar-light bg-white border-bottom" -%}
-      <div class="container offset-header">
-        {{ content }}
-      </div>
+      {{ content }}
     </main>
+
     <aside id="aside" class="collapse">
       <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
-      <div id="actions" class="container py-3 bg-light">
-        {%- include action_items.html -%}
-
-        <button id="aside-cancel" class="btn btn-secondary btn-lg btn-block" data-toggle="collapse" data-target="#aside">Cancel</button>
+      <div class="body container py-3 bg-light">
+        <div class="content">{%- include aside.html -%}</div>
+        <button class="cancel btn btn-secondary btn-block" data-toggle="collapse" data-target="#aside">Cancel</button>
       </div>
     </aside>
   </body>
-
 </html>

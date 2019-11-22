@@ -1,0 +1,52 @@
+aside {
+  position: fixed;
+  bottom: 0;
+  z-index: $zindex-fixed + 5;
+  display: block !important;
+  width: 100%;
+  height: 100% !important;
+  overflow-y: scroll;
+
+  .content { overflow-y: scroll; }
+  .cancel { display: none; }
+
+  @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
+    right: 0;
+    left: 0;
+    height: 0 !important;
+    overflow: hidden;
+
+    &.show {
+      display: block;
+      height: 80vh !important;
+      max-height: 400px;
+
+      .body { @include transform(translateY(0%)); }
+      .backdrop { display: block; }
+    }
+
+    .body {
+      position: relative;
+      z-index: 11;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-radius: $modal-content-border-radius $modal-content-border-radius 0 0;
+      @include transform(translateY(100%));
+      @include transition(transform 0.2s linear);
+    }
+
+    .content { flex: 1; }
+    .cancel { display: block; }
+  }
+
+  @include media-breakpoint-up(#{map-get($breakpoints, 'aside')}) {
+    top: 0;
+    right: 0;
+    display: block;
+    width: $aside-width;
+
+    .body { min-height: 100% };
+    .navbar { display: none; }
+  }
+}

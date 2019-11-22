@@ -1,8 +1,10 @@
-<nav id="header" class="navbar navbar-expand fixed-top {{ include.navbar_class }}">
+{% assign css_class = "navbar navbar-expand fixed-top " | append: include.css_class %}
+
+<nav id="header" class="{{ css_class | strip }}">
   <div class="row mx-0 w-100">
     <div class="col-4 pl-0">
       <ul class="navbar-nav">
-        {%- if page.url != "/index.html" -%}
+        {%- if page.url != '/' -%}
           <li class="nav-item"></li>
             <a class="nav-link" href="{{ "/" | relative_url }}">
               <i class="fas fa-chevron-left"></i>

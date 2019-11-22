@@ -1,5 +1,5 @@
 {
-  "name": "cmd-site",
+  "name": "jekyll-cmdbrew",
   "version": "0.1.0",
   "description": "",
   "scripts": {
@@ -22,6 +22,8 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }

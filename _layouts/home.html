@@ -1,22 +1,114 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+***REMOVED***
+layout: default
+***REMOVED***
 
-  {%- include head.html -%}
+{% assign i18n = site.data.languages %}
+{% assign filtered_pages = site.pages | where: 'list_on_index', true %}
+{% assign content_available = page.content | strip_newlines %}
+{%- include header.html css_class="navbar-dark" -%}
 
-  <body class="layout-default">
-    <main id="main">
-      {%- include header.html navbar_class="navbar-dark" -%}
-      {{ content }}
-    </main>
-    <aside id="aside" class="collapse">
-      <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
-      <div id="actions" class="container py-3 bg-light">
-        {%- include action_items.html -%}
+<div id="jumbotron" class="jumbotron jumbotron-fluid bg-dark" style="background-image: url('{{ page.banner }}')"></div>
 
-        <button id="aside-cancel" class="btn btn-secondary btn-lg btn-block" data-toggle="collapse"
-          data-target="#aside">Cancel</button>
-      </div>
-    </aside>
-  </body>
+<div class="container">
+  <div class="brand-info mb-4">
+    <div class="logo rounded-circle" style="background-image: url('{{ site.jekyll-cmdbrew.logo }}')"></div>
+    <div class="mt-3">
+      <h5>{{ site.title }}</h5>
+      {{ page.brief }}
+    </div>
+  </div>
 
-</html>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    {%- include tabs/link.html css_class="active" key="home" content=i18n.home.tabs.home -%}
+
+    {%- if content_available.size > 0 -%}
+      {%- include tabs/link.html key="about" content=i18n.home.tabs.about -%}
+    {% endif -%}
+
+    {%- if site.categories.size > 0 -%}
+      {%- include tabs/link.html key="categories" content=i18n.home.tabs.categories -%}
+    {%- endif -%}
+
+    {%- if filtered_pages.size > 0 -%}
+      {%- include tabs/link.html key="pages" content=i18n.home.tabs.pages -%}
+    {%- endif -%}
+  </ul>
+
+  <div class="tab-content py-3">
+    {% capture home_content %}
+      {%- if site.posts.size > 0 -%}
+        <ul class="list-group list-group-flush">
+          {% if paginator %}
+            {% assign posts = paginator.posts %}
+          {% else %}
+            {% assign posts = site.posts %}
+          {% endif %}
+
+          {%- for post in posts -%}
+            <li class="list-group-item">
+              <div class="mb-2">
+                <h5>
+                  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                </h5>
+                {%- assign date_format = site.minima.date_format | defadivt: "%b %-d, %Y" -%}
+                <span class="post-meta text-secondary">{{ post.date | date: date_format }}</span>
+              </div>
+              {%- if site.show_excerpts -%}
+                {{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    {% endcapture %}
+    {%- include tabs/pane.html css_class="show active" key="home" content=home_content -%}
+
+    {%- if content_available.size > 0 -%}
+      {%- include tabs/pane.html key="about" content=content -%}
+    {%- endif -%}
+
+    {%- if site.categories.size > 0 -%}
+      {% capture categories_content %}
+        {% assign categories = site.categories | sort %}
+        {% assign last_heading = "" %}
+        {%- for category in categories -%}
+          <dl class="row list-alphabetical">
+            {% capture category_name %}{{ category | first }}{% endcapture %}
+            {% assign heading = category_name | slice: 0 | upcase %}
+
+            <dt class="col-auto heading text-muted">
+              {%- if heading != last_heading -%}
+                {{ heading }}
+              {%- endif -%}
+            </dt>
+
+            <dd class="col"><a href="/categories/{{ category_name }}">{{ category_name }}</a></dd>
+          </dl>
+          {% assign last_heading = heading %}
+        {%- endfor -%}
+      {% endcapture %}
+      {%- include tabs/pane.html key="categories" content=categories_content -%}
+    {%- endif -%}
+
+    {%- if filtered_pages.size > 0 -%}
+      {% capture pages_content %}
+        <dl class="row list-alphabetical">
+          {% assign last_heading = "" %}
+          {%- for page in filtered_pages -%}
+            {% assign heading = page.title | slice: 0 | upcase %}
+
+            <dt class="col-auto heading text-muted">
+              {% if heading != last_heading %}
+                {{ heading }}
+              {% endif %}
+            </dt>
+
+            <dd class="col"><a href="{{ page.url | relative_url }}">{{ page.title }}</a></dd>
+            {% assign last_heading = heading %}
+          {%- endfor -%}
+        </dl>
+      {% endcapture %}
+      {%- include tabs/pane.html key="pages" content=pages_content -%}
+    {%- endif -%}
+  </div>
+</div>

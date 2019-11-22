@@ -2,9 +2,12 @@
 
 @import 'variables/bootstrap';
 @import 'variables/custom';
-@import 'bootstrap/scss/bootstrap';
+@import '../assets/vendor/bootstrap/scss/bootstrap';
 @import 'mixins/utilities';
 @import 'mixins/layout';
 @import 'placeholders/background';
 @import 'layouts/default';
+@import 'components/aside';
 @import 'components/backdrop';
+@import 'components/brand_icon';
+@import 'components/list';

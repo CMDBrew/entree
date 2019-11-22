@@ -1,0 +1,16 @@
+{% assign i18n = site.data.languages %}
+
+{% if site.data.socials.size > 0 %}
+  <div class="mb-4">
+    <label class='text-uppercase'>{{ i18n.aside.social }}</label>
+    <ul class="list-inline">
+      {% for social in site.data.socials %}
+        <li class="list-inline-item mr-2 mb-2">
+          <a class="brand-icon {{ social.name | downcase | replace: ' ', '-' }}" href="{{ social.url }}" title="{{ social.name | escape }}" target="_blank">
+            <i class="{{ social.icon_class }}"></i>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
