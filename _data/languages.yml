@@ -1,0 +1,10 @@
+---
+home:
+  tabs:
+    home: Home
+    about: About
+    categories: Topics
+    pages: Pages
+aside:
+  social: On the web
+  cancel: Cancel

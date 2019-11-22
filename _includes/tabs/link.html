@@ -1,0 +1,5 @@
+{% assign css_class = "nav-link " | append: include.css_class %}
+
+<li class="nav-item">
+  <a class="{{ css_class | strip }}" id="{{ include.key }}-tab" data-toggle="tab" href="#tab-{{ include.key }}" role="tab" aria-controls="{{ include.key }}" aria-selected="true">{{ include.content }}</a>
+</li>

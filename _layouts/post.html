@@ -1,28 +1,77 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-      • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
-          itemprop="name">{{ page.author | escape }}</span></span>
-      {%- endif -%}</p>
-  </header>
+{%- include header.html css_class="navbar-light bg-light" -%}
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+<div class="container offset-header">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          {{ page.date | date: date_format }}
+        </time>
+        {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+            itemprop="name">{{ page.author | escape }}</span></span>
+        {%- endif -%}</p>
+    </header>
 
-  {%- if site.disqus.shortname -%}
-  {%- include disqus_comments.html -%}
+    <div class="post-content e-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+
+    {%- if site.disqus.shortname -%}
+      {%- include disqus_comments.html -%}
+    {%- endif -%}
+
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  </article>
+
+  {%- if page.categories.size > 0 -%}
+    <div class="mb-4">
+      <label class='text-uppercase'>Categories</label>
+      <h4>
+        <ul class="list-inline">
+          {%- for category in page.categories -%}
+            <li class="list-inline-item">
+              <a href="/categories/{{ category }}" class="badge badge-secondary">{{ category }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </h4>
+    </div>
   {%- endif -%}
 
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+  {%- if page.tags.size > 0 -%}
+    <div class="mb-4">
+      <label class='text-uppercase'>Tags</label>
+      <h4>
+        <ul class="list-inline">
+          {%- for tag in page.tags -%}
+            <li class="list-inline-item">
+              <a href="/tags/{{ tag }}" class="badge badge-secondary">{{ tag }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </h4>
+    </div>
+  {%- endif -%}
+
+  {%- if site.related_posts.size > 0 -%}
+    <div class="mb-4">
+      <label class='text-uppercase'>Related posts</label>
+      {%- for post in site.related_posts limit: 3 -%}
+      <div class="mb-2">
+        <h5 class="mb-0">
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h5>
+        {%- assign date_format = site.minima.date_format | defadivt: "%b %-d, %Y" -%}
+        <small class="post-meta text-secondary">{{ post.date | date: date_format }}</small>
+      </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>

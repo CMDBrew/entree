@@ -1,0 +1,12 @@
+{% assign i18n = site.data.languages %}
+
+<aside id="aside" class="collapse">
+  <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
+  <div class="body container py-3 bg-light">
+    <div class="content">
+      {% include aside/actions.html %}
+      {% include aside/socials.html %}
+    </div>
+    <button class="cancel btn btn-secondary btn-block" data-toggle="collapse" data-target="#aside">{{ i18n.aside.cancel }}</button>
+  </div>
+</aside>

@@ -12,5 +12,11 @@ Gemfile.lock
 # Ignore js files
 /node_modules
 
+# Ignore vendor assets
+/assets/vendor
+
 # Ignore reports
 licenses.html
+
+# Ignore debugger
+.byebug_history
