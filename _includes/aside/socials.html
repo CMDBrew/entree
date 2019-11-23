@@ -1,8 +1,9 @@
 {% assign i18n = site.data.languages %}
+{% assign title = i18n.aside.social | default: 'Social Links' %}
 
 {% if site.data.socials.size > 0 %}
   <div class="mb-4">
-    <label class='text-uppercase'>{{ i18n.aside.social }}</label>
+    <label class='text-uppercase'>{{ title }}</label>
     <ul class="list-inline">
       {% for social in site.data.socials %}
         <li class="list-inline-item mr-2 mb-2">
