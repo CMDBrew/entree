@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.files =
     `git ls-files -z`.split("\x0").select do |f|
-      f.match(/^(assets|_layouts|_includes|_sass|_plugins|_data|LICENSE|README)/i)
+      f.match(/^(assets|_layouts|_includes|_sass|LICENSE|README)/i)
     end
 
   spec.require_paths = %w[lib]
