@@ -8,13 +8,14 @@ description: > # this means to ignore newlines until "show_excerpts:"
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Build settings
-theme: jekyll-cmdbrew
+theme: jekyll_cmdbrew
 
 plugins:
  - jekyll-feed
  - jekyll-paginate
  - jekyll-seo-tag
  - jekyll-tagging-related_posts
+ - jekyll_cmdbrew
 
 # Specify sass files paths
 sass:
@@ -22,7 +23,7 @@ sass:
     - _sass
     - node_modules
 
-# jekyll-cmdbrew
-jekyll-cmdbrew:
+# jekyll_cmdbrew
+jekyll_cmdbrew:
   logo: https://pbs.twimg.com/profile_images/788777950132830208/vgO3N1r7_400x400.jpg
   date_format: "%b %-d, %Y"

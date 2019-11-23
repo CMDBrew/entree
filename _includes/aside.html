@@ -1,4 +1,5 @@
 {% assign i18n = site.data.languages %}
+{% assign cancel_label = i18n.aside.cancel | default: 'Cancel' %}
 
 <aside id="aside" class="collapse">
   <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
@@ -7,6 +8,6 @@
       {% include aside/actions.html %}
       {% include aside/socials.html %}
     </div>
-    <button class="cancel btn btn-secondary btn-block" data-toggle="collapse" data-target="#aside">{{ i18n.aside.cancel }}</button>
+    <button class="cancel btn btn-secondary btn-block" data-toggle="collapse" data-target="#aside">{{ cancel_label }}</button>
   </div>
 </aside>

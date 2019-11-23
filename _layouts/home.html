@@ -11,7 +11,7 @@ layout: default
 
 <div class="container">
   <div class="brand-info mb-4">
-    <div class="logo rounded-circle" style="background-image: url('{{ site.jekyll-cmdbrew.logo }}')"></div>
+    <div class="logo rounded-circle" style="background-image: url('{{ site.jekyll_cmdbrew.logo }}')"></div>
     <div class="mt-3">
       <h5>{{ site.title }}</h5>
       {{ page.brief }}
@@ -19,18 +19,23 @@ layout: default
   </div>
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
-    {%- include tabs/link.html css_class="active" key="home" content=i18n.home.tabs.home -%}
+    {% assign home_label = i18n.home.tabs.home | default: 'Home' %}
+    {% assign about_label = i18n.about.tabs.about | default: 'About' %}
+    {% assign categories_label = i18n.categories.tabs.categories | default: 'Categories' %}
+    {% assign pages_label = i18n.pages.tabs.pages | default: 'Pages' %}
+
+    {%- include tabs/link.html css_class="active" key="home" content=home_label -%}
 
     {%- if content_available.size > 0 -%}
-      {%- include tabs/link.html key="about" content=i18n.home.tabs.about -%}
+      {%- include tabs/link.html key="about" content=about_label -%}
     {% endif -%}
 
     {%- if site.categories.size > 0 -%}
-      {%- include tabs/link.html key="categories" content=i18n.home.tabs.categories -%}
+      {%- include tabs/link.html key="categories" content=categories_label -%}
     {%- endif -%}
 
     {%- if filtered_pages.size > 0 -%}
-      {%- include tabs/link.html key="pages" content=i18n.home.tabs.pages -%}
+      {%- include tabs/link.html key="pages" content=pages_label -%}
     {%- endif -%}
   </ul>
 
