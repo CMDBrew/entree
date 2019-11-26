@@ -46,7 +46,7 @@ module Jekyll
           @site = site
           @dir  = dir
           @name = html_filename(site, num_page, name: '')
-          layout = site.config['category_layout'] || 'category.html'
+          layout = site.config['category_layout'] || 'categories.html'
           # Path is only used by the convertible module and accessed below when calling read_yaml
           # Handling themes stored in a gem
           @path =

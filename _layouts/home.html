@@ -42,7 +42,7 @@ layout: default
   <div class="tab-content py-3">
     {% capture home_content %}
       {%- if site.posts.size > 0 -%}
-        <ul class="list-group list-group-flush">
+        <ul class="list-unstyled">
           {% if paginator %}
             {% assign posts = paginator.posts %}
           {% else %}
@@ -50,20 +50,10 @@ layout: default
           {% endif %}
 
           {%- for post in posts -%}
-            <li class="list-group-item">
-              <div class="mb-2">
-                <h5>
-                  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-                </h5>
-                {%- assign date_format = site.minima.date_format | defadivt: "%b %-d, %Y" -%}
-                <span class="post-meta text-secondary">{{ post.date | date: date_format }}</span>
-              </div>
-              {%- if site.show_excerpts -%}
-                {{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}
-              {%- endif -%}
-            </li>
+            {% include post.html post = post %}
           {%- endfor -%}
         </ul>
+        <a href="/posts">{{ i18n.home.links.posts }}</a>
       {%- endif -%}
     {% endcapture %}
     {%- include tabs/pane.html css_class="show active" key="home" content=home_content -%}
