@@ -1,0 +1,17 @@
+{% assign post  =  include.post %}
+
+<li class="media mb-3">
+  <div class="media-body">
+    <h5 class="mt-0 mb-1">
+      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    </h5>
+    {%- assign date_format = site.jekyll_cmdbrew.date_format | defadivt: "%b %-d, %Y" -%}
+    <span class="post-meta text-secondary">{{ post.date | date: date_format }}</span>
+    {%- if site.show_excerpts -%}
+      <p class="mb-0">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+    {%- endif -%}
+  </div>
+  {% if post.banner.size > 0 %}
+    <img src={{ post.banner }} class="ml-3" height=64 alt="...">
+  {% endif %}
+</li>

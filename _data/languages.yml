@@ -5,6 +5,8 @@ home:
     about: About
     categories: Topics
     pages: Pages
+  links:
+    posts: View All Posts
 aside:
   social: On the web
   cancel: Cancel

@@ -10,7 +10,7 @@ layout: default
       <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
       <p class="post-meta">
         <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
           {{ page.date | date: date_format }}
         </time>
         {%- if page.author -%}
@@ -68,7 +68,7 @@ layout: default
         <h5 class="mb-0">
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h5>
-        {%- assign date_format = site.minima.date_format | defadivt: "%b %-d, %Y" -%}
+        {%- assign date_format = site.jekyll_cmdbrew.date_format | defadivt: "%b %-d, %Y" -%}
         <small class="post-meta text-secondary">{{ post.date | date: date_format }}</small>
       </div>
       {%- endfor -%}
