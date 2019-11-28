@@ -1,0 +1,15 @@
+#header {
+  $r: red($header-bg);
+  $g: green($header-bg);
+  $b: blue($header-bg);
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  height: $header-height;
+  background: $header-bg;
+
+  @if ($yiq >= $yiq-contrasted-threshold) {
+    @extend .navbar-light;
+  } @else {
+    @extend .navbar-dark;
+  }
+}

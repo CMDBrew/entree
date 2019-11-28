@@ -1,0 +1,32 @@
+{%- if site.data.installs.pwa.enabled -%}
+  <!-- Start PWA configuration -->
+  {%- assign pwa = site.data.installs.pwa -%}
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="{{ pwa.theme_color }}"/>
+
+  <!-- icon in the highest resolution we need it for -->
+  <link rel="icon" sizes="192x192" href="{{ pwa.icons.192 }}">
+  <!-- reuse same icon for Safari -->
+  <link rel="apple-touch-icon" href="{{ pwa.icons.192 }}">
+  <!-- multiple icons for IE -->
+  <meta name="msapplication-TileColor" content="{{ pwa.background_color }}">
+  <meta name="msapplication-TileImage" content="{{ pwa.icons.192 }}">
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    if (navigator.serviceWorker.controller) {
+      console.log("An active service worker found, no need to register");
+    } else {
+      // Register the service worker
+      navigator.serviceWorker
+        .register("{{ site.baseurl }}/serviceworker.js", {
+          scope: "./"
+        })
+        .then(function (reg) {
+          console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+  }
+  </script>
+  <!-- End PWA configuration -->
+{%- endif -%}

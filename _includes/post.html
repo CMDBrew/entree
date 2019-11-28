@@ -1,17 +1,42 @@
-{% assign post  =  include.post %}
+{%- assign post =  include.post -%}
+{%- assign date_format = site.jekyll_cmdbrew.date_format | defadivt: "%b %-d, %Y" -%}
+{%- assign i18n = site.data.languages -%}
 
-<li class="media mb-3">
-  <div class="media-body">
-    <h5 class="mt-0 mb-1">
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-    </h5>
-    {%- assign date_format = site.jekyll_cmdbrew.date_format | defadivt: "%b %-d, %Y" -%}
-    <span class="post-meta text-secondary">{{ post.date | date: date_format }}</span>
-    {%- if site.show_excerpts -%}
-      <p class="mb-0">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
-    {%- endif -%}
-  </div>
-  {% if post.banner.size > 0 %}
-    <img src={{ post.banner }} class="ml-3" height=64 alt="...">
-  {% endif %}
+<li class="list-group-item px-0 bg-transparent">
+  {%- if include.pinned -%}
+    <div class="container">
+      <div class="text-primary small mb-2">
+        <i class="fas fa-thumbtack mr-2"></i>
+        {{- i18n.posts.post.pinned -}}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <a class="post text-reset text-decoration-none" href="{{ post.url | relative_url }}">
+    <div class="container">
+      <div class="media">
+        <div class="media-body">
+          <h5>{{ post.title | escape }}</h5>
+
+          <p class="post-meta text-secondary small mb-1">
+            <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+              {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
+              {{ post.date | date: date_format }}
+            </time>
+            {%- if post.author -%}
+              - <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author | escape }}</span></span>
+            {%- endif -%}
+          </p>
+
+          {%- if site.show_excerpts -%}
+            <p class="mb-0">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+          {%- endif -%}
+        </div>
+
+        {%- if post.banner.size > 0 -%}
+          <div class="post-img ml-3 rounded" style="background-image: url('{{ post.banner }}')"></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </a>
 </li>

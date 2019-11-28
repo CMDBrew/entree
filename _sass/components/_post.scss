@@ -1,0 +1,14 @@
+.post {
+  .post-img {
+    @extend %background-cover;
+    width: $post-img-size;
+    max-width: 33%;
+    overflow: hidden;
+
+    &::before {
+      display: block;
+      padding-top: 100%;
+      content: '';
+    }
+  }
+}

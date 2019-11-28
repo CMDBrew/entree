@@ -1,17 +1,27 @@
 {% assign i18n = site.data.languages %}
-{% assign title = i18n.aside.social | default: 'Social Links' %}
+{% assign socials = site.data.aside.socials %}
 
-{% if site.data.socials.size > 0 %}
-  <div class="mb-4">
-    <label class='text-uppercase'>{{ title }}</label>
-    <ul class="list-inline">
-      {% for social in site.data.socials %}
-        <li class="list-inline-item mr-2 mb-2">
-          <a class="brand-icon {{ social.name | downcase | replace: ' ', '-' }}" href="{{ social.url }}" title="{{ social.name | escape }}" target="_blank">
-            <i class="{{ social.icon_class }}"></i>
-          </a>
-        </li>
+{% if socials.size > 0 %}
+  <div class="card mb-3 overflow-hidden">
+    <h5 class="card-header">{{ i18n.aside.socials }}</h5>
+    <div class="list-group list-group-flush">
+      {% for social in socials %}
+        <a href="{{ social.url }}" title="{{ social.name | escape }}" target="_blank" class="text-reset list-group-item list-group-item-action">
+          <div class="row flex-nowrap">
+            <div class="col-auto pr-0">
+              <div class="brand-icon {{ social.name | downcase | replace: ' ', '-' }}">
+                <i class="{{ social.icon_class }}"></i>
+              </div>
+            </div>
+            <div class="col text-truncate">
+              <div>
+                <h6 class="mb-0">{{ social.name }}</h6>
+                <p class="mb-0 text-secondary">{{ social.handle }}</small>
+              </div>
+            </div>
+          </div>
+        </a>
       {% endfor %}
-    </ul>
+    </div>
   </div>
 {% endif %}

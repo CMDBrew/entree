@@ -1,0 +1,36 @@
+{% assign cta = site.data.aside.call_to_action %}
+{% assign links = site.data.aside.actions | joins: site.data.aside.socials %}
+
+<nav id="footer" class="fixed-bottom bg-body py-3 border-top">
+  <div class="container">
+    <div class="row">
+      {% if cta %}
+        {% capture target %}
+          {% if action.open_new_tab %}
+            {{ "_blank" }}
+          {% else %}
+            {{ "self" }}
+          {% endif %}
+        {% endcapture %}
+        <div class="col">
+          <a class="btn btn-primary btn-block btn-lg bg-reset" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
+        </div>
+        {% if links.size > 0 %}
+          <div class="col-auto pl-0">
+            <a class="btn btn-secondary btn-lg aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </a>
+          </div>
+        {% endif %}
+      {% else %}
+        {% if links.size > 0 %}
+          <div class="col">
+            <a class="btn btn-secondary btn-block btn-lg aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </a>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</nav>

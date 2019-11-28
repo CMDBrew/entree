@@ -1,5 +1,23 @@
-{% assign css_class = "nav-link " | append: include.css_class %}
+{%- capture active_class -%}
+  {%- if include.active -%}
+    {{- "active" -}}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture selected -%}
+  {%- if include.active -%}
+    {{- "true" -}}
+  {%- else -%}
+    {{- "false" -}}
+  {%- endif -%}
+{%- endcapture -%}
+{%- assign css_class = "nav-link " | append: active_class -%}
 
 <li class="nav-item">
-  <a class="{{ css_class | strip }}" id="{{ include.key }}-tab" data-toggle="tab" href="#tab-{{ include.key }}" role="tab" aria-controls="{{ include.key }}" aria-selected="true">{{ include.content }}</a>
+  <a class="{{ css_class | strip }}" id="{{ include.key }}-tab"
+     data-toggle="tab" href="#tab-{{ include.key }}" role="tab"
+     aria-controls="{{ include.key }}-tab"
+     aria-selected="{{ selected }}">
+    {{- include.content -}}
+  </a>
 </li>

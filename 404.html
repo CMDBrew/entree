@@ -1,0 +1,15 @@
+---
+layout: default
+permalink: /404.html
+---
+
+{%- assign i18n = site.data.languages -%}
+<div class="container text-center d-flex flex-column justify-content-center flex-1">
+  <h1 class="display-1 text-primary">404</h1>
+  <h1>{{ i18n[404].title | default: "Oops... Page not found :(" }}</h1>
+  <p>{{ i18n[404].description | default: "The requested page could not be found." }}</p>
+
+  <div class="text-center">
+    <a class="btn btn-link btn-lg" href="{{ "/" | relative_url }}">{{ i18n[404].home | default: "Back To Home" }}</a>
+  </div>
+</div>

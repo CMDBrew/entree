@@ -1,0 +1,38 @@
+{%- assign smartbanner = site.data.installs.smartbanner -%}
+{%- if smartbanner.enabled -%}
+  <link rel="stylesheet" href="{{ "/assets/vendors/smartbanner/smartbanner.min.css" | relative_url }}">
+  <script src="{{'/assets/vendors/smartbanner/smartbanner.min.js' | prepend: site.baseurl}}"></script>
+
+  {%- capture google -%}
+    {%- if smartbanner.google.enabled -%}
+      {{ " android" }}
+    {%- endif -%}
+  {%- endcapture -%}
+
+  {%- capture apple -%}
+    {%- if smartbanner.apple.enabled -%}
+      {{ " ios" }}
+    {%- endif -%}
+  {%- endcapture -%}
+
+  {%- assign platforms = "" | append: google | append: apple | strip | replace: " ", "," -%}
+
+  <!-- Start SmartBanner configuration -->
+  <meta name="smartbanner:title" content="{{ smartbanner.title }}">
+  <meta name="smartbanner:author" content="{{ smartbanner.author }}">
+  <meta name="smartbanner:price" content="{{ smartbanner.price }}">
+  <meta name="smartbanner:button" content="{{ smartbanner.button }}">
+  <meta name="smartbanner:enabled-platforms" content="{{ platforms }}">
+  <meta name="smartbanner:close-label" content="{{ smartbanner.close }}">
+  {%- if smartbanner.apple.enabled -%}
+    <meta name="smartbanner:price-suffix-apple" content="{{ smartbanner.apple.price_suffix }}">
+    <meta name="smartbanner:icon-apple" content="{{ smartbanner.apple.icon }}">
+    <meta name="smartbanner:button-url-apple" content="{{ smartbanner.apple.url }}">
+  {%- endif -%}
+  {%- if smartbanner.google.enabled -%}
+    <meta name="smartbanner:price-suffix-google" content="{{ smartbanner.google.price_suffix }}">
+    <meta name="smartbanner:icon-google" content="{{ smartbanner.google.icon }}">
+    <meta name="smartbanner:button-url-google" content="{{ smartbanner.googlle.url }}">
+  {%- endif -%}
+  <!-- End SmartBanner configuration -->
+{%- endif -%}

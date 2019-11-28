@@ -1,8 +1,6 @@
-{% assign css_class = "navbar navbar-expand fixed-top " | append: include.css_class %}
-
-<nav id="header" class="{{ css_class | strip }}">
+<nav id="header" class="navbar navbar-expand">
   <div class="row mx-0 w-100">
-    <div class="col-4 pl-0">
+    <div class="col-3 pl-0 d-flex align-items-center">
       <ul class="navbar-nav">
         {%- if page.url != '/' -%}
           <li class="nav-item"></li>
@@ -13,17 +11,16 @@
         {%- endif -%}
       </ul>
     </div>
-    <div class="col-4 px-0 text-center">
-      <a class="navbar-brand" href="#">{{ site.title | escape }}</a>
+    <div class="col-6 px-0 text-center">
+      {%- capture title -%}
+        {{ page.title | default: site.title }}
+      {%- endcapture -%}
+      <div class="navbar-brand m-0 w-100 d-flex align-items-center justify-content-center">
+        <div class="thumbnail xs bg-white rounded-circle mr-2" style="background-image: url('{{ site.jekyll_cmdbrew.logo }}')"></div>
+        <span class="text-truncate">{{ title | escape }}</span>
+      </div>
     </div>
-    <div class="col-4 pr-0">
-      <ul class="navbar-nav justify-content-end">
-        <li class="nav-item aside-toggler">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </a>
-        </li>
-      </ul>
+    <div class="col-3 pr-0 d-flex align-items-center justify-content-end">
     </div>
   </div>
 </nav>

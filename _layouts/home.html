@@ -5,105 +5,119 @@ layout: default
 {% assign i18n = site.data.languages %}
 {% assign filtered_pages = site.pages | where: 'list_on_index', true %}
 {% assign content_available = page.content | strip_newlines %}
-{%- include header.html css_class="navbar-dark" -%}
+{% assign pinned_post = site.posts | where: 'path', page.pinned_post | first %}
 
-<div id="jumbotron" class="jumbotron jumbotron-fluid bg-dark" style="background-image: url('{{ page.banner }}')"></div>
+<div class="jumbotron jumbotron-fluid bg-dark" style="background-image: url('{{ page.banner }}')"></div>
 
 <div class="container">
   <div class="brand-info mb-4">
-    <div class="logo rounded-circle" style="background-image: url('{{ site.jekyll_cmdbrew.logo }}')"></div>
+    <div class="logo bg-white rounded-circle" style="background-image: url('{{ site.jekyll_cmdbrew.logo }}')"></div>
     <div class="mt-3">
-      <h5>{{ site.title }}</h5>
-      {{ page.brief }}
+      <h3>{{ site.title }}</h3>
+      <p>{{ page.brief }}</p>
     </div>
   </div>
+</div>
 
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    {% assign home_label = i18n.home.tabs.home | default: 'Home' %}
-    {% assign about_label = i18n.about.tabs.about | default: 'About' %}
-    {% assign categories_label = i18n.categories.tabs.categories | default: 'Categories' %}
-    {% assign pages_label = i18n.pages.tabs.pages | default: 'Pages' %}
+<div class="border-bottom sticky-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 px-0">
+        <div class="nav-tabs-wrap">
+          <ul class="nav nav-tabs bg-body" role="tablist">
+            {%- assign home_label = i18n.home.tabs.home | default: 'Home' -%}
+            {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
+            {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
+            {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
+            {%- if site.posts -%}
+              {%- include tabs/link.html active=true key="home" content=home_label -%}
+            {%- endif -%}
+            {%- if content_available.size > 0 -%}
+              {%- include tabs/link.html key="about" content=about_label -%}
+            {% endif -%}
+            {%- if site.categories.size > 0 -%}
+              {%- include tabs/link.html key="categories" content=categories_label -%}
+            {%- endif -%}
+            {%- if filtered_pages.size > 0 -%}
+              {%- include tabs/link.html key="pages" content=pages_label -%}
+            {%- endif -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    {%- include tabs/link.html css_class="active" key="home" content=home_label -%}
-
-    {%- if content_available.size > 0 -%}
-      {%- include tabs/link.html key="about" content=about_label -%}
-    {% endif -%}
-
-    {%- if site.categories.size > 0 -%}
-      {%- include tabs/link.html key="categories" content=categories_label -%}
+<div class="tab-content">
+  {% capture home_content %}
+    {%- if site.posts -%}
+      <ul class="list-group list-group-flush">
+        {% assign limit = site['paginate'] | default: 10 %}
+        {%- for post in site.posts limit: limit -%}
+          {% include post.html post=post %}
+        {%- endfor -%}
+      </ul>
+      <div class="container py-3">
+        <a class="btn btn-block btn-outline-secondary" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+      </div>
     {%- endif -%}
+  {% endcapture %}
+  {%- include tabs/pane.html css_class="show active" key="home" content=home_content -%}
 
-    {%- if filtered_pages.size > 0 -%}
-      {%- include tabs/link.html key="pages" content=pages_label -%}
-    {%- endif -%}
-  </ul>
+  {%- if content_available.size > 0 -%}
+    {%- capture about_content -%}
+      <div class="container py-3">
+        {{ content }}
+      </div>
+    {%- endcapture -%}
+    {%- include tabs/pane.html key="about" content=about_content -%}
+  {%- endif -%}
 
-  <div class="tab-content py-3">
-    {% capture home_content %}
-      {%- if site.posts.size > 0 -%}
-        <ul class="list-unstyled">
-          {% if paginator %}
-            {% assign posts = paginator.posts %}
-          {% else %}
-            {% assign posts = site.posts %}
-          {% endif %}
-
-          {%- for post in posts -%}
-            {% include post.html post = post %}
-          {%- endfor -%}
-        </ul>
-        <a href="/posts">{{ i18n.home.links.posts }}</a>
-      {%- endif -%}
-    {% endcapture %}
-    {%- include tabs/pane.html css_class="show active" key="home" content=home_content -%}
-
-    {%- if content_available.size > 0 -%}
-      {%- include tabs/pane.html key="about" content=content -%}
-    {%- endif -%}
-
-    {%- if site.categories.size > 0 -%}
-      {% capture categories_content %}
+  {%- if site.categories.size > 0 -%}
+    {% capture categories_content %}
+      <div class="list-group list-group-flush mb-3">
         {% assign categories = site.categories | sort %}
-        {% assign last_heading = "" %}
         {%- for category in categories -%}
-          <dl class="row list-alphabetical">
-            {% capture category_name %}{{ category | first }}{% endcapture %}
-            {% assign heading = category_name | slice: 0 | upcase %}
+          {% capture category_name %}{{ category | first }}{% endcapture %}
+          {% assign heading = category_name | slice: 0 | upcase %}
 
-            <dt class="col-auto heading text-muted">
-              {%- if heading != last_heading -%}
-                {{ heading }}
-              {%- endif -%}
-            </dt>
+          {%- if heading != last_heading -%}
+            <div class="list-group-item px-0 divider">
+              <div class="container">{{ heading }}</div>
+            </div>
+          {%- endif -%}
 
-            <dd class="col"><a href="/categories/{{ category_name }}">{{ category_name }}</a></dd>
-          </dl>
+          <a href="/categories/{{ category_name }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+            <h5 class="mb-0 container">{{ category_name }}</h5>
+          </a>
           {% assign last_heading = heading %}
         {%- endfor -%}
-      {% endcapture %}
-      {%- include tabs/pane.html key="categories" content=categories_content -%}
-    {%- endif -%}
+      </div>
+    {% endcapture %}
 
-    {%- if filtered_pages.size > 0 -%}
-      {% capture pages_content %}
-        <dl class="row list-alphabetical">
-          {% assign last_heading = "" %}
-          {%- for page in filtered_pages -%}
-            {% assign heading = page.title | slice: 0 | upcase %}
+    {%- include tabs/pane.html key="categories" content=categories_content -%}
+  {%- endif -%}
 
-            <dt class="col-auto heading text-muted">
-              {% if heading != last_heading %}
-                {{ heading }}
-              {% endif %}
-            </dt>
+  {%- if filtered_pages.size > 0 -%}
+    {% capture pages_content %}
+      <div class="list-group list-group-flush mb-3">
+        {% assign last_heading = "" %}
+        {%- for page in filtered_pages -%}
+          {% assign heading = page.title | slice: 0 | upcase %}
 
-            <dd class="col"><a href="{{ page.url | relative_url }}">{{ page.title }}</a></dd>
-            {% assign last_heading = heading %}
-          {%- endfor -%}
-        </dl>
-      {% endcapture %}
-      {%- include tabs/pane.html key="pages" content=pages_content -%}
-    {%- endif -%}
-  </div>
+          {%- if heading != last_heading -%}
+            <div class="list-group-item px-0 divider">
+              <div class="container">{{ heading }}</div>
+            </div>
+          {%- endif -%}
+
+          <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+            <h5 class="mb-0 container">{{ page.title }}</h5>
+          </a>
+          {% assign last_heading = heading %}
+        {%- endfor -%}
+      </div>
+    {% endcapture %}
+    {%- include tabs/pane.html key="pages" content=pages_content -%}
+  {%- endif -%}
 </div>

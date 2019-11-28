@@ -1,0 +1,5 @@
+{% assign css_class = "text-muted small " | append: include.css_class %}
+
+<p id="copyright" class="{{ css_class | strip }}">
+  © {{ site.time | date: '%Y' }} {{ i18n.aside.copyright | default: 'CMDBrew Studio Inc. All rights reserved.' }}
+</p>
