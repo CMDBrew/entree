@@ -10,12 +10,15 @@ show_excerpts: true # set to true to show excerpts on the homepage
 # Build settings
 theme: jekyll_cmdbrew
 
+paginate: 10
+
 plugins:
+ - jekyll_cmdbrew
  - jekyll-feed
  - jekyll-paginate
  - jekyll-seo-tag
+ - jekyll-sitemap
  - jekyll-tagging-related_posts
- - jekyll_cmdbrew
 
 # Specify sass files paths
 sass:
@@ -25,5 +28,10 @@ sass:
 
 # jekyll_cmdbrew
 jekyll_cmdbrew:
-  logo: https://pbs.twimg.com/profile_images/788777950132830208/vgO3N1r7_400x400.jpg
+  logo: https://mir-s3-cdn-cf.behance.net/user/115/92c5442982715.5d5a4bb3e3580.png
+  favicon: https://mir-s3-cdn-cf.behance.net/user/115/92c5442982715.5d5a4bb3e3580.png
   date_format: "%b %-d, %Y"
+
+# Disqus comments
+disqus:
+  shortname: test-656tth5lxb

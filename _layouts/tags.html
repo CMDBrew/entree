@@ -2,24 +2,23 @@
 layout: default
 ***REMOVED***
 
-{% capture path_prefix %}{{ 'tags/' | append: page.tag }}{% endcapture%}
+{% assign i18n = site.data.languages %}
 
-{%- include header.html css_class="navbar-light bg-light" -%}
+{% if page.paginator %}
+  {% assign paginator = page.paginator %}
+{% else %}
+  {% assign paginator = site %}
+{% endif %}
 
-<div class="container offset-header">
-  <h1>Tag: #{{ page.tag }}</h1>
-  <ul>
-    {% if page.paginator %}
-      {% assign paginator = page.paginator %}
-    {% else %}
-      {% assign paginator = site %}
-    {% endif %}
-
-    {%- for post in paginator.posts -%}
-      <li><a class="post" href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-
-    {% capture path %}{{ 'tags/' | append: page.tag }}{% endcapture%}
-    {% include pagination.html path=path %}
-  </ul>
+<div class="container py-3">
+  <h1>{{ i18n.tags.title }} {{ page.tag }}</h1>
 </div>
+
+<ul class="list-group list-group-flush mb-3">
+  {%- for post in paginator.posts -%}
+    {% include post.html post=post %}
+  {%- endfor -%}
+</ul>
+
+{% capture path %}{{ 'tags/' | append: page.tag }}{% endcapture%}
+{% include pagination.html path=path %}

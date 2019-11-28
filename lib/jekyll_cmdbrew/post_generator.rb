@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Jekyll
 
   module Paginate
@@ -67,7 +65,7 @@ module Jekyll
 
         def html_filename(site, num_page, name: '')
           if Paginate::Pager.pagination_enabled?(site)
-            name = Paginate::Pager.paginate_path(site, num_page)
+            name = Paginate::Pager.paginate_path(site, num_page) || ''
             name.concat '/' unless name.end_with? '/'
           end
 
@@ -77,7 +75,7 @@ module Jekyll
         def assign_page_data(site, num_page)
           return unless Paginate::Pager.pagination_enabled?(site)
 
-          data['paginator'] = Paginate::Pager.new(site, num_page)
+          data['paginator'] = Paginate::Pager.new(site, num_page, site.posts)
         end
 
       end

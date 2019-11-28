@@ -1,13 +1,22 @@
 {% assign i18n = site.data.languages %}
 {% assign cancel_label = i18n.aside.cancel | default: 'Cancel' %}
+{% assign legals = site.data.aside.legals %}
 
 <aside id="aside" class="collapse">
   <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
-  <div class="body container py-3 bg-light">
+  <div class="body container py-3 overflow-y">
     <div class="content">
-      {% include aside/actions.html %}
-      {% include aside/socials.html %}
+      {%- include aside/actions.html -%}
+      {%- include aside/socials.html -%}
+      <div id="footnote" class="card bg-transparent">
+        <div class="card-body pt-0">
+          {%- if site.data.aside.footnote -%}
+            <div class="mb-2">{{ site.data.aside.footnote }}</div>
+          {%- endif -%}
+          {%- include copyright.html -%}
+        </div>
+      </div>
     </div>
-    <button class="cancel btn btn-secondary btn-block" data-toggle="collapse" data-target="#aside">{{ cancel_label }}</button>
+    <button class="cancel btn btn-secondary btn-lg btn-block" data-toggle="collapse" data-target="#aside">{{ cancel_label | default: 'Cancel' }}</button>
   </div>
 </aside>

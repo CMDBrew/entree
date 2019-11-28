@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {% assign layout_class = "layout-default " | append: include.layout_class %}
+  {%- assign layout_class = "layout-default " | append: include.layout_class -%}
   {%- include head.html -%}
 
   <body class="{{ layout_class | strip }}">
-    <main id="main">
-      {{ content }}
-    </main>
-
-    <aside id="aside" class="collapse">
-      <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
-      <div class="body container py-3 bg-light">
-        <div class="content">{%- include aside.html -%}</div>
-        <button class="cancel btn btn-secondary btn-block" data-toggle="collapse" data-target="#aside">Cancel</button>
-      </div>
-    </aside>
+    <div id="wrapper" class="order-1">
+      <main id="main">
+        {%- include header.html -%}
+        {%- include alert.html -%}
+        <div id="content" class="overflow-y pb-5">
+          {{ content }}
+        </div>
+      </main>
+      {%- include aside.html -%}
+    </div>
+    {%- include footer.html -%}
   </body>
 </html>

@@ -1,0 +1,148 @@
+// Syntax highlighting styles should be adjusted appropriately for every "skin"
+// ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***-
+
+[class^='language-'] {
+  display: block;
+  padding: $spacer;
+  margin-bottom: $spacer;
+  background: $code-bg;
+  border-radius: $border-radius;
+
+  code { color: color-yiq($code-bg); }
+  pre { margin: 0; }
+
+  // Comment
+  .c {
+    font-style: italic;
+    color: $secondary;
+  }
+
+  // Error
+  .err {
+    color: $danger;
+    background-color: theme-color-level('danger', $alert-bg-level);
+  }
+
+  .k { font-weight: $font-weight-bold; } // Keyword
+  .o { font-weight: $font-weight-bold; } // Operator
+
+  // Comment.Multiline
+  .cm {
+    font-style: italic;
+    color: $secondary;
+  }
+
+  // Comment.Preproc
+  .cp {
+    font-weight: $font-weight-bold;
+    color: $secondary;
+  }
+
+  // Comment.Single
+  .c1 {
+    font-style: italic;
+    color: $secondary;
+  }
+
+  // Comment.Special
+  .cs {
+    font-style: italic;
+    font-weight: $font-weight-bold;
+    color: $secondary;
+  }
+
+  // Generic.Deleted
+  .gd {
+    color: color-yiq($code-bg);
+    background-color: theme-color-level('danger', $alert-bg-level);
+  }
+
+  // Generic.Deleted.Specific
+  .gd .x {
+    color: color-yiq($code-bg);
+    background-color: #faa
+  }
+
+  .ge { font-style: italic; } // Generic.Emph
+  .gr { color: $danger; } // Generic.Error
+  .gh { color: $secondary; } // Generic.Heading
+
+  // Generic.Inserted
+  .gi {
+    color: color-yiq($code-bg);
+    background-color: theme-color-level('success', $alert-bg-level);
+  }
+
+  // Generic.Inserted.Specific
+  .gi .x {
+    color: color-yiq($code-bg);
+    background-color: theme-color-level('success', $alert-bg-level);
+  }
+
+  .go { color: $secondary; } // Generic.Output
+  .gp { color: $secondary; } // Generic.Prompt
+  .gs { font-weight: bold; } // Generic.Strong
+  .gu { color: $secondary; } // Generic.Subheading
+  .gt { color: $danger; } // Generic.Traceback
+  .kc { font-weight: bold; } // Keyword.Constant
+  .kd { font-weight: bold; } // Keyword.Declaration
+  .kp { font-weight: bold; } // Keyword.Pseudo
+  .kr { font-weight: bold; } // Keyword.Reserved
+
+  // Keyword.Type
+  .kt {
+    font-weight: bold;
+    color: $indigo;
+  }
+  .m { color: $cyan; } // Literal.Number
+  .s { color: $danger; } // Literal.String
+  .na { color: $green; } // Name.Attribute
+  .nb { color: $blue; } // Name.Builtin
+
+  // Name.Class
+  .nc {
+    font-weight: bold;
+    color: $indigo;
+  }
+
+  .no { color: $green; } // Name.Constant
+  .ni { color: $purple; } // Name.Entity
+
+  // Name.Exception
+  .ne {
+    font-weight: bold;
+    color: $danger;
+  }
+
+  // Name.Function
+  .nf {
+    font-weight: bold;
+    color: $danger;
+  }
+
+  .nn { color: $secondary; } // Name.Namespace
+  .nt { color: $blue; } // Name.Tag
+  .nv { color: $green; } // Name.Variable
+  .ow { font-weight: bold; } // Operator.Word
+  .w  { color: theme-color-level('danger', $alert-bg-level); } // Text.Whitespace
+  .mf { color: $cyan; } // Literal.Number.Float
+  .mh { color: $cyan; } // Literal.Number.Hex
+  .mi { color: $cyan; } // Literal.Number.Integer
+  .mo { color: $cyan; } // Literal.Number.Oct
+  .sb { color: $danger; } // Literal.String.Backtick
+  .sc { color: $danger; } // Literal.String.Char
+  .sd { color: $danger; } // Literal.String.Doc
+  .s2 { color: $danger; } // Literal.String.Double
+  .se { color: $danger; } // Literal.String.Escape
+  .sh { color: $danger; } // Literal.String.Heredoc
+  .si { color: $danger; } // Literal.String.Interpol
+  .sx { color: $danger; } // Literal.String.Other
+  .sr { color: $green; } // Literal.String.Regex
+  .s1 { color: $danger; } // Literal.String.Single
+  .ss { color: $purple; } // Literal.String.Symbol
+  .bp { color: $secondary; } // Name.Builtin.Pseudo
+  .vc { color: $cyan; } // Name.Variable.Class
+  .vg { color: $cyan; } // Name.Variable.Global
+  .vi { color: $cyan; } // Name.Variable.Instance
+  .il { color: $cyan; } // Literal.Number.Integer.Long
+}

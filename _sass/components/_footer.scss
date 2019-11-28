@@ -1,0 +1,8 @@
+#footer {
+  background: $body-bg;
+
+  @include media-breakpoint-up(#{map-get($breakpoints, 'aside')}) {
+    display: none;
+  }
+}
+

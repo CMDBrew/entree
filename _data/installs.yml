@@ -1,0 +1,30 @@
+***REMOVED***
+pwa:
+  enabled: true
+  language: en
+  lang_direction: ltr
+  name: My Awesome App
+  short_name: mas
+  theme_color: '#FFB2FF'
+  background_color: '#222426'
+  icons:
+    192: "https://placeimg.com/192/192/any"
+    512: "https://placeimg.com/512/512/any"
+
+smartbanner:
+  enabled: true
+  title: My Awesome App
+  author: CMDBrew
+  price: Free
+  button: View
+  close: Close
+  apple:
+    enabled: true
+    price_suffix: '- On App Store'
+    icon: https://mir-s3-cdn-cf.behance.net/user/115/92c5442982715.5d5a4bb3e3580.png
+    url: https://www.google.com
+  google:
+    enabled: true
+    price_suffix: '- On Google Play'
+    icon: https://mir-s3-cdn-cf.behance.net/user/115/92c5442982715.5d5a4bb3e3580.png
+    url: https://www.google.com

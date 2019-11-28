@@ -3,10 +3,39 @@ home:
   tabs:
     home: Home
     about: About
-    categories: Topics
+    categories: Categories
     pages: Pages
   links:
     posts: View All Posts
+
 aside:
-  social: On the web
+  socials: On the web
   cancel: Cancel
+  copyright: CMDBrew Studio Inc. All rights reserved.
+
+alert:
+  enabled: false
+  message: Awesome alert
+  link:
+    name: Click me
+    url:  https://www.google.com
+    open_new_tab: false
+
+header:
+  menu: Menu
+
+posts:
+  title: Posts
+  post:
+    pinned: Pinned Post
+
+tags:
+  title: 'Tag:'
+
+categories:
+  title: 'Category:'
+
+404:
+  title: Oops... Page not found :(
+  description: The requested page could not be found.
+  home: Back To Home

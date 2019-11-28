@@ -1,0 +1,21 @@
+{%- assign i18n = site.data.languages -%}
+{%- assign alert = i18n.alert -%}
+
+{%- if alert.enabled -%}
+  <div class="alert alert-warning alert-dismissible rounded-0 mb-0" role="alert">
+    {{- alert.message -}}
+    {%- if alert.link -%}
+      {%- capture target -%}
+        {%- if alert.link.open_new_tab -%}
+          {{ "_blank" }}
+        {%- else -%}
+          {{ "self" }}
+        {%- endif -%}
+      {%- endcapture -%}
+      <a class="ml-1" rel="noopener" href="{{ alert.link.url }}" target="{{ target }}" title="{{ alert.link.name | escape }}">{{ alert.link.name }}</a>
+    {%- endif -%}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{%- endif -%}

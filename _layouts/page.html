@@ -2,10 +2,8 @@
 layout: default
 ***REMOVED***
 
-{%- include header.html css_class="navbar-light bg-light" -%}
-
-<div class="container offset-header">
-  <article class="post">
+<article class="post">
+  <div class="container">
     <header class="post-header">
       <h1 class="post-title">{{ page.title | escape }}</h1>
     </header>
@@ -13,5 +11,9 @@ layout: default
     <div class="post-content">
       {{ content }}
     </div>
-  </article>
-</div>
+  </div>
+</article>
+
+{%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+{%- endif -%}
