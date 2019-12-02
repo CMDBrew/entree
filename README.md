@@ -23,6 +23,17 @@
 1. Copy [404.html](404.html) to your project.
 1. Run `jekyll server` to start up server.
 
+### Setup Netlify
+For references see https://docs.netlify.com/large-media/setup/
+
+1. Connect your site to your github repo.
+1. Update your build settings
+    1. Add `BUNDLE_GITHUB__COM` variable.
+1. `netlify link`
+1. `netlify lm:setup`
+1. `git lfs track "uploads/**"`
+1. Commit your settings `git add -A` and `git commit -m 'Setup Netlify Large Media'`.
+
 ### Customize Styles
 1. Copy [main.scss](assets/main.scss) to your project.
 1. Copy variables inside [_custom.scss](_sass/variables/_custom.scss) to your project and put them before `@import styles;`
