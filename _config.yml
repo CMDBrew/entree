@@ -37,9 +37,21 @@ sass:
 
 # jekyll_cmdbrew
 jekyll_cmdbrew:
-  logo: https://mir-s3-cdn-cf.behance.net/user/115/92c5442982715.5d5a4bb3e3580.png
-  favicon: https://mir-s3-cdn-cf.behance.net/user/115/92c5442982715.5d5a4bb3e3580.png
+  logo: https://placeimg.com/284/284/any
+  favicon: https://placeimg.com/128/128/any
   date_format: "%b %-d, %Y"
+  theme:
+    primary: '#FFB2FF'
+    secondary: '#6F767E'
+    success: '#28A745'
+    warning: '#FFC107'
+    danger: '#DC3545'
+    info: '#17A2B8'
+    light: '#6F767E'
+    body_color: '#FFFFFF'
+    body_bg: '#222426'
+    border_color: '#43484C'
+    panel_bg: '#343A40'
 
 # Disqus comments
 disqus:
@@ -48,11 +60,3 @@ disqus:
 # Pagination
 paginate: 10
 
-# Theme
-theme:
-  primary: '#FFB2FF'
-  secondary: '#6F767E'
-  body_color: '#FFFFFF'
-  body_bg: '#222426'
-  border_color: '#43484C'
-  panel_bg: '#343A40'

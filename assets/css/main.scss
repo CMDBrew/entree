@@ -1,19 +1,25 @@
 ***REMOVED***
+# Only the main Sass file needs front matter (the dashes are enough)
 ***REMOVED***
 
 // Bootstrap ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
 // Colors
-$primary: {{ site.theme.primary | default: '#FFB2FF' }} !default;
-$secondary: {{ site.theme.secondary | default: '#6F767E' }} !default;
-$body-color: {{ site.theme.body_color | default: '#FFFFFF' }} !default;
-$border-color: {{ site.theme.border_color | default: '#43484C' }} !default;
+$primary: {{ site.jekyll_cmdbrew.theme.primary | default: '#007bff' }} !default;
+$secondary: {{ site.jekyll_cmdbrew.theme.secondary | default: '#657786' }} !default;
+$success: {{ site.jekyll_cmdbrew.theme.success | default: '#28A745' }} !default;
+$warning: {{ site.jekyll_cmdbrew.theme.warning | default: '#FFC107' }} !default;
+$danger: {{ site.jekyll_cmdbrew.theme.danger | default: '#DC3545' }} !default;
+$info: {{ site.jekyll_cmdbrew.theme.info | default: '#17A2B8' }} !default;
+$light: {{ site.jekyll_cmdbrew.theme.light | default: '#F6F8FA' }} !default;
+$body-color: {{ site.jekyll_cmdbrew.theme.body_color | default: '#212529' }} !default;
+$border-color: {{ site.jekyll_cmdbrew.theme.border_color | default: '#DEE2E6' }} !default;
 
 // Backgrounds
-$body-bg: {{ site.theme.body_bg | default: '#222426' }} !default;
+$body-bg: {{ site.jekyll_cmdbrew.theme.body_bg | default: '#FFFFFF' }} !default;
 
 // Panels
-$card-bg: {{ site.theme.panel_bg | default: '#343A40' }} !default;
-$list-group-bg: {{ site.theme.panel_bg | default: '#343A40' }} !default;
+$card-bg: {{ site.jekyll_cmdbrew.theme.panel_bg | default: '#F6F8FA' }} !default;
+$list-group-bg: {{ site.jekyll_cmdbrew.theme.panel_bg | default: '#F6F8FA' }} !default;
 
 // Custom ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
 // Dimensions
@@ -45,5 +51,4 @@ $thumbnail-sizes: (
 
 
 @import 'styles';
-
 

@@ -2,7 +2,7 @@
 {%- assign alert = i18n.alert -%}
 
 {%- if alert.enabled -%}
-  <div class="alert alert-warning alert-dismissible rounded-0 mb-0" role="alert">
+  <div class="alert alert-{{ alert.type }} alert-dismissible rounded-0 mb-0" role="alert">
     {{- alert.message -}}
     {%- if alert.link -%}
       {%- capture target -%}

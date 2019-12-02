@@ -13,6 +13,7 @@ aside:
   copyright: CMDBrew Studio Inc. All rights reserved.
 alert:
   enabled: false
+  type: warning
   message: Awesome alert
   link:
     name: Click me
