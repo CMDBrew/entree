@@ -12,9 +12,6 @@ Gemfile.lock
 # Ignore js files
 /node_modules
 
-# Ignore vendor assets
-/assets/vendors
-
 # Ignore reports
 licenses.html
 
