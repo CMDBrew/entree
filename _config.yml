@@ -9,16 +9,25 @@ show_excerpts: true # set to true to show excerpts on the homepage
 
 # Build settings
 theme: jekyll_cmdbrew
-
-paginate: 10
-
 plugins:
- - jekyll_cmdbrew
- - jekyll-feed
- - jekyll-paginate
- - jekyll-seo-tag
- - jekyll-sitemap
- - jekyll-tagging-related_posts
+  - jekyll_cmdbrew
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-tagging-related_posts
+
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
 
 # Specify sass files paths
 sass:
@@ -35,3 +44,15 @@ jekyll_cmdbrew:
 # Disqus comments
 disqus:
   shortname: test-656tth5lxb
+
+# Pagination
+paginate: 10
+
+# Theme
+theme:
+  primary: '#FFB2FF'
+  secondary: '#6F767E'
+  body_color: '#FFFFFF'
+  body_bg: '#222426'
+  border_color: '#43484C'
+  panel_bg: '#343A40'

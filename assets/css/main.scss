@@ -1,6 +1,49 @@
 ***REMOVED***
 ***REMOVED***
 
+// Bootstrap ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
+// Colors
+$primary: {{ site.theme.primary | default: '#FFB2FF' }} !default;
+$secondary: {{ site.theme.secondary | default: '#6F767E' }} !default;
+$body-color: {{ site.theme.body_color | default: '#FFFFFF' }} !default;
+$border-color: {{ site.theme.border_color | default: '#43484C' }} !default;
+
+// Backgrounds
+$body-bg: {{ site.theme.body_bg | default: '#222426' }} !default;
+
+// Panels
+$card-bg: {{ site.theme.panel_bg | default: '#343A40' }} !default;
+$list-group-bg: {{ site.theme.panel_bg | default: '#343A40' }} !default;
+
+// Custom ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
+// Dimensions
+$logo-size: 142px !default;
+$aside-width: 364px !default;
+$jumbotron-ratio: 33% !default;
+$social-icon-size: 32px !default;
+$post-img-size: 100px !default;
+$header-height: 54px !default;
+
+// Backgrounds
+$header-bg: $body-bg !default;
+$code-bg: darken($body-bg, 3%) !default;
+$aside-bg: $body-bg !default;
+
+// Breakpoints
+$breakpoints: (
+  'aside': 'lg'
+) !default;
+
+// Thumbnails
+$thumbnail-default-size: sm !default;
+$thumbnail-sizes: (
+  'xs': 24px,
+  'sm': 64px,
+  'md': 100px,
+  'lg': 142px,
+) !default;
+
+
 @import 'styles';
 
 
