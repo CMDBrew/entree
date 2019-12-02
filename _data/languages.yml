@@ -21,9 +21,6 @@ alert:
     url:  https://www.google.com
     open_new_tab: false
 
-header:
-  menu: Menu
-
 posts:
   title: Posts
   post:
