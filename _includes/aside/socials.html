@@ -6,17 +6,19 @@
     <h5 class="card-header">{{ i18n.aside.socials }}</h5>
     <div class="list-group list-group-flush">
       {% for social in socials %}
-        <a href="{{ social.url }}" title="{{ social.name | escape }}" target="_blank" class="text-reset list-group-item list-group-item-action">
+        <a href="{{ social.url }}" rel="noopener" title="{{ social.name | escape }}" target="_blank" class="text-reset list-group-item list-group-item-action">
           <div class="row flex-nowrap">
             <div class="col-auto pr-0">
               <div class="brand-icon {{ social.name | downcase | replace: ' ', '-' }}">
                 <i class="{{ social.icon_class }}"></i>
               </div>
             </div>
-            <div class="col text-truncate">
+            <div class="col d-flex align-items-center">
               <div>
-                <h6 class="mb-0">{{ social.name }}</h6>
-                <p class="mb-0 text-secondary">{{ social.handle }}</small>
+                <h6 class="mb-0 text-truncate">{{ social.name }}</h6>
+                {%- if social.handle -%}
+                  <p class="mb-0 text-secondary text-wrap">{{ social.handle }}</small>
+                {%- endif -%}
               </div>
             </div>
           </div>
