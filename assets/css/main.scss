@@ -3,6 +3,8 @@
 ---
 
 // Bootstrap --------------------
+$yiq-contrasted-threshold: {{ site.jekyll_cmdbrew.theme.yiq_threshold | default: 150 }} !default;
+
 // Colors
 $primary: {{ site.jekyll_cmdbrew.theme.primary | default: '#007bff' }} !default;
 $secondary: {{ site.jekyll_cmdbrew.theme.secondary | default: '#657786' }} !default;
@@ -33,7 +35,7 @@ $header-height: 54px !default;
 // Backgrounds
 $header-bg: $body-bg !default;
 $code-bg: darken($body-bg, 3%) !default;
-$aside-bg: $body-bg !default;
+$aside-bg: {{ site.jekyll_cmdbrew.theme.aside_bg | default: '#FFFFFF' }} !default;
 
 // Breakpoints
 $breakpoints: (
@@ -52,3 +54,12 @@ $thumbnail-sizes: (
 
 @import 'styles';
 
+{% assign socials = site.data.aside.socials %}
+{% if socials.size > 0 %}
+  {% for social in socials %}
+    .brand-icon.{{ social.name | downcase | replace: ' ', '-' }} {
+      color: color-yiq({{ social.icon_color }});
+      background: {{ social.icon_color }};
+    }
+  {% endfor %}
+{% endif %}
