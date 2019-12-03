@@ -11,14 +11,6 @@ aside:
   socials: On the web
   cancel: Cancel
   copyright: CMDBrew Studio Inc. All rights reserved.
-alert:
-  enabled: false
-  type: warning
-  message: Awesome alert
-  link:
-    name: Click me
-    url: https://www.google.com
-    open_new_tab: false
 header:
   menu: Menu
 posts:
@@ -29,3 +21,5 @@ tags:
   title: 'Tag:'
 categories:
   title: 'Category:'
+'404':
+  button: Back to Home

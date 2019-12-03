@@ -35,8 +35,16 @@ For references see https://docs.netlify.com/large-media/setup/
 1. Commit your settings `git add -A` and `git commit -m 'Setup Netlify Large Media'`.
 
 ### Customize Styles
-1. Copy [main.scss](assets/main.scss) to your project.
-1. Copy variables inside [_custom.scss](_sass/variables/_custom.scss) to your project and put them before `@import styles;`
+1. enable custom style sheets by adding the following in your [_config.yml](_config.yml)
+    ```yaml
+    jekyll_cmdbrew:
+      sass:
+        custom_vars: 'custom_vars'
+        custom_styles:
+          - 'custom_style'
+    ```
+1. `custom_vars` is used for variable overrides.
+1. `custom_styles` are used for additional styles that overrides defined styles.
 
 ### Customize Aside
 1. Copy [installs.yml](_data/aside.yml) to your project.
@@ -52,12 +60,13 @@ For references see https://docs.netlify.com/large-media/setup/
     1. The footnote is under key `footnote`.
 
 ### Enable Installs
-1. Copy [installs.yml](_data/installs.yml) to your project.
 1. Enable PWA:
-    1. Make sure you have `pwa` enabled set to `true` inside your [installs.yml](_data/installs.yml).
+    1. Copy [pwa.yml](_data/pwa.yml) to your project.
+    1. Make sure you have `pwa` enabled set to `true` inside your [pwa.yml](_data/pwa.yml).
     1. Copy [serviceworker.js](serviceworker.js) and [manifest.json](manifest.json) to your project.
 1. Enable Smart Banner:
-    1. Make sure you have `smartbanner` enabled set to `true` inside your [installs.yml](_data/installs.yml).
+    1. Copy [smartbanner.yml](_data/smartbanner.yml) to your project.
+    1. Make sure you have `smartbanner` enabled set to `true` inside your [installs.yml](_data/smartbanner.yml).
 
 ### Update languages
 1. Copy [languages.yml](_data/languages.yml) to your project.

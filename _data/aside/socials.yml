@@ -1,0 +1,11 @@
+---
+- name: Twitter
+  handle: "@jekyll"
+  icon_class: fab fa-twitter
+  icon_color: "#1DA1F2"
+  url: https://www.twitter.com
+- name: Facebook
+  handle: "@jekyll"
+  icon_class: fab fa-facebook-f
+  icon_color: "#3b5998"
+  url: https://www.facebook.com

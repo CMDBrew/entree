@@ -1,0 +1,17 @@
+---
+enabled: true
+title: My Awesome App
+author: CMDBrew
+price: Free
+button: View
+close: Close
+apple:
+  enabled: true
+  price_suffix: "- On App Store"
+  icon: https://placeimg.com/192/192/any
+  url: https://www.google.com
+google:
+  enabled: true
+  price_suffix: "- On Google Play"
+  icon: https://placeimg.com/192/192/any
+  url: https://www.google.com

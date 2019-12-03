@@ -1,0 +1,11 @@
+---
+enabled: true
+language: en
+lang_direction: ltr
+name: My Awesome App
+short_name: mas
+theme_color: "#FFB2FF"
+background_color: "#222426"
+icons:
+  '192': https://placeimg.com/192/192/any
+  '512': https://placeimg.com/512/512/any

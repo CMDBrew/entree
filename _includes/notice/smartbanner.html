@@ -1,4 +1,4 @@
-{%- assign smartbanner = site.data.installs.smartbanner -%}
+{%- assign smartbanner = site.data.notice.smartbanner -%}
 {%- if smartbanner.enabled -%}
   <link rel="stylesheet" href="{{ "/assets/vendors/smartbanner/smartbanner.min.css" | relative_url }}">
   <script src="{{'/assets/vendors/smartbanner/smartbanner.min.js' | prepend: site.baseurl}}"></script>
