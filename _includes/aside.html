@@ -1,6 +1,5 @@
 {% assign i18n = site.data.languages %}
 {% assign cancel_label = i18n.aside.cancel | default: 'Cancel' %}
-{% assign legals = site.data.aside.legals %}
 
 <aside id="aside" class="collapse">
   <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
@@ -10,8 +9,8 @@
       {%- include aside/socials.html -%}
       <div id="footnote" class="card bg-transparent">
         <div class="card-body pt-0">
-          {%- if site.data.general.footnote -%}
-            <div class="mb-2">{{ site.data.general.footnote }}</div>
+          {%- if site.data.aside.general.footnote -%}
+            <div class="mb-2">{{ site.data.aside.general.footnote }}</div>
           {%- endif -%}
           {%- include copyright.html -%}
         </div>
