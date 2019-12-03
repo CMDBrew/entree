@@ -58,7 +58,7 @@ layout: default
         {%- endfor -%}
       </ul>
       <div class="container py-3">
-        <a class="btn btn-block btn-light btn-sm" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+        <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
       </div>
     {%- endif -%}
   {% endcapture %}
@@ -67,7 +67,7 @@ layout: default
   {%- if content_available.size > 0 -%}
     {%- capture about_content -%}
       <div class="container py-3">
-        {{ content }}
+        <div class="content-html">{{ content }}</div>
       </div>
     {%- endcapture -%}
     {%- include tabs/pane.html key="about" content=about_content -%}

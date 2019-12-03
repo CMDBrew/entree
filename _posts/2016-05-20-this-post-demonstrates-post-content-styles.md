@@ -2,7 +2,11 @@
 layout: post
 title: "This post demonstrates post content styles"
 categories: junk
+banner: https://placeimg.com/2244/741/any
 ***REMOVED***
+
+![alt text](https://placeimg.com/2244/741/any)
+
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
 
