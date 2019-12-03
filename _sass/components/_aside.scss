@@ -1,6 +1,7 @@
 aside {
   display: flex !important;
   flex-shrink: 0;
+  background: $aside-bg;
   border-left: 1px solid $border-color;
 
   .cancel { display: none; }
@@ -8,6 +9,7 @@ aside {
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
     position: static;
     overflow: hidden;
+    background: transparent;
     border: 0;
 
     &.show {
