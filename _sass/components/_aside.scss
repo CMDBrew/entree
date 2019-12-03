@@ -1,5 +1,6 @@
 aside {
   display: flex !important;
+  flex-shrink: 0;
   border-left: 1px solid $border-color;
 
   .cancel { display: none; }

@@ -1,7 +1,7 @@
 {%- if site.data.installs.pwa.enabled -%}
   <!-- Start PWA configuration -->
   {%- assign pwa = site.data.installs.pwa -%}
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
   <meta name="theme-color" content="{{ pwa.theme_color }}"/>
 
   <!-- icon in the highest resolution we need it for -->
