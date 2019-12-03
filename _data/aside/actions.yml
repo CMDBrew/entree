@@ -1,11 +1,12 @@
 ***REMOVED***
-- name: Links
-  actions:
-  - name: Get in touch
-    url: https://www.google.com
-    open_new_tab: true
-- name: Locations
-  actions:
-  - name: Call Us
-    url: https://www.google.com
-    open_new_tab: true
+groups:
+  - name: Links
+    actions:
+    - name: Get in touch
+      url: https://www.google.com
+      open_new_tab: true
+  - name: Locations
+    actions:
+    - name: Call Us
+      url: https://www.google.com
+      open_new_tab: true
