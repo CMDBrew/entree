@@ -1,5 +1,4 @@
-{%- assign i18n = site.data.languages -%}
-{%- assign alert = i18n.alert -%}
+{%- assign alert = site.data.notice.alert -%}
 
 {%- if alert.enabled -%}
   <div class="alert alert-{{ alert.type }} alert-dismissible rounded-0 mb-0" role="alert">

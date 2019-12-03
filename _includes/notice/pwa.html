@@ -1,6 +1,6 @@
-{%- if site.data.installs.pwa.enabled -%}
+{%- if site.data.notice.pwa.enabled -%}
   <!-- Start PWA configuration -->
-  {%- assign pwa = site.data.installs.pwa -%}
+  {%- assign pwa = site.data.notice.pwa -%}
   <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
   <meta name="theme-color" content="{{ pwa.theme_color }}"/>
 

@@ -2,57 +2,17 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ***REMOVED***
 
-// Bootstrap ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
-$yiq-contrasted-threshold: {{ site.jekyll_cmdbrew.theme.yiq_threshold | default: 150 }} !default;
-
-// Colors
-$primary: {{ site.jekyll_cmdbrew.theme.primary | default: '#007bff' }} !default;
-$secondary: {{ site.jekyll_cmdbrew.theme.secondary | default: '#657786' }} !default;
-$success: {{ site.jekyll_cmdbrew.theme.success | default: '#28A745' }} !default;
-$warning: {{ site.jekyll_cmdbrew.theme.warning | default: '#FFC107' }} !default;
-$danger: {{ site.jekyll_cmdbrew.theme.danger | default: '#DC3545' }} !default;
-$info: {{ site.jekyll_cmdbrew.theme.info | default: '#17A2B8' }} !default;
-$light: {{ site.jekyll_cmdbrew.theme.light | default: '#F6F8FA' }} !default;
-$body-color: {{ site.jekyll_cmdbrew.theme.body_color | default: '#212529' }} !default;
-$border-color: {{ site.jekyll_cmdbrew.theme.border_color | default: '#DEE2E6' }} !default;
-
-// Backgrounds
-$body-bg: {{ site.jekyll_cmdbrew.theme.body_bg | default: '#FFFFFF' }} !default;
-
-// Panels
-$card-bg: {{ site.jekyll_cmdbrew.theme.panel_bg | default: '#F6F8FA' }} !default;
-$list-group-bg: {{ site.jekyll_cmdbrew.theme.panel_bg | default: '#F6F8FA' }} !default;
-
-// Custom ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***--
-// Dimensions
-$logo-size: 142px !default;
-$aside-width: 364px !default;
-$jumbotron-ratio: 33% !default;
-$social-icon-size: 32px !default;
-$post-img-size: 100px !default;
-$header-height: 54px !default;
-
-// Backgrounds
-$header-bg: $body-bg !default;
-$code-bg: darken($body-bg, 3%) !default;
-$aside-bg: {{ site.jekyll_cmdbrew.theme.aside_bg | default: '#FFFFFF' }} !default;
-
-// Breakpoints
-$breakpoints: (
-  'aside': 'lg'
-) !default;
-
-// Thumbnails
-$thumbnail-default-size: sm !default;
-$thumbnail-sizes: (
-  'xs': 24px,
-  'sm': 64px,
-  'md': 100px,
-  'lg': 142px,
-) !default;
-
+{%- if site.jekyll_cmdbrew.sass.custom_vars -%}
+  @import '{{ site.jekyll_cmdbrew.sass.custom_vars }}';
+{%- endif -%}
 
 @import 'styles';
+
+{%- if site.jekyll_cmdbrew.sass.custom_styles.size > 0 -%}
+  {%- for style in site.jekyll_cmdbrew.sass.custom_styles -%}
+    @import '{{ style }}';
+  {%- endfor -%}
+{%- endif -%}
 
 {% assign socials = site.data.aside.socials %}
 {% if socials.size > 0 %}

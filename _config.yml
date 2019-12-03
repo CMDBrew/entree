@@ -37,21 +37,12 @@ sass:
 
 # jekyll_cmdbrew
 jekyll_cmdbrew:
+  sass:
+    custom_vars: null
+    custom_styles: null
   logo: https://placeimg.com/284/284/any
   favicon: https://placeimg.com/128/128/any
   date_format: "%b %-d, %Y"
-  theme:
-    primary: '#FFB2FF'
-    secondary: '#6F767E'
-    success: '#28A745'
-    warning: '#FFC107'
-    danger: '#DC3545'
-    info: '#17A2B8'
-    light: '#6F767E'
-    body_color: '#FFFFFF'
-    body_bg: '#222426'
-    border_color: '#43484C'
-    panel_bg: '#343A40'
 
 # Disqus comments
 disqus:

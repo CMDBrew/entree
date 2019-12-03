@@ -1,0 +1,8 @@
+***REMOVED***
+enabled: false
+type: warning
+message: Awesome alert
+link:
+  name: Click me
+  url: https://www.google.com
+  open_new_tab: false

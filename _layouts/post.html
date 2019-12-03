@@ -36,7 +36,7 @@ layout: default
       <ul class="list-inline">
         {%- for category in page.categories -%}
           <li class="list-inline-item mr-2 mb-2">
-            <a href="/categories/{{ category }}" class="badge badge-secondary">{{ category }}</a>
+            <a href="/categories/{{ category }}" class="badge badge-light">{{ category }}</a>
           </li>
         {%- endfor -%}
       </ul>
@@ -51,7 +51,7 @@ layout: default
       <ul class="list-inline">
         {%- for tag in page.tags -%}
           <li class="list-inline-item mr-2 mb-2">
-            <a href="/tags/{{ tag }}" class="badge badge-secondary">{{ tag }}</a>
+            <a href="/tags/{{ tag }}" class="badge badge-light">{{ tag }}</a>
           </li>
         {%- endfor -%}
       </ul>
