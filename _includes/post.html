@@ -23,7 +23,7 @@
               {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
               {{ post.date | date: date_format }}
             </time>
-            {%- if post.author -%}
+            {%- if post.author.size > 0 -%}
               - <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author | escape }}</span></span>
             {%- endif -%}
           </p>
