@@ -32,13 +32,24 @@ aside {
       flex-direction: column;
       height: auto !important;
       max-height: 80vh;
+      padding: 0;
       background: $aside-bg;
       border-radius: $modal-content-border-radius $modal-content-border-radius 0 0;
       @include transform(translateY(100%));
       @include transition(transform 0.2s linear);
+
+      & > * {
+        padding-right: $spacer;
+        padding-left: $spacer;
+      }
     }
 
-    .content { flex: 1; }
+    .content {
+      display: block;
+      flex: 1;
+      padding-top: $spacer;
+    }
+
     .cancel { display: block; }
 
     #footnote { text-align: center; }
@@ -49,6 +60,12 @@ aside {
     flex-direction: column;
     width: $aside-width;
     height: 100%;
+    overflow-y: scroll;
+
+    .body {
+      padding-top: $spacer;
+      padding-bottom: $spacer;
+    }
 
     .navbar { display: none; }
   }

@@ -4,14 +4,14 @@
 <nav id="footer" class="fixed-bottom bg-body py-3 border-top">
   <div class="container">
     <div class="row">
-      {% if cta %}
-        {% capture target %}
-          {% if action.open_new_tab %}
+      {%- if cta -%}
+        {%- capture target -%}
+          {%- if action.open_new_tab -%}
             {{ "_blank" }}
-          {% else %}
+          {%- else -%}
             {{ "self" }}
-          {% endif %}
-        {% endcapture %}
+          {%- endif -%}
+        {%- endcapture -%}
         <div class="col">
           <a class="btn btn-primary btn-block btn-lg bg-reset" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
         </div>

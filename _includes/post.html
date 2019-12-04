@@ -34,7 +34,7 @@
         </div>
 
         {%- if post.banner.size > 0 -%}
-          <div class="post-img ml-3 rounded" style="background-image: url('{{ post.banner }}?nf_resize=fit&w=256&h=256')"></div>
+          <div class="post-img ml-3 rounded" style="background-image: url('{{ post.banner | prepend: site.baseurl }}?nf_resize=fit&w=256&h=256')"></div>
         {%- endif -%}
       </div>
     </div>

@@ -3,8 +3,13 @@
 
 <aside id="aside" class="collapse">
   <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
-  <div class="body container py-3 overflow-y">
-    <div class="content">
+  <div class="body container">
+    <div class="cancel text-right py-2 border-bottom">
+      <a class="btn btn-sm" data-toggle="collapse" data-target="#aside">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+    <div class="content overflow-y">
       {%- include aside/actions.html -%}
       {%- include aside/socials.html -%}
       <div id="footnote" class="card bg-transparent">
@@ -17,6 +22,5 @@
         </div>
       </div>
     </div>
-    <button class="cancel btn btn-light btn-lg btn-block" data-toggle="collapse" data-target="#aside">{{ cancel_label | default: 'Cancel' }}</button>
   </div>
 </aside>

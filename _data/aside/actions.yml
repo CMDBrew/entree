@@ -5,8 +5,29 @@ groups:
     - name: Get in touch
       url: https://www.google.com
       open_new_tab: true
+    - name: Get in touch
+      url: https://www.google.com
+      open_new_tab: true
+    - name: Get in touch
+      url: https://www.google.com
+      open_new_tab: true
+    - name: Get in touch
+      url: https://www.google.com
+      open_new_tab: true
   - name: Locations
     actions:
+    - name: Call Us
+      url: https://www.google.com
+      open_new_tab: true
+    - name: Call Us
+      url: https://www.google.com
+      open_new_tab: true
+    - name: Call Us
+      url: https://www.google.com
+      open_new_tab: true
+    - name: Call Us
+      url: https://www.google.com
+      open_new_tab: true
     - name: Call Us
       url: https://www.google.com
       open_new_tab: true
