@@ -16,6 +16,9 @@ posts:
   title: Posts
   post:
     pinned: Pinned Post
+    categories: Categories
+    tags: Tags
+    related: Related Posts
 tags:
   title: 'Tag:'
 categories:

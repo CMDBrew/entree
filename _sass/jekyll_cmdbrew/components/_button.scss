@@ -1,0 +1,18 @@
+.btn.rounded-circle {
+  width: $input-height;
+  height: $input-height;
+  padding-right: 0;
+  padding-left: 0;
+
+  &.btn-lg {
+    width: $input-height-lg;
+    height: $input-height-lg;
+  }
+
+  &.btn-sm {
+    width: $input-height-sm;
+    height: $input-height-sm;
+  }
+}
+
+
