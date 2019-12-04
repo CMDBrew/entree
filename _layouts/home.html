@@ -52,6 +52,10 @@ layout: default
   {% capture home_content %}
     {%- if site.posts -%}
       <ul class="list-group list-group-flush">
+        {%- if pinned_post -%}
+          {% include post.html post=pinned_post pinned=true %}
+        {%- endif -%}
+
         {% assign limit = site['paginate'] | default: 10 %}
         {%- for post in site.posts limit: limit -%}
           {% include post.html post=post %}
