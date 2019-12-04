@@ -1,5 +1,5 @@
-{% assign cta = site.data.aside.call_to_action %}
-{% assign links = site.data.aside.actions | joins: site.data.aside.socials %}
+{% assign cta = site.data.aside.general.call_to_action %}
+{% assign links = site.data.aside.actions.groups | joins: site.data.aside.socials.links %}
 
 <nav id="footer" class="fixed-bottom bg-body py-3 border-top">
   <div class="container">
