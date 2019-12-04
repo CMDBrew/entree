@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% assign i18n = site.data.languages.posts.post %}
+
 {%- if page.banner.size > 0 -%}
   <div class="jumbotron jumbotron-fluid bg-dark mb-5" style="background-image: url('{{ page.banner | prepend: site.baseurl }}?nf_resize=fit&w=2244&h=741')"></div>
 {%- endif -%}
@@ -31,31 +33,27 @@ layout: default
 
 {%- if page.categories.size > 0 -%}
   <div class="container py-3 border-top">
-    <h6 class='text-uppercase'>Categories</h6>
-    <h4>
-      <ul class="list-inline">
-        {%- for category in page.categories -%}
-          <li class="list-inline-item mr-2 mb-2">
-            <a href="/categories/{{ category }}" class="badge badge-light">{{ category }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </h4>
+    <h6>{{ i18n.categories | default: 'Categories' }}</h6>
+    <ul class="list-inline tags">
+      {%- for category in page.categories -%}
+        <li class="list-inline-item mr-0 mb-2">
+          <a href="/categories/{{ category }}">{{ category }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
   </div>
 {%- endif -%}
 
 {%- if page.tags.size > 0 -%}
   <div class="container py-3 border-top">
-    <h6 class='text-uppercase'>Tags</h6>
-    <h4>
-      <ul class="list-inline">
-        {%- for tag in page.tags -%}
-          <li class="list-inline-item mr-2 mb-2">
-            <a href="/tags/{{ tag }}" class="badge badge-light">{{ tag }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </h4>
+    <h6>{{ i18n.tags | default: 'Tags' }}</h6>
+    <ul class="list-inline tags">
+      {%- for tag in page.tags -%}
+        <li class="list-inline-item mr-0 mb-2">
+          <a href="/tags/{{ tag }}">{{ tag }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
   </div>
 {%- endif -%}
 
@@ -66,7 +64,7 @@ layout: default
 {%- if site.related_posts.size > 0 -%}
   <div class="divider"></div>
   <div class="container pt-3">
-    <h6 class="text-uppercase">Related Posts</h6>
+    <h6>{{ i18n.related | default: 'Related Posts' }}</h6>
   </div>
 
   <ul class="list-group list-group-flush">
