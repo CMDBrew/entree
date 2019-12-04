@@ -3,7 +3,7 @@ layout: default
 ---
 
 {%- if page.banner.size > 0 -%}
-  <div class="jumbotron jumbotron-fluid bg-dark mb-3" style="background-image: url('{{ page.banner }}?nf_resize=fit&w=2244&h=741')"></div>
+  <div class="jumbotron jumbotron-fluid bg-dark mb-5" style="background-image: url('{{ page.banner | prepend: site.baseurl }}?nf_resize=fit&w=2244&h=741')"></div>
 {%- endif -%}
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">

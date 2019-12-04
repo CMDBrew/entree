@@ -9,7 +9,7 @@
   overflow: hidden;
 
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
-    $_offset: map-get($spacers, 2) * 2 + $spacer * 2;
+    $_offset: map-get($spacers, 3) * 2;
     $_height: $input-height-lg;
     padding-bottom: calc(#{$_offset} + #{$_height});
   }
