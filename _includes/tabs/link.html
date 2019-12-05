@@ -1,11 +1,11 @@
 {%- capture active_class -%}
-  {%- if include.active -%}
+  {%- if page.default_tab == include.key -%}
     {{- "active" -}}
   {%- endif -%}
 {%- endcapture -%}
 
 {%- capture selected -%}
-  {%- if include.active -%}
+  {%- if page.default_tab == include.key -%}
     {{- "true" -}}
   {%- else -%}
     {{- "false" -}}
