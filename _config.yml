@@ -52,3 +52,9 @@ disqus:
 # Pagination
 paginate: 10
 
+# Social Feed
+social_feeds:
+  twitter:
+    format: "@title: @url@tags"
+    url_length: 22
+    max_length: 140
