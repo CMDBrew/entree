@@ -59,8 +59,11 @@ For references see https://docs.netlify.com/large-media/setup/
     1. Copy [smartbanner.yml](_data/smartbanner.yml) to your project.
     1. Make sure you have `smartbanner` enabled set to `true` inside your [installs.yml](_data/smartbanner.yml).
 
-### Update languages
-1. Copy [languages.yml](_data/languages.yml) to your project.
+### Update translations
+1. Copy [translations.yml](_data/translations.yml) to your project.
+
+### Add Social Sharing
+1. Copy files in [social_feeds] to your project. For examples to enable it in your post see [2016-05-20-my-example-post.md](_posts/2016-05-20-my-example-post.md).
 
 ## Development
 1. Run `gulp` to copy npm packages to `assets/vendors`.
