@@ -11,6 +11,7 @@ show_excerpts: true # set to true to show excerpts on the homepage
 theme: jekyll_cmdbrew
 plugins:
   - jekyll_cmdbrew
+  - jekyll-environment-variables
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag

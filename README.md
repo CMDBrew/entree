@@ -6,16 +6,7 @@
 ## Getting started
 1. Add this line to your Jekyll site's `Gemfile` `gem "jekyll_cmdbrew"`
 1. Add this line to your Jekyll site's `_config.yml` `theme: jekyll_cmdbrew`
-1. Copy the following plugins to your Jekyll site's `_config.yml`
-    ```yaml
-      plugins:
-        - jekyll_cmdbrew
-        - jekyll-feed
-        - jekyll-paginate
-        - jekyll-seo-tag
-        - jekyll-sitemap
-        - jekyll-tagging-related_posts
-    ```
+1. Copy the plugins in [_config.yml](_config.yml) to your Jekyll site's `_config.yml`.
 1. Add bundle config for private gems `bundle config --local GITHUB__COM {GITHUB_AUTH_KEY}`. You can find this key from heroku pipeline under `BUNDLE_GITHUB__COM`
 1. Run `bundle install`
 1. Copy sample data files from [_data](_data) directory to your project
