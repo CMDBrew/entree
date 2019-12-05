@@ -27,6 +27,8 @@
     flex: 1;
     flex-direction: column;
     width: 100%;
+    max-width: calc(100% - #{$aside-width});
+    overflow-wrap: break-word;
 
     #main-avatar {
       @extend %background-cover;
