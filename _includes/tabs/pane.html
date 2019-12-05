@@ -1,4 +1,10 @@
-{% assign css_class = "tab-pane fade " | append: include.css_class %}
+{%- capture active_class -%}
+  {%- if page.default_tab == include.key -%}
+    {{- "show active" -}}
+  {%- endif -%}
+{%- endcapture -%}
+
+{% assign css_class = "tab-pane fade " | append: active_class %}
 
 <div class="{{ css_class }}" id="tab-{{ include.key }}" role="tabpanel" aria-labelledby="{{ include.key }}-tab">
   {{ include.content }}

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign i18n = site.data.languages %}
+{% assign i18n = site.data.translations %}
 {% assign filtered_pages = site.pages | where: 'list_on_index', true %}
 {% assign content_available = page.content | strip_newlines %}
 {% assign pinned_post = site.posts | where: 'path', page.pinned_post | first %}
@@ -25,12 +25,12 @@ layout: default
       <div class="col-12 px-0">
         <div class="nav-tabs-wrap">
           <ul class="nav nav-tabs bg-body" role="tablist">
-            {%- assign home_label = i18n.home.tabs.home | default: 'Home' -%}
+            {%- assign posts_label = i18n.home.tabs.posts | default: 'Posts' -%}
             {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
             {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
             {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
             {%- if site.posts -%}
-              {%- include tabs/link.html active=true key="home" content=home_label -%}
+              {%- include tabs/link.html key="posts" content=posts_label -%}
             {%- endif -%}
             {%- if content_available.size > 0 -%}
               {%- include tabs/link.html key="about" content=about_label -%}
@@ -49,7 +49,7 @@ layout: default
 </div>
 
 <div class="tab-content">
-  {% capture home_content %}
+  {% capture posts_content %}
     {%- if site.posts -%}
       <ul class="list-group list-group-flush">
         {%- if pinned_post -%}
@@ -66,7 +66,7 @@ layout: default
       </div>
     {%- endif -%}
   {% endcapture %}
-  {%- include tabs/pane.html css_class="show active" key="home" content=home_content -%}
+  {%- include tabs/pane.html key="posts" content=posts_content -%}
 
   {%- if content_available.size > 0 -%}
     {%- capture about_content -%}
