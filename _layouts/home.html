@@ -87,12 +87,12 @@ layout: default
 
           {%- if heading != last_heading -%}
             <div class="list-group-item px-0 divider">
-              <div class="container">{{ heading }}</div>
+              <div class="container font-weight-bold">{{ heading }}</div>
             </div>
           {%- endif -%}
 
           <a href="/categories/{{ category_name }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-            <h5 class="mb-0 container">{{ category_name }}</h5>
+            <div class="mb-0 container">{{ category_name }}</div>
           </a>
           {% assign last_heading = heading %}
         {%- endfor -%}
@@ -111,12 +111,12 @@ layout: default
 
           {%- if heading != last_heading -%}
             <div class="list-group-item px-0 divider">
-              <div class="container">{{ heading }}</div>
+              <div class="container font-weight-bold">{{ heading }}</div>
             </div>
           {%- endif -%}
 
           <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-            <h5 class="mb-0 container">{{ page.title }}</h5>
+            <div class="mb-0 container">{{ page.title }}</div>
           </a>
           {% assign last_heading = heading %}
         {%- endfor -%}
