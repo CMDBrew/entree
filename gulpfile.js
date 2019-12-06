@@ -4,9 +4,7 @@ const del = require('del');
 
 // Cleaning
 gulp.task('clean', function() {
-  return del.sync('./assets/vendors').then(function(cb) {
-    return cache.clearAll(cb);
-  });
+  return del('.assets/vendors/**', { force:true });
 })
 
 // Copy third party libraries from /node_modules into /vendor
@@ -30,6 +28,11 @@ gulp.task('vendors', function(cb) {
     ])
     .pipe(gulp.dest('./assets/vendors/jquery'))
 
+  gulp.src([
+      './node_modules/jquery-ui/ui/widget.js',
+    ])
+    .pipe(gulp.dest('./assets/vendors/jquery-ui'))
+
   // Popper
   gulp.src([
       './node_modules/popper.js/dist/umd/popper.min.*'
@@ -47,6 +50,12 @@ gulp.task('vendors', function(cb) {
       './node_modules/@fortawesome/**/*',
     ])
     .pipe(gulp.dest('./assets/vendors'))
+
+  // OwlCarousel
+  gulp.src([
+      './node_modules/owl.carousel/dist/**/*',
+    ])
+    .pipe(gulp.dest('./assets/vendors/owl.carousel'))
 
   cb();
 
