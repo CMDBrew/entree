@@ -11,6 +11,7 @@
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
     $_offset: map-get($spacers, 3) * 2;
     $_height: $input-height-lg;
+    max-width: 100%;
     padding-bottom: calc(#{$_offset} + #{$_height});
   }
 
@@ -31,7 +32,6 @@
     flex: 1;
     flex-direction: column;
     width: 100%;
-    max-width: 100%;
     overflow-wrap: break-word;
 
     #main-avatar {
