@@ -2,6 +2,7 @@
 layout: post
 title: "This post demonstrates post content styles"
 categories: junk
+author: ''
 banner: https://placeimg.com/2244/741/any
 ***REMOVED***
 
