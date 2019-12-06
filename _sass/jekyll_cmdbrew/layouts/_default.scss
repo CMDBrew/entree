@@ -14,6 +14,10 @@
     padding-bottom: calc(#{$_offset} + #{$_height});
   }
 
+  @include media-breakpoint-up(#{map-get($breakpoints, 'aside')}) {
+    main { max-width: calc(100% - #{$aside-width}); }
+  }
+
   #wrapper {
     display: flex;
     flex: 1;
@@ -27,7 +31,7 @@
     flex: 1;
     flex-direction: column;
     width: 100%;
-    max-width: calc(100% - #{$aside-width});
+    max-width: 100%;
     overflow-wrap: break-word;
 
     #main-avatar {
