@@ -2,6 +2,7 @@
 layout: post
 categories: [new, blogs]
 tags: [hot, summer]
+author: ''
 social_feed:
   facebook:
     enabled: true
