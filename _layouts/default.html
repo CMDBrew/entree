@@ -4,10 +4,10 @@
   {%- include head.html -%}
 
   <body class="{{ layout_class | strip }}">
+    {%- include notice/alert.html -%}
     <div id="wrapper" class="order-1">
       <main id="main">
         {%- include header.html -%}
-        {%- include notice/alert.html -%}
         <div id="content" class="overflow-y pb-5">
           {{ content }}
         </div>
