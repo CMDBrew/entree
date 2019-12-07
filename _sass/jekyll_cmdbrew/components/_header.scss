@@ -15,4 +15,10 @@
   .navbar-brand img {
     height: $logo-size;
   }
+
+  .aside-toggler {
+    @include media-breakpoint-up(#{map-get($breakpoints, 'aside')}) {
+      display: none;
+    }
+  }
 }

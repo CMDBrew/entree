@@ -2,18 +2,20 @@
 layout: default
 ***REMOVED***
 
-<article class="post mt-4">
-  <div class="container">
-    <header class="post-header mb-3">
-      <h1 class="post-title">{{ page.title | escape }}</h1>
-    </header>
+<div class="px-offset">
+  <article class="post mt-4">
+    <div class="container">
+      <header class="post-header mb-3">
+        <h1 class="post-title">{{ page.title | escape }}</h1>
+      </header>
 
-    <div class="post-content">
-      <div class="content-html">{{ content }}</div>
+      <div class="post-content">
+        <div class="content-html">{{ content }}</div>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-{%- if site.disqus.shortname -%}
-  {%- include disqus_comments.html -%}
-{%- endif -%}
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+</div>

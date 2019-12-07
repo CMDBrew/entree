@@ -8,68 +8,72 @@ layout: default
   <div class="jumbotron jumbotron-fluid bg-dark mb-5" style="background-image: url('{{ page.banner | prepend: site.baseurl }}?nf_resize=fit&w=2244&h=741')"></div>
 {%- endif -%}
 
-<article class="post h-entry mt-3" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="container">
-    <header class="post-header">
-      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-      <p class="post-meta text-secondary">
-        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-          {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
-          {{ page.date | date: date_format }}
-        </time>
-        {%- if page.author.size > 0 -%}
-          - <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
-        {%- endif -%}
-      </p>
-    </header>
+<div class="px-offset">
+  <article class="post h-entry mt-3" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="container">
+      <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+        <p class="post-meta text-secondary">
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+          {%- if page.author.size > 0 -%}
+            - <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
+          {%- endif -%}
+        </p>
+      </header>
 
-    <div class="post-content e-content" itemprop="articleBody">
-      <div class="content-html">{{ content }}</div>
+      <div class="post-content e-content" itemprop="articleBody">
+        <div class="content-html">{{ content }}</div>
+      </div>
+
+      <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
     </div>
+  </article>
 
-    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-  </div>
-</article>
+  {%- if page.categories.size > 0 -%}
+    <div class="container py-3 border-top">
+      <h6>{{ i18n.categories | default: 'Categories' }}</h6>
+      <ul class="list-inline tags">
+        {%- for category in page.categories -%}
+          <li class="list-inline-item mr-0 mb-2">
+            <a href="/categories/{{ category }}">{{ category }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
 
-{%- if page.categories.size > 0 -%}
-  <div class="container py-3 border-top">
-    <h6>{{ i18n.categories | default: 'Categories' }}</h6>
-    <ul class="list-inline tags">
-      {%- for category in page.categories -%}
-        <li class="list-inline-item mr-0 mb-2">
-          <a href="/categories/{{ category }}">{{ category }}</a>
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
-{%- endif -%}
+  {%- if page.tags.size > 0 -%}
+    <div class="container py-3 border-top">
+      <h6>{{ i18n.tags | default: 'Tags' }}</h6>
+      <ul class="list-inline tags">
+        {%- for tag in page.tags -%}
+          <li class="list-inline-item mr-0 mb-2">
+            <a href="/tags/{{ tag }}">{{ tag }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
 
-{%- if page.tags.size > 0 -%}
-  <div class="container py-3 border-top">
-    <h6>{{ i18n.tags | default: 'Tags' }}</h6>
-    <ul class="list-inline tags">
-      {%- for tag in page.tags -%}
-        <li class="list-inline-item mr-0 mb-2">
-          <a href="/tags/{{ tag }}">{{ tag }}</a>
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
-{%- endif -%}
-
-{%- if site.disqus.shortname -%}
-  {%- include disqus_comments.html -%}
-{%- endif -%}
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+</div>
 
 {%- if site.related_posts.size > 0 -%}
   <div class="divider"></div>
-  <div class="container pt-3">
-    <h6>{{ i18n.related | default: 'Related Posts' }}</h6>
-  </div>
+  <div class="px-offset">
+    <div class="container pt-3">
+      <h6>{{ i18n.related | default: 'Related Posts' }}</h6>
+    </div>
 
-  <ul class="list-group list-group-flush">
-    {%- for post in site.related_posts limit: 3 -%}
-      {% include post.html post=post %}
-    {%- endfor -%}
-  </ul>
+    <ul class="list-group list-group-flush">
+      {%- for post in site.related_posts limit: 3 -%}
+        {% include post.html post=post %}
+      {%- endfor -%}
+    </ul>
+  </div>
 {%- endif -%}

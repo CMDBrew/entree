@@ -4,8 +4,6 @@ aside {
   background: $aside-bg;
   border-left: 1px solid $border-color;
 
-  .cancel { display: none; }
-
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
     position: static;
     overflow: hidden;
@@ -30,7 +28,7 @@ aside {
       z-index: $zindex-modal;
       display: flex;
       flex-direction: column;
-      height: auto !important;
+      height: 100% !important;
       max-height: 80vh;
       padding: 0;
       background: $aside-bg;
@@ -38,10 +36,17 @@ aside {
       @include transform(translateY(100%));
       @include transition(transform 0.2s linear);
 
-      & > * {
+      @include media-breakpoint-down('xs') {
+        max-height: 100%;
+      }
+
+      #footnote,
+      #cta {
         padding-right: $spacer;
         padding-left: $spacer;
       }
+
+      .card { border-radius: 0; }
     }
 
     .content {
@@ -49,8 +54,6 @@ aside {
       flex: 1;
       padding-top: $spacer;
     }
-
-    .cancel { display: block; }
 
     #footnote { text-align: center; }
   }

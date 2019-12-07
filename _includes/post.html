@@ -18,7 +18,11 @@
         <div class="media-body">
           <h5>{{ post.title | escape }}</h5>
 
-          <p class="post-meta text-secondary small mb-1">
+          {%- if site.show_excerpts -%}
+            <p class="mb-0">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+          {%- endif -%}
+
+          <p class="post-meta text-secondary small mt-3">
             <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
               {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
               {{ post.date | date: date_format }}
@@ -27,10 +31,6 @@
               - <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author | escape }}</span></span>
             {%- endif -%}
           </p>
-
-          {%- if site.show_excerpts -%}
-            <p class="mb-0">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
-          {%- endif -%}
         </div>
 
         {%- if post.banner.size > 0 -%}
