@@ -14,7 +14,7 @@ layout: default
     <div id="main-avatar" class="bg-white rounded-circle" style="background-image: url('{{ page.avatar | prepend: site.baseurl }}')"></div>
     <div class="mt-3">
       <h3>{{ page.title | default: site.title }}</h3>
-      <p>{{ page.brief }}</p>
+      <article>{{ page.brief | markdownify }}</article>
     </div>
   </div>
 </div>
