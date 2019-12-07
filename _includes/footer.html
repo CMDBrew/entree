@@ -1,7 +1,7 @@
 {% assign cta = site.data.aside.general.call_to_action %}
 {% assign links = site.data.aside.actions.groups | joins: site.data.aside.socials.links %}
 
-<nav id="footer" class="fixed-bottom bg-body py-3 border-top">
+<nav id="footer" class="fixed-bottom bg-body py-2 border-top">
   <div class="container">
     <div class="row">
       {%- if cta -%}
@@ -12,7 +12,7 @@
             {{ "_self" }}
           {%- endif -%}
         {%- endcapture -%}
-        <div class="col">
+        <div class="col pr-2">
           <a class="btn btn-primary btn-block btn-lg bg-reset" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
         </div>
         {% if links.size > 0 %}
