@@ -7,7 +7,7 @@
       {%- if action.open_new_tab -%}
         {{ "_blank" }}
       {%- else -%}
-        {{ "self" }}
+        {{ "_self" }}
       {%- endif -%}
     {%- endcapture -%}
     <a class="btn btn-primary btn-block btn-lg" rel="noopener" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
@@ -23,7 +23,7 @@
           {%- if action.open_new_tab -%}
             {{ "_blank" }}
           {%- else -%}
-            {{ "self" }}
+            {{ "_self" }}
           {%- endif -%}
         {%- endcapture -%}
 
