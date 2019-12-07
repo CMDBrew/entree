@@ -1,15 +1,36 @@
-{% assign i18n = site.data.translations %}
-{% assign cancel_label = i18n.aside.cancel | default: 'Cancel' %}
+{%- assign i18n = site.data.translations -%}
+{%- assign cta = site.data.aside.general.call_to_action -%}
+{%- assign cancel_label = i18n.aside.cancel | default: 'Cancel' -%}
 
 <aside id="aside" class="collapse">
   <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
   <div class="body container">
-    <div class="cancel text-right py-2 border-bottom">
-      <a class="btn btn-sm rounded-circle" data-toggle="collapse" data-target="#aside">
-        <i class="fas fa-times"></i>
-      </a>
+    <div class="visible-collapse">
+      <div class="row py-2 border-bottom mx-0">
+        <div class="col"></div>
+        <div class="col d-flex align-items-center justify-content-center">
+          Actions
+        </div>
+        <div class="col text-right">
+          <button type="button" class="close" data-toggle="collapse" data-target="#aside">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="content overflow-y">
+      {%-if cta -%}
+        <div id="cta" class="mb-3">
+          {%- capture target -%}
+            {%- if action.open_new_tab -%}
+              {{ "_blank" }}
+            {%- else -%}
+              {{ "_self" }}
+            {%- endif -%}
+          {%- endcapture -%}
+          <a class="btn btn-primary btn-block btn-lg" rel="noopener" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
+        </div>
+      {%- endif -%}
       {%- include aside/actions.html -%}
       {%- include aside/socials.html -%}
       <div id="footnote" class="card bg-transparent">

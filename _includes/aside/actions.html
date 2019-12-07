@@ -1,18 +1,4 @@
-{% assign cta = site.data.aside.general.call_to_action %}
 {% assign links = site.data.aside.actions.groups %}
-
-{% if cta %}
-  <div class="hidden-collapse mb-3">
-    {%- capture target -%}
-      {%- if action.open_new_tab -%}
-        {{ "_blank" }}
-      {%- else -%}
-        {{ "_self" }}
-      {%- endif -%}
-    {%- endcapture -%}
-    <a class="btn btn-primary btn-block btn-lg" rel="noopener" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
-  </div>
-{% endif %}
 
 {% for group in links %}
   <div class="card mb-3 overflow-hidden">

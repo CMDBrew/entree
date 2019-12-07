@@ -2,7 +2,6 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- assign layout_class = "layout-default " | append: include.layout_class -%}
   {%- include head.html -%}
-
   <body class="{{ layout_class | strip }}">
     {% if site.jekyll_cmdbrew.snippets.header %}
       {% include {{ site.jekyll_cmdbrew.snippets.header | prepend: 'snippets/' }} %}
@@ -18,7 +17,6 @@
       </main>
       {%- include aside.html -%}
     </div>
-    {%- include footer.html -%}
 
     {% if site.jekyll_cmdbrew.snippets.footer %}
       {% include {{ site.jekyll_cmdbrew.snippets.footer | prepend: 'snippets/' }} %}

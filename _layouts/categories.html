@@ -10,15 +10,17 @@ layout: default
   {% assign paginator = site %}
 {% endif %}
 
-<div class="container mt-4 mb-3">
-  <h1>{{ i18n.categories.title }} {{ page.category }}</h1>
+<div class="px-offset">
+  <div class="container mt-4 mb-3">
+    <h1>{{ i18n.categories.title }} {{ page.category }}</h1>
+  </div>
+
+  <ul class="list-group list-group-flush mb-3">
+    {%- for post in paginator.posts -%}
+      {% include post.html post=post %}
+    {%- endfor -%}
+  </ul>
+
+  {% capture path %}{{ 'categories/' | append: page.category }}{% endcapture%}
+  {% include pagination.html path=path %}
 </div>
-
-<ul class="list-group list-group-flush mb-3">
-  {%- for post in paginator.posts -%}
-    {% include post.html post=post %}
-  {%- endfor -%}
-</ul>
-
-{% capture path %}{{ 'categories/' | append: page.category }}{% endcapture%}
-{% include pagination.html path=path %}

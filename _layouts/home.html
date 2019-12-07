@@ -9,119 +9,121 @@ layout: default
 
 <div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | prepend: site.baseurl }}')"></div>
 
-<div class="container">
-  <div class="brand-info mb-4">
-    <div id="main-avatar" class="bg-white rounded-circle" style="background-image: url('{{ page.avatar | prepend: site.baseurl }}')"></div>
-    <div class="mt-3">
-      <h3>{{ page.title | default: site.title }}</h3>
-      <article>{{ page.brief | markdownify }}</article>
+<div class="px-offset">
+  <div class="container">
+    <div class="brand-info mb-4">
+      <div id="main-avatar" class="bg-white rounded-circle" style="background-image: url('{{ page.avatar | prepend: site.baseurl }}')"></div>
+      <div class="mt-3">
+        <h3>{{ page.title | default: site.title }}</h3>
+        <article>{{ page.brief | markdownify }}</article>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="border-bottom sticky-top">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 px-0">
-        <div class="nav-tabs-wrap">
-          <ul class="nav nav-tabs bg-body" role="tablist">
-            {%- assign posts_label = i18n.home.tabs.posts | default: 'Posts' -%}
-            {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
-            {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
-            {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
-            {%- if site.posts -%}
-              {%- include tabs/link.html key="posts" content=posts_label -%}
-            {%- endif -%}
-            {%- if content_available.size > 0 -%}
-              {%- include tabs/link.html key="about" content=about_label -%}
-            {% endif -%}
-            {%- if site.categories.size > 0 -%}
-              {%- include tabs/link.html key="categories" content=categories_label -%}
-            {%- endif -%}
-            {%- if filtered_pages.size > 0 -%}
-              {%- include tabs/link.html key="pages" content=pages_label -%}
-            {%- endif -%}
-          </ul>
+  <div class="border-bottom sticky-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 px-0">
+          <div class="nav-tabs-wrap">
+            <ul class="nav nav-tabs bg-body" role="tablist">
+              {%- assign posts_label = i18n.home.tabs.posts | default: 'Posts' -%}
+              {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
+              {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
+              {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
+              {%- if site.posts -%}
+                {%- include tabs/link.html key="posts" content=posts_label -%}
+              {%- endif -%}
+              {%- if content_available.size > 0 -%}
+                {%- include tabs/link.html key="about" content=about_label -%}
+              {% endif -%}
+              {%- if site.categories.size > 0 -%}
+                {%- include tabs/link.html key="categories" content=categories_label -%}
+              {%- endif -%}
+              {%- if filtered_pages.size > 0 -%}
+                {%- include tabs/link.html key="pages" content=pages_label -%}
+              {%- endif -%}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="tab-content">
-  {% capture posts_content %}
-    {%- if site.posts -%}
-      <ul class="list-group list-group-flush">
-        {%- if pinned_post -%}
-          {% include post.html post=pinned_post pinned=true %}
-        {%- endif -%}
+  <div class="tab-content">
+    {% capture posts_content %}
+      {%- if site.posts -%}
+        <ul class="list-group list-group-flush">
+          {%- if pinned_post -%}
+            {% include post.html post=pinned_post pinned=true %}
+          {%- endif -%}
 
-        {% assign limit = site['paginate'] | default: 10 %}
-        {%- for post in site.posts limit: limit -%}
-          {% include post.html post=post %}
-        {%- endfor -%}
-      </ul>
-      <div class="container py-3">
-        <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
-      </div>
+          {% assign limit = site['paginate'] | default: 10 %}
+          {%- for post in site.posts limit: limit -%}
+            {% include post.html post=post %}
+          {%- endfor -%}
+        </ul>
+        <div class="container py-3">
+          <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+        </div>
+      {%- endif -%}
+    {% endcapture %}
+    {%- include tabs/pane.html key="posts" content=posts_content -%}
+
+    {%- if content_available.size > 0 -%}
+      {%- capture about_content -%}
+        <div class="container py-3">
+          <div class="content-html">{{ content }}</div>
+        </div>
+      {%- endcapture -%}
+      {%- include tabs/pane.html key="about" content=about_content -%}
     {%- endif -%}
-  {% endcapture %}
-  {%- include tabs/pane.html key="posts" content=posts_content -%}
 
-  {%- if content_available.size > 0 -%}
-    {%- capture about_content -%}
-      <div class="container py-3">
-        <div class="content-html">{{ content }}</div>
-      </div>
-    {%- endcapture -%}
-    {%- include tabs/pane.html key="about" content=about_content -%}
-  {%- endif -%}
+    {%- if site.categories.size > 0 -%}
+      {% capture categories_content %}
+        <div class="list-group list-group-flush mb-3">
+          {% assign categories = site.categories | sort %}
+          {%- for category in categories -%}
+            {% capture category_name %}{{ category | first }}{% endcapture %}
+            {% assign heading = category_name | slice: 0 | upcase %}
 
-  {%- if site.categories.size > 0 -%}
-    {% capture categories_content %}
-      <div class="list-group list-group-flush mb-3">
-        {% assign categories = site.categories | sort %}
-        {%- for category in categories -%}
-          {% capture category_name %}{{ category | first }}{% endcapture %}
-          {% assign heading = category_name | slice: 0 | upcase %}
+            {%- if heading != last_heading -%}
+              <div class="list-group-item px-0 divider">
+                <div class="container font-weight-bold pt-2">{{ heading }}</div>
+              </div>
+            {%- endif -%}
 
-          {%- if heading != last_heading -%}
-            <div class="list-group-item px-0 divider">
-              <div class="container font-weight-bold">{{ heading }}</div>
-            </div>
-          {%- endif -%}
+            <a href="/categories/{{ category_name }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+              <div class="mb-0 container">{{ category_name }}</div>
+            </a>
+            {% assign last_heading = heading %}
+          {%- endfor -%}
+        </div>
+      {% endcapture %}
 
-          <a href="/categories/{{ category_name }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-            <div class="mb-0 container">{{ category_name }}</div>
-          </a>
-          {% assign last_heading = heading %}
-        {%- endfor -%}
-      </div>
-    {% endcapture %}
+      {%- include tabs/pane.html key="categories" content=categories_content -%}
+    {%- endif -%}
 
-    {%- include tabs/pane.html key="categories" content=categories_content -%}
-  {%- endif -%}
+    {%- if filtered_pages.size > 0 -%}
+      {% capture pages_content %}
+        <div class="list-group list-group-flush mb-3">
+          {% assign last_heading = "" %}
+          {%- for page in filtered_pages -%}
+            {% assign heading = page.title | slice: 0 | upcase %}
 
-  {%- if filtered_pages.size > 0 -%}
-    {% capture pages_content %}
-      <div class="list-group list-group-flush mb-3">
-        {% assign last_heading = "" %}
-        {%- for page in filtered_pages -%}
-          {% assign heading = page.title | slice: 0 | upcase %}
+            {%- if heading != last_heading -%}
+              <div class="list-group-item px-0 divider">
+                <div class="container font-weight-bold pt-2">{{ heading }}</div>
+              </div>
+            {%- endif -%}
 
-          {%- if heading != last_heading -%}
-            <div class="list-group-item px-0 divider">
-              <div class="container font-weight-bold">{{ heading }}</div>
-            </div>
-          {%- endif -%}
-
-          <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-            <div class="mb-0 container">{{ page.title }}</div>
-          </a>
-          {% assign last_heading = heading %}
-        {%- endfor -%}
-      </div>
-    {% endcapture %}
-    {%- include tabs/pane.html key="pages" content=pages_content -%}
-  {%- endif -%}
+            <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+              <div class="mb-0 container">{{ page.title }}</div>
+            </a>
+            {% assign last_heading = heading %}
+          {%- endfor -%}
+        </div>
+      {% endcapture %}
+      {%- include tabs/pane.html key="pages" content=pages_content -%}
+    {%- endif -%}
+  </div>
 </div>
