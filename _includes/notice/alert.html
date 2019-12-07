@@ -8,7 +8,7 @@
         {%- if alert.link.open_new_tab -%}
           {{ "_blank" }}
         {%- else -%}
-          {{ "self" }}
+          {{ "_self" }}
         {%- endif -%}
       {%- endcapture -%}
       {%- if alert.link and alert.name -%}

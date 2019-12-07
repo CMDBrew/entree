@@ -4,7 +4,7 @@ groups:
     actions:
     - name: Get in touch
       url: https://www.google.com
-      open_new_tab: true
+      open_new_tab: false
     - name: Get in touch
       url: https://www.google.com
       open_new_tab: true
