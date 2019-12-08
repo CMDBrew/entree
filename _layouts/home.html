@@ -93,7 +93,10 @@ layout: default
             {%- endif -%}
 
             <a href="/categories/{{ category_name }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-              <div class="mb-0 container">{{ category_name }}</div>
+              <div class="mb-0 container">
+                <i class="fas fa-hashtag mr-2 text-secondary"></i>
+                {{ category_name }}
+              </div>
             </a>
             {% assign last_heading = heading %}
           {%- endfor -%}
@@ -117,7 +120,10 @@ layout: default
             {%- endif -%}
 
             <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-              <div class="mb-0 container">{{ page.title }}</div>
+              <div class="mb-0 container">
+                <i class="far fa-file-alt mr-2 text-secondary"></i>
+                {{ page.title }}
+              </div>
             </a>
             {% assign last_heading = heading %}
           {%- endfor -%}
