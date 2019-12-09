@@ -8,7 +8,7 @@ home:
   links:
     posts: View All Posts
 aside:
-  heading: Actions
+  heading: Menu
   socials: On the web
   copyright: CMDBrew Studio Inc. All rights reserved.
 header:
@@ -26,3 +26,10 @@ categories:
   title: 'Category:'
 '404':
   button: Back to Home
+legal:
+  cookies_policy:
+    message: By continuing to use this site you consent with our
+    link:
+      name: cookie policy
+      url: /legal/cookies
+    agree: I Agree

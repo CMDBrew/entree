@@ -19,10 +19,10 @@
           <h5>{{ post.title | escape }}</h5>
 
           {%- if site.show_excerpts -%}
-            <p class="mb-0">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
           {%- endif -%}
 
-          <p class="post-meta text-secondary small mt-3">
+          <p class="post-meta text-secondary small mb-0">
             <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
               {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
               {{ post.date | date: date_format }}

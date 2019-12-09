@@ -38,6 +38,7 @@ sass:
 
 # jekyll_cmdbrew
 jekyll_cmdbrew:
+  cookies_policy: true
   sass:
     custom_vars: null
     custom_styles: null

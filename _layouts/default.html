@@ -21,5 +21,6 @@
     {% if site.jekyll_cmdbrew.snippets.footer %}
       {% include {{ site.jekyll_cmdbrew.snippets.footer | prepend: 'snippets/' }} %}
     {% endif %}
+    {%- include scripts/cookies_alert.html -%}
   </body>
 </html>

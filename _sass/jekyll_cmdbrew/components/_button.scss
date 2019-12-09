@@ -15,4 +15,16 @@
   }
 }
 
+.btn.btn-pill {
+  border-radius: calc(#{$input-height} / 2);
+
+  &.btn-lg {
+    border-radius: calc(#{$input-height-lg} / 2);
+  }
+
+  &.btn-sm {
+    border-radius: calc(#{$input-height-sm} / 2);
+  }
+}
+
 

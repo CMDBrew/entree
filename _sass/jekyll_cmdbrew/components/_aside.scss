@@ -54,8 +54,6 @@ aside {
       flex: 1;
       padding-top: $spacer;
     }
-
-    #footnote { text-align: center; }
   }
 
   @include media-breakpoint-up(#{map-get($breakpoints, 'aside')}) {
