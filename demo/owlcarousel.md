@@ -1,7 +1,7 @@
 ***REMOVED***
 layout: page
-title: OwlCarousel2
 list_on_index: true
+group: Demo
 ***REMOVED***
 
 - 📖Official Guide - [https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html](https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html)
