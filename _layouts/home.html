@@ -2,10 +2,10 @@
 layout: default
 ---
 
-{% assign i18n = site.data.translations %}
-{% assign filtered_pages = site.pages | where: 'list_on_index', true %}
-{% assign content_available = page.content | strip_newlines %}
-{% assign pinned_post = site.posts | where: 'path', page.pinned_post | first %}
+{%- assign i18n = site.data.translations -%}
+{%- assign filtered_pages = site.pages | where: 'list_on_index', true -%}
+{%- assign content_available = page.content | strip_newlines -%}
+{%- assign pinned_post = site.posts | where: 'path', page.pinned_post | first -%}
 
 <div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | prepend: site.baseurl }}')"></div>
 
@@ -108,23 +108,37 @@ layout: default
     {%- if filtered_pages.size > 0 -%}
       {% capture pages_content %}
         <div class="list-group list-group-flush mb-3">
-          {% assign last_heading = "" %}
-          {%- for page in filtered_pages -%}
-            {% assign heading = page.title | slice: 0 | upcase %}
-
-            {%- if heading != last_heading -%}
+          {%- assign grouped_pages = filtered_pages | group_by: 'group' | sort: 'name' -%}
+          {%- for group in grouped_pages -%}
+            {%- if group.name.size > 0 -%}
               <div class="list-group-item px-0 divider py-1">
-                <div class="container font-weight-bold">{{ heading }}</div>
+                <div class="container font-weight-bold">{{ group.name }}</div>
               </div>
-            {%- endif -%}
 
-            <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
-              <div class="mb-0 container">
-                {{ page.title }}
-              </div>
-            </a>
-            {% assign last_heading = heading %}
+              {%- for page in group.items -%}
+                <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+                  <div class="mb-0 container">
+                    {{ page.title | default: page.name }}
+                  </div>
+                </a>
+              {%- endfor -%}
+            {%- endif -%}
           {%- endfor -%}
+
+          {%- assign other_pages = filtered_pages | where: 'group', null | sort: 'title' -%}
+          {%- if other_pages.size > 0 -%}
+            <div class="list-group-item px-0 divider py-1">
+              <div class="container font-weight-bold">{{ i18n.home.pages.others }}</div>
+            </div>
+
+            {%- for page in other_pages -%}
+              <a href="{{ page.url | relative_url }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+                <div class="mb-0 container">
+                  {{ page.title | default: page.name }}
+                </div>
+              </a>
+            {%- endfor -%}
+          {%- endif -%}
         </div>
       {% endcapture %}
       {%- include tabs/pane.html key="pages" content=pages_content -%}

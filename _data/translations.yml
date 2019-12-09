@@ -5,6 +5,8 @@ home:
     about: About
     categories: Categories
     pages: Pages
+  pages:
+    others: Others
   links:
     posts: View All Posts
 aside:
