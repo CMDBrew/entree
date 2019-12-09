@@ -9,12 +9,14 @@ $aside-width: 364px !default;
 $jumbotron-ratio: 43% !default;
 $social-icon-size: 32px !default;
 $post-img-size: 100px !default;
+$header-height: 62px !default;
 
 // Backgrounds
 $header-bg: $body-bg !default;
 $code-bg: darken($body-bg, 3%) !default;
 $aside-bg: $body-bg !default;
-$divider-bg: $light !default;
+$divider-bg: #F6F8FA !default;
+$cookies-alert-bg: #343A40 !default;
 
 // Breakpoints
 $breakpoints: (

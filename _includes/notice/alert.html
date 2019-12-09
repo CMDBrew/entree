@@ -1,20 +1,22 @@
 {%- assign alert = site.data.notice.alert -%}
 
 {%- if alert.enabled -%}
-  <div class="alert alert-{{ alert.type }} alert-dismissible rounded-0 mb-0" role="alert">
-    {{- alert.message -}}
-    {%- if alert.link -%}
-      {%- capture target -%}
-        {%- if alert.link.open_new_tab -%}
-          {{ "_blank" }}
-        {%- else -%}
-          {{ "_self" }}
+  <div id="notice-alert" class="alert alert-{{ alert.type }} alert-dismissible rounded-0 mb-0" role="alert">
+    <div class="message">
+      {{- alert.message -}}
+      {%- if alert.link -%}
+        {%- capture target -%}
+          {%- if alert.link.open_new_tab -%}
+            {{ "_blank" }}
+          {%- else -%}
+            {{ "_self" }}
+          {%- endif -%}
+        {%- endcapture -%}
+        {%- if alert.link and alert.name -%}
+          <a class="ml-1" rel="noopener" href="{{ alert.link.url }}" target="{{ target }}" title="{{ alert.link.name | escape }}">{{ alert.link.name }}</a>
         {%- endif -%}
-      {%- endcapture -%}
-      {%- if alert.link and alert.name -%}
-        <a class="ml-1" rel="noopener" href="{{ alert.link.url }}" target="{{ target }}" title="{{ alert.link.name | escape }}">{{ alert.link.name }}</a>
       {%- endif -%}
-    {%- endif -%}
+    </div>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

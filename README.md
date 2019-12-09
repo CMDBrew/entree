@@ -65,6 +65,13 @@ For references see https://docs.netlify.com/large-media/setup/
 ### Add Social Sharing
 1. Copy files in [social_feeds] to your project. For examples to enable it in your post see [2016-05-20-my-example-post.md](_posts/2016-05-20-my-example-post.md).
 
+### Cookies Policy
+1. Enable Cookies Policy by setting `cookies_policy: true` inside `jekyll_cmdbrew` in [_config.yml](_config.yml)
+    ```yaml
+    jekyll_cmdbrew:
+      cookies_policy: true
+    ```
+
 ## Development
 1. Run `gulp` to copy npm packages to `assets/vendors`.
 1. Run `npm start` to compile js to `main-bundle.js`.

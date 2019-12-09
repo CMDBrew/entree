@@ -6,10 +6,10 @@
   <div class="backdrop" data-toggle="collapse" data-target="#aside"></div>
   <div class="body container">
     <div class="visible-collapse">
-      <div class="row py-2 border-bottom mx-0">
+      <div class="row py-3 border-bottom mx-0">
         <div class="col"></div>
         <div class="col d-flex align-items-center justify-content-center">
-          <b>{{ i18n.aside.heading }}</b>
+          <b>{{ i18n.aside.heading | default: 'Menu' }}</b>
         </div>
         <div class="col text-right">
           <button type="button" class="close" data-toggle="collapse" data-target="#aside">
@@ -33,14 +33,12 @@
       {%- endif -%}
       {%- include aside/actions.html -%}
       {%- include aside/socials.html -%}
-      <div id="footnote" class="card bg-transparent">
-        <div class="card-body pt-0">
-          {%- if site.data.aside.general.footnote -%}
-            <div class="mb-2">{{ site.data.aside.general.footnote }}</div>
-          {%- endif -%}
-          {%- include copyright.html -%}
-          {%- include aside/cmdbrew_badge.html -%}
-        </div>
+      <div id="footnote" class="text-center p-3">
+        {%- if site.data.aside.general.footnote -%}
+          <div class="mb-2">{{ site.data.aside.general.footnote }}</div>
+        {%- endif -%}
+        {%- include copyright.html -%}
+        {%- include aside/cmdbrew_badge.html -%}
       </div>
     </div>
   </div>
