@@ -19,7 +19,7 @@
           <h5>{{ post.title | escape }}</h5>
 
           {%- if site.show_excerpts -%}
-            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 100 }}</p>
           {%- endif -%}
 
           <p class="post-meta text-secondary small mb-0">
