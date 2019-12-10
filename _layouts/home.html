@@ -6,6 +6,7 @@ layout: default
 {%- assign filtered_pages = site.pages | where: 'list_on_index', true -%}
 {%- assign content_available = page.content | strip_newlines -%}
 {%- assign pinned_post = site.posts | where: 'path', page.pinned_post | first -%}
+{%- assign posts_limit = site['paginate'] | default: 10 -%}
 
 <div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | prepend: site.baseurl }}')"></div>
 
@@ -30,7 +31,7 @@ layout: default
               {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
               {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
               {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
-              {%- if site.posts -%}
+              {%- if site.posts.size > 0 -%}
                 {%- include tabs/link.html key="posts" content=posts_label -%}
               {%- endif -%}
               {%- if content_available.size > 0 -%}
@@ -50,23 +51,24 @@ layout: default
   </div>
 
   <div class="tab-content">
-    {% capture posts_content %}
-      {%- if site.posts -%}
+    {%- if site.posts.size > 0 -%}
+      {% capture posts_content %}
         <ul class="list-group list-group-flush">
           {%- if pinned_post -%}
             {% include post.html post=pinned_post pinned=true %}
           {%- endif -%}
 
-          {% assign limit = site['paginate'] | default: 10 %}
-          {%- for post in site.posts limit: limit -%}
+          {%- for post in site.posts limit: posts_limit -%}
             {% include post.html post=post %}
           {%- endfor -%}
         </ul>
-        <div class="container py-3">
-          <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
-        </div>
-      {%- endif -%}
-    {% endcapture %}
+        {%- if site.posts.size > posts_limit -%}
+          <div class="container py-3">
+            <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+          </div>
+        {%- endif -%}
+      {% endcapture %}
+    {%- endif -%}
     {%- include tabs/pane.html key="posts" content=posts_content -%}
 
     {%- if content_available.size > 0 -%}
