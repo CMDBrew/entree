@@ -14,7 +14,7 @@ module Jekyll
           dir = site.config['category_dir'] || 'categories'
 
           site.categories.each do |category, posts|
-            folder = File.join(dir, category)
+            folder = File.join(dir, Utils.slugify(category))
             create_pages(site, posts, folder, category)
           end
         end

@@ -21,6 +21,7 @@ layout: default
     {%- endfor -%}
   </ul>
 
-  {% capture path %}{{ 'tags/' | append: page.tag }}{% endcapture%}
+  {%- assign tag = page.tag | slugify -%}
+  {%- capture path -%}{{ 'tags/' | append: tag }}{%- endcapture -%}
   {% include pagination.html path=path %}
 </div>

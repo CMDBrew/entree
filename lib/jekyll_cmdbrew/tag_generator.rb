@@ -14,7 +14,7 @@ module Jekyll
           dir = site.config['tag_dir'] || 'tags'
 
           site.tags.each do |tag, posts|
-            folder = File.join(dir, tag)
+            folder = File.join(dir, Utils.slugify(tag))
             create_pages(site, posts, folder, tag)
           end
         end
