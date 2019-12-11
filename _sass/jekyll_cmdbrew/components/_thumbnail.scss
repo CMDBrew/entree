@@ -23,6 +23,8 @@
   .thumbnail.#{$_key} {
     width: $_value;
     height: $_value;
+    max-width: $_value;
+    max-height: $_value;
     line-height: $_value;
   }
 }
