@@ -1,8 +1,0 @@
-.tags {
-  li { display: inline; }
-
-  li + li::before {
-    margin: map-get($spacers, 1);
-    content: '•';
-  }
-}
