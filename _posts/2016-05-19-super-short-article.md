@@ -2,7 +2,7 @@
 layout: post
 title: "Some articles are just so short that we have to make the footer stick"
 banner: https://pbs.twimg.com/profile_images/788777950132830208/vgO3N1r7_400x400.jpg
-categories: [new, blogs, press, events, misc, entertainment]
+categories: [multi word category, entertainment]
 tags: [hot, summer in vancouver]
 author: Richard Wang
 comments: true

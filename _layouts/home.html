@@ -95,7 +95,7 @@ layout: default
               </div>
             {%- endif -%}
 
-            <a href="/categories/{{ category_name }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+            <a href="/categories/{{ category_name | slugify }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
               <div class="mb-0 container">
                 {{ category_name }}
               </div>

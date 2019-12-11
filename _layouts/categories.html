@@ -21,6 +21,7 @@ layout: default
     {%- endfor -%}
   </ul>
 
-  {% capture path %}{{ 'categories/' | append: page.category }}{% endcapture%}
+  {%- assign category = page.category | slugify -%}
+  {%- capture path -%}{{ 'categories/' | append: category }}{%- endcapture -%}
   {% include pagination.html path=path %}
 </div>
