@@ -14,7 +14,7 @@ aside:
   socials: On the web
   copyright: CMDBrew Studio Inc. All rights reserved.
 header:
-  menu: Menu
+  menu: MENU
 posts:
   title: Posts
   post:
@@ -22,6 +22,8 @@ posts:
     categories: Categories
     tags: Tags
     related: Related Posts
+    by: By
+    via: via
 tags:
   title: 'Tag:'
 categories:
