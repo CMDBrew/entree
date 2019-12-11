@@ -5,7 +5,8 @@ layout: default
 {%- assign i18n = site.data.translations -%}
 {%- assign filtered_pages = site.pages | where: 'list_on_index', true -%}
 {%- assign content_available = page.content | strip_newlines -%}
-{%- assign pinned_post = site.posts | where: 'path', page.pinned_post | first -%}
+{%- assign posts = site.posts | where: 'list_on_index', true  -%}
+{%- assign pinned_post = posts | where: 'path', page.pinned_post | first -%}
 {%- assign posts_limit = site['paginate'] | default: 10 -%}
 
 <div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | relative_url }}')"></div>
@@ -58,11 +59,11 @@ layout: default
             {% include post.html post=pinned_post pinned=true %}
           {%- endif -%}
 
-          {%- for post in site.posts limit: posts_limit -%}
+          {%- for post in posts limit: posts_limit -%}
             {% include post.html post=post %}
           {%- endfor -%}
         </ul>
-        {%- if site.posts.size > posts_limit -%}
+        {%- if site.posts.size > posts.size -%}
           <div class="container py-3">
             <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
           </div>
