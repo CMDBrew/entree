@@ -21,7 +21,8 @@ layout: default
     {%- endfor -%}
   </ul>
 
-  {% capture path %}{{ 'posts/' }}{% endcapture%}
+  {%- capture post_dir -%} {{ site.post_dir | default: 'posts' | append: '/' }} {%- endcapture -%}
+  {% capture path %}{{ post_dir }}{% endcapture%}
   {% include pagination.html path=path %}
 </div>
 

@@ -1,0 +1,45 @@
+{%- assign whitelist = site.jekyll_cmdbrew.file_preview_whitelist -%}
+{%- assign i18n = site.data.translations -%}
+{%- capture ext -%}
+  {{- page.file | split: '.' | last -}}
+{%- endcapture -%}
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body class="layout-file">
+    {% if site.jekyll_cmdbrew.snippets.header %}
+      {% include {{ site.jekyll_cmdbrew.snippets.header | prepend: 'snippets/' }} %}
+    {% endif %}
+
+    {%- include notice/alert.html -%}
+    <div id="wrapper" class="order-1">
+      <main id="main">
+        {%- include headers/file.html -%}
+        <div id="content" class="overflow-y">
+          <div class="file-wrap bg-light">
+            {%- if whitelist contains ext -%}
+              <img src="{{ page.file | relative_url }}" alt="{{ page.alt | default: page.title }}"/>
+            {%- else -%}
+              <div class="text-center text-secondary">
+                {{ i18n.files.file.no_preview | default: "No preview available" }}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="visible-collapse">
+            <div class="container my-4">
+              {%- include files/content.html -%}
+            </div>
+          </div>
+        </div>
+      </main>
+      {%- include asides/file.html -%}
+    </div>
+
+    {% if site.jekyll_cmdbrew.snippets.footer %}
+      {% include {{ site.jekyll_cmdbrew.snippets.footer | prepend: 'snippets/' }} %}
+    {% endif %}
+    {%- include scripts/cookies_alert.html -%}
+  </body>
+</html>

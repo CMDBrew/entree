@@ -29,6 +29,11 @@ defaults:
       type: posts
     values:
       layout: post
+  - scope:
+      path: ''
+      type: files
+    values:
+      layout: file
 
 # Specify sass files paths
 sass:
@@ -39,6 +44,12 @@ sass:
 # jekyll_cmdbrew
 jekyll_cmdbrew:
   cookies_policy: true
+  file_preview_whitelist:
+    - jpg
+    - jpeg
+    - gif
+    - png
+    - svg
   sass:
     custom_vars: null
     custom_styles: null
@@ -49,9 +60,21 @@ jekyll_cmdbrew:
   favicon: https://placeimg.com/128/128/any
   date_format: "%b %-d, %Y"
 
+# Collection Directories
+post_dir: posts
+tag_dir: tags
+post_dir: posts
+file_dir: files
+
+# Collections
+collections:
+  files:
+    sort_by: date
+    output: true
+
 # Disqus comments
 disqus:
-  shortname: test-656tth5lxb
+  shortname: null
 
 # Pagination
 paginate: 10

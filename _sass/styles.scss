@@ -4,7 +4,9 @@
 @import 'jekyll_cmdbrew/mixins/utilities';
 @import 'jekyll_cmdbrew/mixins/layout';
 @import 'jekyll_cmdbrew/placeholders/background';
+@import 'jekyll_cmdbrew/layouts/base';
 @import 'jekyll_cmdbrew/layouts/default';
+@import 'jekyll_cmdbrew/layouts/file';
 @import 'jekyll_cmdbrew/components/aside';
 @import 'jekyll_cmdbrew/components/backdrop';
 @import 'jekyll_cmdbrew/components/blockquote';
@@ -22,6 +24,7 @@
 @import 'jekyll_cmdbrew/components/list';
 @import 'jekyll_cmdbrew/components/nav';
 @import 'jekyll_cmdbrew/components/overflow';
+@import 'jekyll_cmdbrew/components/photos';
 @import 'jekyll_cmdbrew/components/post';
 @import 'jekyll_cmdbrew/components/smartbanner';
 @import 'jekyll_cmdbrew/components/table';

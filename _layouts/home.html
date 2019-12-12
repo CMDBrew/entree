@@ -7,7 +7,8 @@ layout: default
 {%- assign content_available = page.content | strip_newlines -%}
 {%- assign posts = site.posts | where: 'list_on_index', true  -%}
 {%- assign pinned_post = posts | where: 'path', page.pinned_post | first -%}
-{%- assign posts_limit = site['paginate'] | default: 10 -%}
+{%- assign paginate_limit = site['paginate'] | default: 10 -%}
+{%- assign files = site.files | where: 'list_on_index', true | sort: 'date' -%}
 
 <div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | relative_url }}')"></div>
 
@@ -29,18 +30,27 @@ layout: default
           <div class="nav-tabs-wrap">
             <ul class="nav nav-tabs bg-body" role="tablist">
               {%- assign posts_label = i18n.home.tabs.posts | default: 'Posts' -%}
+              {%- assign files_label = i18n.home.tabs.files | default: 'Files' -%}
               {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
               {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
               {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
+
               {%- if site.posts.size > 0 -%}
                 {%- include tabs/link.html key="posts" content=posts_label -%}
               {%- endif -%}
+
+              {%- if files.size > 0 -%}
+                {%- include tabs/link.html key="files" content=files_label -%}
+              {%- endif -%}
+
               {%- if content_available.size > 0 -%}
                 {%- include tabs/link.html key="about" content=about_label -%}
               {% endif -%}
+
               {%- if site.categories.size > 0 -%}
                 {%- include tabs/link.html key="categories" content=categories_label -%}
               {%- endif -%}
+
               {%- if filtered_pages.size > 0 -%}
                 {%- include tabs/link.html key="pages" content=pages_label -%}
               {%- endif -%}
@@ -59,18 +69,42 @@ layout: default
             {% include post.html post=pinned_post pinned=true %}
           {%- endif -%}
 
-          {%- for post in posts limit: posts_limit -%}
-            {% include post.html post=post %}
+          {%- for post in posts limit: paginate_limit -%}
+            {%- include post.html post=post -%}
           {%- endfor -%}
         </ul>
         {%- if site.posts.size > posts.size -%}
           <div class="container py-3">
-            <a class="btn btn-block btn-light" href="/posts">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+            {%- capture post_dir -%} {{ site.post_dir | default: 'posts' | prepend: '/' }} {%- endcapture -%}
+            <a class="btn btn-block btn-light" href="{{ post_dir }}">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
           </div>
         {%- endif -%}
       {% endcapture %}
+
+      {%- include tabs/pane.html key="posts" content=posts_content -%}
     {%- endif -%}
-    {%- include tabs/pane.html key="posts" content=posts_content -%}
+
+    {%- if site.files.size > 0 -%}
+      {% capture files_content %}
+        <div class="container px-0">
+          <div class="photos row mx-0">
+            {%- for file in files limit: paginate_limit -%}
+              <div class="col-lg-3 col-md-4 col-6 photo-wrap">
+                {%- include file.html file=file -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- if site.files.size > files.size -%}
+          <div class="container py-3">
+            {%- capture file_dir -%} {{ site.file_dir | default: 'files' | prepend: '/' }} {%- endcapture -%}
+            <a class="btn btn-block btn-light" href="{{ file_dir }}">{{ i18n.home.links.files | default: "View All files" }}</a>
+          </div>
+        {%- endif -%}
+      {% endcapture %}
+
+      {%- include tabs/pane.html key="files" content=files_content -%}
+    {%- endif -%}
 
     {%- if content_available.size > 0 -%}
       {%- capture about_content -%}
@@ -84,7 +118,8 @@ layout: default
     {%- if site.categories.size > 0 -%}
       {% capture categories_content %}
         <div class="list-group list-group-flush mb-3">
-          {% assign categories = site.categories | sort %}
+          {%- assign categories = site.categories | sort -%}
+          {%- capture category_dir -%} {{ site.category_dir | default: 'categories' }} {%- endcapture -%}
           {%- for category in categories -%}
             {% capture category_name %}{{ category | first }}{% endcapture %}
             {% assign heading = category_name | slice: 0 | upcase %}
@@ -95,7 +130,7 @@ layout: default
               </div>
             {%- endif -%}
 
-            <a href="/categories/{{ category_name | slugify }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
+            <a href="/{{ category_dir }}/{{ category_name | slugify }}" class="bg-transparent list-group-item px-0 list-group-item-action text-reset">
               <div class="mb-0 container">
                 {{ category_name }}
               </div>
