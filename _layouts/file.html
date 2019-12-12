@@ -17,28 +17,29 @@
       <main id="main">
         {%- include headers/file.html -%}
         <div id="content" class="overflow-y">
-          <div class="file-wrap bg-light">
-            {%- if whitelist contains ext -%}
+          {%- if whitelist contains ext -%}
+            <div class="file-wrap">
               <img src="{{ page.file | relative_url }}?nf_resize=fit&w=2244" alt="{{ page.alt | default: page.title }}"/>
-            {%- else -%}
-              <div class="text-center text-secondary">
-                {{ i18n.files.file.no_preview | default: "No preview available" }}
+            </div>
+          {%- elsif ext == 'pdf' -%}
+            <div class="object-wrap">
+              <iframe frameborder="0" src="{{ page.file | relative_url }}?preview={{ page.title | slugify }}#toolbar=0&navpanes=0&scrollbar=0" class="h-100 w-100"></iframe>
+            </div>
+          {%- else -%}
+            <div class="text-center text-secondary my-5">
+              <div>
+                <i class="far fa-file-alt fa-4x mb-3"></i>
               </div>
-            {%- endif -%}
-          </div>
+              <p>{{ i18n.files.file.no_preview | default: "No preview available" }}</p>
+            </div>
+          {%- endif -%}
 
           <div class="visible-collapse">
+            <div class="divider"></div>
             <div class="container my-4 px-offset">
               {%- include files/info.html -%}
             </div>
           </div>
-
-          {%- assign content_available = page.content | strip_newlines -%}
-          {%- if content_available.size > 0 -%}
-            <div class="container my-4 px-offset">
-              {{ content }}
-            </div>
-          {%- endif -%}
         </div>
       </main>
       {%- include asides/file.html -%}

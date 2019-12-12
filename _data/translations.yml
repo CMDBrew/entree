@@ -35,9 +35,7 @@ categories:
 files:
   file:
     no_preview: No previews available
-    details: Details
     actions:
-      title: Actions
       view: View Original
       download: Download
     comments: Comments
