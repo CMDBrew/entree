@@ -4,11 +4,10 @@
   <h3>{{ page.title }}</h3>
 </div>
 
-{%- assign content_available = page.content | strip_newlines -%}
-{%- if content_available.size > 0 -%}
+{%- if page.details.size > 0 -%}
   <div class="mb-4">
-    <h6>{{ i18n.files.file.content | default: 'Details' }}</h6>
-    <article>{{ content }}</article>
+    <h6>{{ i18n.files.file.details | default: 'Details' }}</h6>
+    <article>{{ page.details }}</article>
   </div>
 {%- endif -%}
 

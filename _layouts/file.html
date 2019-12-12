@@ -27,10 +27,11 @@
             {%- endif -%}
           </div>
 
-          <div class="visible-collapse">
-            <div class="container my-4">
-              {%- include files/content.html -%}
+          <div class="container my-4 px-offset">
+            <div class="visible-collapse">
+              {%- include files/info.html -%}
             </div>
+            {{ content }}
           </div>
         </div>
       </main>
