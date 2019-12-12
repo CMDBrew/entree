@@ -27,12 +27,18 @@
             {%- endif -%}
           </div>
 
-          <div class="container my-4 px-offset">
-            <div class="visible-collapse">
+          <div class="visible-collapse">
+            <div class="container my-4 px-offset">
               {%- include files/info.html -%}
             </div>
-            {{ content }}
           </div>
+
+          {%- assign content_available = page.content | strip_newlines -%}
+          {%- if content_available.size > 0 -%}
+            <div class="container my-4 px-offset">
+              {{ content }}
+            </div>
+          {%- endif -%}
         </div>
       </main>
       {%- include asides/file.html -%}
