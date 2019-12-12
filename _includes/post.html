@@ -1,5 +1,4 @@
 {%- assign post =  include.post -%}
-{%- assign date_format = site.jekyll_cmdbrew.date_format | defadivt: "%b %-d, %Y" -%}
 {%- assign i18n = site.data.translations -%}
 
 <li class="list-group-item px-0 bg-transparent py-4">
@@ -23,18 +22,7 @@
           {%- endif -%}
 
           <p class="post-meta text-secondary small mb-0">
-            {%- if post.author.size > 0 -%}
-              {{ i18n.posts.post.by | default: 'By' }} <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author | escape }}</span></span>
-            {%- endif -%}
-            {%- if post.categories.size > 0 -%}
-              &nbsp;{{ i18n.posts.post.via | default: 'via' }}&nbsp;
-              {%- assign cats = post.categories | join: ', ' -%}
-              {{ cats }}
-            {%- endif -%}
-            <time class="d-block dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-              {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
-              {{ post.date | date: date_format }}
-            </time>
+            {%- include posts/meta.html post=post -%}
           </p>
         </div>
 

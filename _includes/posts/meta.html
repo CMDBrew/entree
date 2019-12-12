@@ -1,0 +1,20 @@
+{%- assign i18n = site.data.translations -%}
+{%- assign post = include.post -%}
+{%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
+
+<time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+  {{ post.date | date: date_format }}
+</time>
+&nbsp;·&nbsp;
+{%- if post.author.size > 0 -%}
+  {{ i18n.posts.post.by | default: 'By' }}&nbsp;
+  <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span class="p-author h-card" itemprop="name">{{ post.author | escape }}</span>
+  </span>
+  &nbsp;{{ i18n.posts.post.via | default: 'via' }}&nbsp;
+{%- endif -%}
+
+{%- if post.categories.size > 0 -%}
+  {%- assign cats = post.categories | join: ', ' -%}
+  {{ cats }}
+{%- endif -%}
