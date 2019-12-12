@@ -1,12 +1,13 @@
 {%- assign whitelist = site.jekyll_cmdbrew.file_preview_whitelist -%}
 {%- assign file =  include.file -%}
+{%- assign preview = file.thumbnail | default: file.file | relative_url -%}
 
 {%- capture ext -%}
-  {{- file.file | split: '.' | last -}}
+  {{- preview | split: '.' | last -}}
 {%- endcapture -%}
 
 {%- if whitelist contains ext -%}
-  <a class="photo" href="{{ file.url | relative_url }}" target="_blank" style="background-image: url('{{ file.file | relative_url }}?nf_resize=fit&w=512&h=512')"></a>
+  <a class="photo" href="{{ file.url | relative_url }}" target="_blank" style="background-image: url('{{ preview }}?nf_resize=fit&w=512&h=512')"></a>
 {%- else -%}
   <a class="photo" href="{{ file.url | relative_url }}" target="_blank">
     <div class="placeholder">
