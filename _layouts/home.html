@@ -10,7 +10,7 @@ layout: default
 {%- assign paginate_limit = site['paginate'] | default: 10 -%}
 {%- assign files = site.files | where: 'list_on_index', true | sort: 'date' -%}
 
-<div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | relative_url }}')"></div>
+<div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
 
 <div class="px-offset">
   <div class="container">
@@ -73,7 +73,7 @@ layout: default
             {%- include post.html post=post -%}
           {%- endfor -%}
         </ul>
-        {%- if site.posts.size > posts.size -%}
+        {%- if site.posts.size > posts.size or site.posts.size > paginate_limit -%}
           <div class="container py-3">
             {%- capture post_dir -%} {{ site.post_dir | default: 'posts' | prepend: '/' }} {%- endcapture -%}
             <a class="btn btn-block btn-light" href="{{ post_dir }}">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
@@ -95,7 +95,8 @@ layout: default
             {%- endfor -%}
           </div>
         </div>
-        {%- if site.files.size > files.size -%}
+
+        {%- if site.files.size > files.size or site.files.size > paginate_limit -%}
           <div class="container py-3">
             {%- capture file_dir -%} {{ site.file_dir | default: 'files' | prepend: '/' }} {%- endcapture -%}
             <a class="btn btn-block btn-light" href="{{ file_dir }}">{{ i18n.home.links.files | default: "View All files" }}</a>

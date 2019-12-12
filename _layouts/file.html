@@ -19,7 +19,7 @@
         <div id="content" class="overflow-y">
           <div class="file-wrap bg-light">
             {%- if whitelist contains ext -%}
-              <img src="{{ page.file | relative_url }}" alt="{{ page.alt | default: page.title }}"/>
+              <img src="{{ page.file | relative_url }}?nf_resize=fit&w=2244" alt="{{ page.alt | default: page.title }}"/>
             {%- else -%}
               <div class="text-center text-secondary">
                 {{ i18n.files.file.no_preview | default: "No preview available" }}
