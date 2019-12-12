@@ -1,19 +1,17 @@
 {%- assign i18n = site.data.translations -%}
 
 <div class="mb-4 text-break">
-  <h3>{{ page.title }}</h3>
+  <h4>{{ page.title }}</h4>
 </div>
 
-{%- if page.details.size > 0 -%}
+{%- if page.excerpt.size > 0 -%}
   <div class="mb-4">
-    <h6>{{ i18n.files.file.details | default: 'Details' }}</h6>
-    <article>{{ page.details }}</article>
+    <article>{{ page.excerpt }}</article>
   </div>
 {%- endif -%}
 
 {%- if page.file.size > 0 -%}
   <div class="mb-4">
-    <h6>{{ i18n.files.file.actions.title | default: 'Actions' }}</h6>
     <div class="actions">
       <a class="btn btn-light btn-block" href="{{ page.file }}" target="_blank">
         {{- i18n.files.file.actions.view | default: 'View Original' -}}
