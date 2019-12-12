@@ -1,0 +1,31 @@
+***REMOVED***
+layout: default
+***REMOVED***
+
+{% assign i18n = site.data.translations %}
+
+{% if page.paginator %}
+  {% assign paginator = page.paginator %}
+{% else %}
+  {% assign paginator = site %}
+{% endif %}
+
+<div class="px-offset">
+  <div class="container mt-4 mb-3">
+    <h1>{{ i18n.files.title }}</h1>
+  </div>
+
+  <div class="container px-0">
+    <div class="photos row mx-0">
+      {%- for file in site.files -%}
+        <div class="col-lg-3 col-md-4 col-6 photo-wrap">
+          {%- include file.html file=file -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- capture file_dir -%} {{ site.file_dir | default: 'files' | append: '/' }} {%- endcapture -%}
+  {% include pagination.html path=file_dir %}
+</div>
+

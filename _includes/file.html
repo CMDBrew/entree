@@ -1,0 +1,17 @@
+{%- assign whitelist = site.jekyll_cmdbrew.file_preview_whitelist -%}
+{%- assign file =  include.file -%}
+
+{%- capture ext -%}
+  {{- file.file | split: '.' | last -}}
+{%- endcapture -%}
+
+{%- if whitelist contains ext -%}
+  <a class="photo" href="{{ file.url | relative_url }}" target="_blank" style="background-image: url('{{ file.file | relative_url }}')"></a>
+{%- else -%}
+  <a class="photo" href="{{ file.url | relative_url }}" target="_blank">
+    <div class="placeholder">
+      <i class="far fa-file-archive fa-2x mb-2"></i>
+      <p class="small mb-0">{{ file.alt | default: file.title | truncate: 15 }}</p>
+    </div>
+  </a>
+{%- endif -%}

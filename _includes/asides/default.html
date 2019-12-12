@@ -31,14 +31,14 @@
           <a class="btn btn-primary btn-block btn-lg" rel="noopener" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
         </div>
       {%- endif -%}
-      {%- include aside/actions.html -%}
-      {%- include aside/socials.html -%}
+      {%- include asides/components/actions.html -%}
+      {%- include asides/components/socials.html -%}
       <div id="footnote" class="text-center p-3">
         {%- if site.data.aside.general.footnote -%}
           <div class="mb-2">{{ site.data.aside.general.footnote }}</div>
         {%- endif -%}
         {%- include copyright.html -%}
-        {%- include aside/cmdbrew_badge.html -%}
+        {%- include asides/components/cmdbrew_badge.html -%}
       </div>
     </div>
   </div>

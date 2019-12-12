@@ -59,7 +59,9 @@ layout: default
   {%- endif -%}
 
   {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
+    <div class="container py-3 border-top">
+      {%- include disqus_comments.html -%}
+    </div>
   {%- endif -%}
 </div>
 
