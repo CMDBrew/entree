@@ -10,10 +10,12 @@
         <img src="{{ site.jekyll_cmdbrew.logo }}" class="logo"/>
       </div>
     </div>
-    <div class="form-inline ml-auto">
-      <a class="btn btn-light rounded-circle aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="far fa-comment-alt"></i>
-      </a>
-    </div>
+    {%- if site.disqus.shortname and page.comments != false -%}
+      <div class="form-inline ml-auto">
+        <a class="btn btn-light rounded-circle aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="far fa-comment-alt"></i>
+        </a>
+      </div>
+    {%- endif -%}
   </div>
 </nav>
