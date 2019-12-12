@@ -35,7 +35,7 @@ categories:
 files:
   file:
     no_preview: No previews available
-    content: Details
+    details: Details
     actions:
       title: Actions
       view: View Original
