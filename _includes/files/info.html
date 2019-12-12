@@ -6,7 +6,7 @@
 
 {%- if page.excerpt.size > 0 -%}
   <div class="mb-4">
-    <article>{{ page.excerpt }}</article>
+    <article>{{ page.excerpt | markdownify }}</article>
   </div>
 {%- endif -%}
 
