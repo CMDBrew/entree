@@ -4,21 +4,26 @@
   <h3>{{ page.title }}</h3>
 </div>
 
-<div class="mb-4">
-  <h6>{{ i18n.files.file.content | default: 'Details' }}</h6>
-  <article>{{ content }}</article>
-</div>
-
-<div class="mb-4">
-  <h6>{{ i18n.files.file.actions.title | default: 'Actions' }}</h6>
-  <div class="actions">
-    <a class="btn btn-light btn-block" href="{{ page.file }}" target="_blank">
-      {{- i18n.files.file.actions.view | default: 'View Original' -}}
-    </a>
-    {%- if page.download -%}
-      <a class="btn btn-light btn-block" href="{{ page.file }}" download={{ page.title | slugify }}>
-        {{- i18n.files.file.actions.download | default: 'Download' -}}
-      </a>
-    {%- endif -%}
+{%- assign content_available = page.content | strip_newlines -%}
+{%- if content_available.size > 0 -%}
+  <div class="mb-4">
+    <h6>{{ i18n.files.file.content | default: 'Details' }}</h6>
+    <article>{{ content }}</article>
   </div>
-</div>
+{%- endif -%}
+
+{%- if page.file.size > 0 -%}
+  <div class="mb-4">
+    <h6>{{ i18n.files.file.actions.title | default: 'Actions' }}</h6>
+    <div class="actions">
+      <a class="btn btn-light btn-block" href="{{ page.file }}" target="_blank">
+        {{- i18n.files.file.actions.view | default: 'View Original' -}}
+      </a>
+      {%- if page.download -%}
+        <a class="btn btn-light btn-block" href="{{ page.file }}" download={{ page.title | slugify }}>
+          {{- i18n.files.file.actions.download | default: 'Download' -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
