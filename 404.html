@@ -1,5 +1,5 @@
 ***REMOVED***
-layout: default
+layout: null
 permalink: "/404.html"
 list_on_index: false
 title: Oops... Page not found :(
@@ -8,12 +8,29 @@ description: The requested page could not be found.
 
 {%- assign i18n = site.data.translations['404'] -%}
 
-<div class="container text-center d-flex flex-column justify-content-center flex-1">
-  <h1 class="display-1 text-primary">404</h1>
-  <h1>{{ page.title | default: "Oops... Page not found :(" }}</h1>
-  <p>{{ page.description | default: "The requested page could not be found." }}</p>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body class="layout-error">
+    {% if site.jekyll_cmdbrew.snippets.header %}
+      {% include {{ site.jekyll_cmdbrew.snippets.header | prepend: 'snippets/' }} %}
+    {% endif %}
 
-  <div class="text-center">
-    <a class="btn btn-link btn-lg" href="{{ "/" | relative_url }}">{{ i18n.button | default: "Back To Home" }}</a>
-  </div>
-</div>
+    {%- include notice/alert.html -%}
+    <div id="wrapper" class="order-1">
+      <main id="main">
+        <div id="content" class="overflow-y">
+          <div class="container py-5 text-center d-flex flex-column justify-content-center flex-1">
+            <h1 class="display-1 text-primary">404</h1>
+            <h1>{{ page.title | default: "Oops... Page not found :(" }}</h1>
+            <p>{{ page.description | default: "The requested page could not be found." }}</p>
+
+            <div class="text-center">
+              <a class="btn btn-link btn-lg" href="{{ "/" | relative_url }}">{{ i18n.button | default: "Back To Home" }}</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
