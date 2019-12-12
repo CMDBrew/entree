@@ -6,7 +6,7 @@
 {%- endcapture -%}
 
 {%- if whitelist contains ext -%}
-  <a class="photo" href="{{ file.url | relative_url }}" target="_blank" style="background-image: url('{{ file.file | relative_url }}')"></a>
+  <a class="photo" href="{{ file.url | relative_url }}" target="_blank" style="background-image: url('{{ file.file | relative_url }}?nf_resize=fit&w=512&h=512')"></a>
 {%- else -%}
   <a class="photo" href="{{ file.url | relative_url }}" target="_blank">
     <div class="placeholder">
