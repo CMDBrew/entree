@@ -4,14 +4,20 @@
   .file-wrap {
     display: flex;
     align-items: center;
+    flex: 1 auto;
     flex-shrink: 0;
     justify-content: center;
     min-height: 150px;
+    padding: $spacer;
+    background: $file-bg;
 
     img { max-width: 100%; }
   }
 
-  .object-wrap { flex: 1; }
+  .object-wrap {
+    flex: 1;
+    background: $file-bg;
+  }
 
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
     .object-wrap {
