@@ -21,6 +21,8 @@
     }
   }
 
+  .bg-file { background-color: $file-bg; }
+
   #wrapper {
     display: flex;
     flex: 1;
