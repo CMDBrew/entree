@@ -23,7 +23,7 @@ layout: none
   ],
   "theme_color": "{{ pwa.theme_color }}",
   "background_color": "{{ pwa.background_color }}",
-  "start_url": "{{ site.baseurl | default: "/" }}",
+  "start_url": "{{ site.url }}",
   "display": "standalone",
   "orientation": "natural"
 }
