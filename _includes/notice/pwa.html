@@ -3,6 +3,8 @@
   {%- assign pwa = site.data.notice.pwa -%}
   <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
   <meta name="theme-color" content="{{ pwa.theme_color }}"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="{{ pwa.apple_statusbar_color }}">
 
   <!-- icon in the highest resolution we need it for -->
   <link rel="icon" sizes="192x192" href="{{ pwa.icons.192 }}">
