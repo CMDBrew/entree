@@ -6,14 +6,14 @@ $.widget.bridge('appCarousel', Carousel);
 window.Popper = Popper;
 
 // cookies
-function setCookie(cname,cvalue,exdays) {
+function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires=" + d.toGMTString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function removeCookie(cname,cvalue,exdays) {
+function removeCookie(cname, cvalue, exdays) {
   document.cookie = cname + "=" + ";path=/";
 }
 
@@ -44,12 +44,12 @@ $(document).ready(function() {
   let alert_msg = $alert.find('.message').text();
 
   if( alert_msg === alert_cookie ){
-    $alert.hide();
+    $alert.alert('dispose');
   } else {
     removeCookie('notice-alert');
   }
 
-  $alert.on('closed.bs.alert', function () {
-    setCookie('notice-alert', $(this).find('.message').text(), 1);
+  $alert.on('close.bs.alert', function() {
+    setCookie('notice-alert', $('#notice-alert').find('.message').text(), 1);
   });
 });
