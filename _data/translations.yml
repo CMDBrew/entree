@@ -27,9 +27,9 @@ posts:
     by: By
     via: via
 tags:
-  title: 'Tag:'
+  title: Tags
 categories:
-  title: 'Category:'
+  title: Categories
 '404':
   button: Back to Home
 files:
