@@ -33,23 +33,27 @@ function getCookie(cname) {
   return "";
 }
 
+function sanitizeText(str) {
+  return str.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+}
+
 // Initialize application js
 $(document).ready(function() {
-  $('[data-js="carousel"]').appCarousel()
+  $('[data-js="carousel"]').appCarousel();
   $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
 
-  let $alert = $('#notice-alert')
-  let alert_cookie = getCookie('notice-alert');
-  let alert_msg = $alert.find('.message').text();
+  var $alert = $('#notice-alert');
+  var alert_cookie = getCookie('notice-alert');
+  var alert_msg = sanitizeText($alert.find('.message').text());
 
-  if( alert_msg === alert_cookie ){
-    $alert.alert('dispose');
+  if(alert_msg === alert_cookie){
+    $alert.remove();
   } else {
     removeCookie('notice-alert');
   }
 
   $alert.on('close.bs.alert', function() {
-    setCookie('notice-alert', $('#notice-alert').find('.message').text(), 1);
+    setCookie('notice-alert', sanitizeText($alert.find('.message').text()), 30);
   });
 });
