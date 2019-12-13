@@ -164,7 +164,7 @@ layout: default
             {%- endif -%}
           {%- endfor -%}
 
-          {%- assign other_pages = filtered_pages | where: 'group', null | sort: 'title' -%}
+          {%- assign other_pages = filtered_pages | where: 'group', '' | sort: 'title' -%}
           {%- if other_pages.size > 0 -%}
             <div class="list-group-item px-0 divider py-1">
               <div class="container font-weight-bold">{{ i18n.home.pages.others }}</div>
