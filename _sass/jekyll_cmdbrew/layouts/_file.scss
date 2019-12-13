@@ -9,14 +9,12 @@
     justify-content: center;
     min-height: 150px;
     padding: $spacer;
-    background: $file-bg;
 
     img { max-width: 100%; }
   }
 
   .object-wrap {
     flex: 1;
-    background: $file-bg;
   }
 
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {

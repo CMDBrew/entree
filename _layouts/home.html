@@ -10,7 +10,7 @@ layout: default
 {%- assign paginate_limit = site['paginate'] | default: 10 -%}
 {%- assign files = site.files | where: 'list_on_index', true | sort: 'date' -%}
 
-<div class="jumbotron jumbotron-fluid bg-body" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
+<div class="jumbotron jumbotron-fluid bg-file" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
 
 <div class="px-offset">
   <div class="container">
