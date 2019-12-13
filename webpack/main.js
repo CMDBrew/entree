@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   let $alert = $('#notice-alert')
   let alert_cookie = getCookie('notice-alert');
-  let alert_msg = $alert.find('.message').html();
+  let alert_msg = $alert.find('.message').text();
 
   if( alert_msg === alert_cookie ){
     $alert.hide();
@@ -50,6 +50,6 @@ $(document).ready(function() {
   }
 
   $alert.on('closed.bs.alert', function () {
-    setCookie('notice-alert', $(this).find('.message').html(), 30);
+    setCookie('notice-alert', $(this).find('.message').text(), 1);
   });
 });

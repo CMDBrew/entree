@@ -31,7 +31,7 @@ layout: default
       <h6>{{ i18n.posts.post.categories | default: 'Categories' }}</h6>
       <ul class="list-inline">
         {%- for category in page.categories -%}
-          <li class="list-inline-item">
+          <li class="list-inline-item mb-2 mr-2">
             <a class="btn btn-sm btn-outline-primary" href="/categories/{{ category | slugify }}">{{ category }}</a>
           </li>
         {%- endfor -%}
@@ -44,7 +44,7 @@ layout: default
       <h6>{{ i18n.posts.post.tags | default: 'Tags' }}</h6>
       <ul class="list-inline">
         {%- for tag in page.tags -%}
-          <li class="list-inline-item">
+          <li class="list-inline-item mb-2 mr-2">
             <a class="btn btn-sm btn-outline-primary" href="/tags/{{ tag | slugify }}">{{ tag }}</a>
           </li>
         {%- endfor -%}

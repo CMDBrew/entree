@@ -11,8 +11,12 @@ layout: default
 {% endif %}
 
 <div class="px-offset">
-  <div class="container mt-4 mb-3">
-    <h1>{{ i18n.posts.title }}</h1>
+  <div class="container mt-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">{{ i18n.posts.title | default: 'Posts' }}</li>
+      </ol>
+    </nav>
   </div>
 
   <ul class="list-group list-group-flush mb-3">
