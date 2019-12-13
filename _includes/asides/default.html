@@ -22,7 +22,7 @@
       {%-if cta -%}
         <div id="cta" class="mb-3">
           {%- capture target -%}
-            {%- if action.open_new_tab -%}
+            {%- if cta.open_new_tab -%}
               {{ "_blank" }}
             {%- else -%}
               {{ "_self" }}
