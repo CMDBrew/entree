@@ -13,7 +13,7 @@ layout: default
 <div class="jumbotron jumbotron-fluid bg-file" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
 
 <div class="px-offset">
-  <div class="container">
+  <div id="brand-info" class="container">
     <div class="brand-info mb-4">
       <div id="main-avatar" class="bg-white rounded-circle" style="background-image: url('{{ page.avatar | relative_url }}')"></div>
       <div class="mt-3">
@@ -23,12 +23,12 @@ layout: default
     </div>
   </div>
 
-  <div class="border-bottom sticky-top">
+  <div class="border-bottom sticky-top bg-body">
     <div class="container">
       <div class="row">
         <div class="col-12 px-0">
-          <div class="nav-tabs-wrap bg-body">
-            <ul class="nav nav-tabs" role="tablist">
+          <div class="nav-tabs-wrap">
+            <ul id="home-tabs" class="nav nav-tabs" role="tablist">
               {%- assign posts_label = i18n.home.tabs.posts | default: 'Posts' -%}
               {%- assign files_label = i18n.home.tabs.files | default: 'Files' -%}
               {%- assign about_label = i18n.home.tabs.about | default: 'About' -%}
@@ -61,7 +61,7 @@ layout: default
     </div>
   </div>
 
-  <div class="tab-content">
+  <div class="tab-content" data-target="#home-tabs">
     {%- if site.posts.size > 0 -%}
       {% capture posts_content %}
         <ul class="list-group list-group-flush">
@@ -184,3 +184,29 @@ layout: default
     {%- endif -%}
   </div>
 </div>
+
+
+<script>
+  var $box = $('#main-avatar'),
+      $content = $('#content');
+
+  $content.scroll(function() {
+    // normalize scroll position as percentage
+    var scrolled = 1 - $content.scrollTop() / $content.height(),
+        transformValue = 'scale(' + scrolled + ')';
+
+    if( scrolled > 0.6 && scrolled < 1 ) {
+      $box.css({
+        '-webkit-transform': transformValue,
+        '-moz-transform': transformValue,
+        '-ms-transform': transformValue,
+        '-o-transform': transformValue,
+        'transform': transformValue
+      });
+    }
+  });
+
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $content.scrollTop($("#brand-info").height() + $content.offset().top)
+  });
+</script>
