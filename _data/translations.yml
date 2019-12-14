@@ -2,15 +2,23 @@
 home:
   tabs:
     posts: Posts
-    files: Photos
+    files: Files
     about: About
     categories: Categories
     pages: Pages
+  posts:
+    blank:
+      title: We haven't featured any posts yet
+      body: When we do, they will show up here.
+  files:
+    blank:
+      title: We haven't featured any files yet
+      body: When we do, they will show up here.
   pages:
     others: Others
   links:
     posts: View All Posts
-    files: View All Pohtos
+    files: View All Files
 aside:
   heading: Menu
   socials: On the web

@@ -21,6 +21,10 @@
     }
   }
 
+  .jumbotron-default-offset {
+    height: calc(#{map-get($thumbnail-sizes, 'lg')} / 2 + #{$spacer});
+  }
+
   .bg-file { background-color: $file-bg; }
 
   #wrapper {
