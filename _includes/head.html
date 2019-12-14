@@ -13,7 +13,8 @@
 	<script src="{{'/assets/vendors/bootstrap/js/bootstrap.min.js' | relative_url }}?{{site.time | date: '%s%N'}}"></script>
 	<script src="{{'/assets/vendors/owl.carousel/owl.carousel.min.js' | relative_url }}?{{site.time | date: '%s%N'}}"></script>
 	<script src="{{'/assets/vendors/fontawesome-free/js/all.min.js' | relative_url }}?{{site.time | date: '%s%N'}}"></script>
-  <script src="{{ "/assets/js/main-bundle.js" | relative_url }}?{{site.time | date: '%s%N'}}"></script>
+	<script src="{{'/assets/js/hammer.min.js' | relative_url }}?{{site.time | date: '%s%N'}}"></script>
+  <script src="{{ '/assets/js/main-bundle.js' | relative_url }}?{{site.time | date: '%s%N'}}"></script>
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
