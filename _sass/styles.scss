@@ -1,3 +1,5 @@
+@import '../assets/vendors/owl.carousel/assets/owl.carousel.min';
+@import '../assets/vendors/owl.carousel/assets/owl.theme.default.min';
 @import 'jekyll_cmdbrew/variables/theme';
 @import 'jekyll_cmdbrew/variables/bootstrap';
 @import '../assets/vendors/bootstrap/scss/bootstrap';
@@ -25,11 +27,10 @@
 @import 'jekyll_cmdbrew/components/list';
 @import 'jekyll_cmdbrew/components/nav';
 @import 'jekyll_cmdbrew/components/overflow';
+@import 'jekyll_cmdbrew/components/owlcarousel';
 @import 'jekyll_cmdbrew/components/photos';
 @import 'jekyll_cmdbrew/components/post';
 @import 'jekyll_cmdbrew/components/smartbanner';
 @import 'jekyll_cmdbrew/components/thumbnail';
 @import 'jekyll_cmdbrew/components/video_embed';
 
-@import '../assets/vendors/owl.carousel/assets/owl.carousel.min';
-@import '../assets/vendors/owl.carousel/assets/owl.theme.default.min';
