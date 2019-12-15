@@ -23,6 +23,8 @@
 
   .jumbotron-default-offset {
     height: calc(#{map-get($thumbnail-sizes, 'lg')} / 2 + #{$spacer});
+    background: transparent;
+    border-radius: 0;
   }
 
   .bg-file { background-color: $file-bg; }

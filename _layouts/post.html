@@ -5,11 +5,11 @@ layout: default
 {%- assign i18n = site.data.translations -%}
 
 {%- if page.banner.size > 0 -%}
-  <div class="jumbotron jumbotron-fluid bg-file mb-4" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
+  <div class="jumbotron jumbotron-fluid mb-4" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
 {%- endif -%}
 
 <div class="px-offset">
-  <article class="post h-entry mt-3" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="post h-entry my-4" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="container">
       <header class="post-header">
         <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
