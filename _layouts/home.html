@@ -226,12 +226,12 @@ layout: default
   var $box = $('#main-avatar'),
       $content = $('#content');
 
-  $content.scroll(function() {
+  function scrollAnimateAvatar() {
     // normalize scroll position as percentage
     var scrolled = 1 - $content.scrollTop() / $content.height(),
         transformValue = 'scale(' + scrolled + ')';
 
-    if( scrolled > 0.6 && scrolled < 1 ) {
+    if( scrolled >= 0.6 && scrolled <= 1 ) {
       $box.css({
         '-webkit-transform': transformValue,
         '-moz-transform': transformValue,
@@ -240,6 +240,10 @@ layout: default
         'transform': transformValue
       });
     }
+  }
+
+  $content.scroll(function() {
+    scrollAnimateAvatar();
   });
 
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
