@@ -3,6 +3,27 @@
 {%- capture ext -%}
   {{- page.file | split: '.' | last -}}
 {%- endcapture -%}
+<!-- Get next and previous URLs (START) -->
+{% capture the_collection %}{{ page.collection }}{% endcapture %}
+{% if page.collection %}
+  {% assign document = site[the_collection] %}
+{% endif %}
+
+{% for links in document %}
+  {% if links.title == page.title %}
+    {% unless forloop.first %}
+      {% assign prevurl = prev.url %}
+      {% assign prevtitle = prev.title %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign nexttitle = next.title %}
+      {% assign nexturl = next.url %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = links %}
+{% endfor %}
+<!-- Get next and previous URLs (END) -->
 
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
@@ -16,6 +37,19 @@
     <div id="wrapper" class="order-1">
       <main id="main">
         {%- include headers/file.html -%}
+        <div id="page-nav">
+          {%- if prevurl -%}
+            <a class="page-nav previous btn btn-light" href="{{ prevurl | relative_url }}">
+              <i class="fas fa-long-arrow-alt-left"></i>
+            </a>
+          {%- endif -%}
+          {%- if nexturl -%}
+            <a class="page-nav next btn btn-light" href="{{ nexturl | relative_url }}">
+              <i class="fas fa-long-arrow-alt-right"></i>
+            </a>
+          {%- endif -%}
+        </div>
+
         <div id="content" class="overflow-y">
           {%- if whitelist contains ext -%}
             <div class="file-wrap bg-file">
@@ -34,7 +68,7 @@
             </div>
           {%- endif -%}
 
-          <div class="visible-collapse">
+          <div class="visible-collapse mb-4">
             <div class="divider"></div>
             <div class="container my-4 px-offset">
               {%- include files/info.html -%}
