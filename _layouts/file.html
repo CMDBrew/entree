@@ -3,27 +3,6 @@
 {%- capture ext -%}
   {{- page.file | split: '.' | last -}}
 {%- endcapture -%}
-<!-- Get next and previous URLs (START) -->
-{% capture the_collection %}{{ page.collection }}{% endcapture %}
-{% if page.collection %}
-  {% assign document = site[the_collection] %}
-{% endif %}
-
-{% for links in document %}
-  {% if links.title == page.title %}
-    {% unless forloop.first %}
-      {% assign prevurl = prev.url %}
-      {% assign prevtitle = prev.title %}
-    {% endunless %}
-    {% unless forloop.last %}
-      {% assign next = document[forloop.index] %}
-      {% assign nexttitle = next.title %}
-      {% assign nexturl = next.url %}
-    {% endunless %}
-  {% endif %}
-  {% assign prev = links %}
-{% endfor %}
-<!-- Get next and previous URLs (END) -->
 
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
@@ -38,13 +17,14 @@
       <main id="main">
         {%- include headers/file.html -%}
         <div id="page-nav">
-          {%- if prevurl -%}
-            <a class="page-nav previous btn btn-light" href="{{ prevurl | relative_url }}">
+          {%- if page.previous -%}
+            <a class="page-nav previous btn btn-light" href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title }}">
               <i class="fas fa-long-arrow-alt-left"></i>
             </a>
           {%- endif -%}
-          {%- if nexturl -%}
-            <a class="page-nav next btn btn-light" href="{{ nexturl | relative_url }}">
+
+          {%- if page.next -%}
+            <a class="page-nav next btn btn-light" href="{{ page.next.url | relative_url }}" title="{{ page.next.title }}">
               <i class="fas fa-long-arrow-alt-right"></i>
             </a>
           {%- endif -%}
@@ -83,5 +63,12 @@
       {% include {{ site.jekyll_cmdbrew.snippets.footer | prepend: 'snippets/' }} %}
     {% endif %}
     {%- include scripts/cookies_alert.html -%}
+
+    <script>
+      document.body.onkeyup = function(e){
+        if (e.keyCode == '37') { window.location = '{{ page.previous.url }}'; }
+        if (e.keyCode == '39') { window.location = '{{ page.next.url }}'; }
+      };
+    </script>
   </body>
 </html>
