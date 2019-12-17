@@ -2,13 +2,13 @@
 layout: default
 ***REMOVED***
 
-{% assign i18n = site.data.translations %}
+{%- assign i18n = site.data.translations -%}
 
-{% if page.paginator %}
-  {% assign paginator = page.paginator %}
-{% else %}
-  {% assign paginator = site %}
-{% endif %}
+{%- if page.paginator -%}
+  {%- assign paginator = page.paginator -%}
+{%- else -%}
+  {%- assign paginator = site -%}
+{%- endif -%}
 
 <div class="px-offset">
   <div class="container mt-4">
@@ -27,7 +27,7 @@ layout: default
   </ul>
 
   {%- assign tag = page.tag | slugify -%}
-  {%- capture tag_dir -%} {{ site.tag_dir | default: 'tags' | append: '/' }} {%- endcapture -%}
+  {%- capture tag_dir -%} {{ site.tag_dir | default: 'tags' }} {%- endcapture -%}
   {%- capture path -%}{{ tag_dir | append: tag }}{%- endcapture -%}
   {% include pagination.html path=path %}
 </div>

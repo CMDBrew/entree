@@ -77,7 +77,7 @@ disqus:
   shortname: null
 
 # Pagination
-paginate: 10
+# paginate: 10
 
 # Social Feed
 social_feeds:

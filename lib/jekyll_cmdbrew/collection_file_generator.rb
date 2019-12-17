@@ -77,7 +77,8 @@ module Jekyll
         def assign_page_data(site, num_page)
           return unless Paginate::Pager.pagination_enabled?(site)
 
-          data['paginator'] = Paginate::Pager.new(site, num_page, site.collections['files'])
+          data['paginator'] =
+            Paginate::Pager.new(site, num_page, site.collections['files'])
         end
 
       end
