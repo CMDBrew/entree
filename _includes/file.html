@@ -7,9 +7,9 @@
 {%- endcapture -%}
 
 {%- if whitelist contains ext -%}
-  <a class="photo" href="{{ file.url | relative_url }}" target="_blank" style="background-image: url('{{ preview }}?nf_resize=fit&w=512&h=512')"></a>
+  <a class="photo" href="{{ file.url | relative_url }}" style="background-image: url('{{ preview }}?nf_resize=fit&w=512&h=512')"></a>
 {%- else -%}
-  <a class="photo" href="{{ file.url | relative_url }}" target="_blank">
+  <a class="photo" href="{{ file.url | relative_url }}">
     <div class="placeholder">
       <i class="far fa-file-archive fa-2x mb-2"></i>
       <p class="small mb-0">{{ file.alt | default: file.title | truncate: 15 }}</p>

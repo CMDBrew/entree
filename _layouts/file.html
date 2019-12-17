@@ -33,7 +33,7 @@
         <div id="content" class="overflow-y">
           {%- if whitelist contains ext -%}
             <div class="file-wrap bg-file">
-              <img src="{{ page.file | relative_url }}?nf_resize=fit&w=2244" alt="{{ page.alt | default: page.title }}"/>
+              <img src="{{ page.file | relative_url }}?nf_resize=fit&w=1024" alt="{{ page.alt | default: page.title }}"/>
             </div>
           {%- elsif ext == 'pdf' -%}
             <div class="object-wrap bg-file">
