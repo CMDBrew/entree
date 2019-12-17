@@ -13,8 +13,34 @@
     img { max-width: 100%; }
   }
 
-  .object-wrap {
-    flex: 1;
+
+  .object-wrap { flex: 1; }
+
+  .page-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 11;
+    transform: translateY(-50%);
+
+    &.next {
+      right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.previous {
+      left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  @include media-breakpoint-up(#{map-get($breakpoints, 'aside')}) {
+    aside #comments {
+      padding-right: 0;
+      padding-left: 0;
+      border-top: 1px solid $border-color;
+    }
   }
 
   @include media-breakpoint-down(#{nth(map-keys($grid-breakpoints), index(map-keys($grid-breakpoints), map-get($breakpoints, 'aside')) - 1)}) {
