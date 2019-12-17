@@ -7,7 +7,7 @@ layout: default
 {%- assign content_available = page.content | strip_newlines -%}
 {%- assign posts = site.posts | where: 'list_on_index', true  -%}
 {%- assign featured_post = posts | where: 'path', page.pinned_post | first -%}
-{%- assign paginate_limit = site['paginate'] | default: 10 -%}
+{%- assign paginate_limit = site['paginate'] -%}
 {%- assign files = site.files | where: 'list_on_index', true | sort: 'date' -%}
 
 {%- if page.banner.size > 0 -%}

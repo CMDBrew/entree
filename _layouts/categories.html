@@ -27,7 +27,7 @@ layout: default
   </ul>
 
   {%- assign category = page.category | slugify -%}
-  {%- capture category_dir -%} {{ site.category_dir | default: 'categories' | append: '/' }} {%- endcapture -%}
+  {%- capture category_dir -%} {{ site.category_dir | default: 'categories' }} {%- endcapture -%}
   {%- capture path -%}{{ category_dir | append: category }}{%- endcapture -%}
   {% include pagination.html path=path %}
 </div>

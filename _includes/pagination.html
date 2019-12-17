@@ -1,6 +1,6 @@
-{% assign path = include.path %}
+{%- assign path = include.path -%}
 
-{% if paginator.total_pages > 1 %}
+{%- if paginator.total_pages > 1 -%}
   <nav>
     <div class="container">
       <ul class="pagination justify-content-center">
@@ -11,28 +11,28 @@
         {% endif %}
 
         {% for page in (1..paginator.total_pages) %}
-          {% capture page_url %}
-            {% if page == 1 %}
+          {%- capture page_url -%}
+            {%- if page == 1 -%}
               {{ paginator.previous_page_path | prepend: path | relative_url }}
-            {% else %}
+            {%- else -%}
               {{ site.paginate_path | prepend: path | relative_url | replace: ':num', page }}
-            {% endif %}
-          {% endcapture %}
+            {%- endif -%}
+          {%- endcapture -%}
           <li class="page-item">
-            {% if page == paginator.page %}
+            {%- if page == paginator.page -%}
               <a class="page-link active" href="{{ page_url }}">{{ page }}</a>
-            {% else %}
+            {%- else -%}
               <a class="page-link" href="{{ page_url }}">{{ page }}</a>
-            {% endif %}
+            {%- endif -%}
           </li>
-        {% endfor %}
+        {%- endfor -%}
 
-        {% if paginator.next_page %}
+        {%- if paginator.next_page -%}
           <li class="page-item">
             <a class="page-link" href="{{ paginator.next_page_path | prepend: path | relative_url }}">Next &raquo;</a>
           </li>
-        {% endif %}
+        {%- endif -%}
       </ul>
     </div>
   </nav>
-{% endif %}
+{%- endif -%}
