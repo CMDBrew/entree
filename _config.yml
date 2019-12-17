@@ -69,7 +69,6 @@ file_dir: files
 # Collections
 collections:
   files:
-    sort_by: date
     output: true
 
 # Disqus comments

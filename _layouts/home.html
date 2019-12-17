@@ -8,7 +8,7 @@ layout: default
 {%- assign posts = site.posts | where: 'list_on_index', true  -%}
 {%- assign featured_post = posts | where: 'path', page.pinned_post | first -%}
 {%- assign paginate_limit = site['paginate'] -%}
-{%- assign files = site.files | where: 'list_on_index', true | sort: 'date' -%}
+{%- assign files = site.files | where: 'list_on_index', true | sort: 'date' | reverse -%}
 
 {%- if page.banner.size > 0 -%}
   <div class="jumbotron jumbotron-fluid" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
