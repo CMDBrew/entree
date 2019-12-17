@@ -12,7 +12,6 @@ module Jekyll
 
         def generate(site)
           folder = site.config['file_dir'] || 'files'
-
           return if site.collections['files'].nil?
 
           create_pages(site, site.collections['files'], folder)
@@ -77,8 +76,9 @@ module Jekyll
         def assign_page_data(site, num_page)
           return unless Paginate::Pager.pagination_enabled?(site)
 
+          collections = site.collections['files'].docs.sort { |a, b| b <=> a }
           data['paginator'] =
-            Paginate::Pager.new(site, num_page, site.collections['files'])
+            Paginate::Pager.new(site, num_page, collections)
         end
 
       end
