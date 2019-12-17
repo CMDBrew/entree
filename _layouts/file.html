@@ -18,13 +18,13 @@
         {%- include headers/file.html -%}
         <div id="page-nav">
           {%- if page.previous -%}
-            <a class="page-nav previous btn btn-light" href="{{ page.previous.url | relative_url }}" title="Previous: {{ page.previous.title }}">
+            <a class="page-nav previous btn btn-primary" href="{{ page.previous.url | relative_url }}" title="Previous: {{ page.previous.title }}">
               <i class="fas fa-long-arrow-alt-left"></i>
             </a>
           {%- endif -%}
 
           {%- if page.next -%}
-            <a class="page-nav next btn btn-light" href="{{ page.next.url | relative_url }}" title="Next: {{ page.next.title }}">
+            <a class="page-nav next btn btn-primary" href="{{ page.next.url | relative_url }}" title="Next: {{ page.next.title }}">
               <i class="fas fa-long-arrow-alt-right"></i>
             </a>
           {%- endif -%}
