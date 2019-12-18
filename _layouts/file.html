@@ -32,8 +32,9 @@
 
         <div id="content" class="overflow-y">
           {%- if whitelist contains ext -%}
-            <div class="file-wrap bg-file">
+            <div class="file-wrap bg-file spinner-wrap">
               <img data-js="lazy" data-src="{{ page.file | relative_url }}?nf_resize=fit&w=1024" alt="{{ page.alt | default: page.title }}"/>
+              {% include spinner.html %}
             </div>
           {%- elsif ext == 'pdf' -%}
             <div class="object-wrap bg-file">

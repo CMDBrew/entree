@@ -20,7 +20,9 @@
 
           <!-- Content (START) -->
           {%- if page.banner.size > 0 -%}
-            <div class="jumbotron jumbotron-fluid mb-4" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741"></div>
+            <div class="jumbotron jumbotron-fluid mb-4 spinner-wrap" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741">
+              {% include spinner.html %}
+            </div>
           {%- endif -%}
 
           <div class="px-offset">
