@@ -8,3 +8,11 @@
     transform: translate(-50%, -50%);
   }
 }
+
+.jumbotron,
+.file-wrap {
+  .fa,
+  svg {
+    font-size: $display1-size;
+  }
+}

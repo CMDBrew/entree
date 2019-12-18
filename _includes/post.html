@@ -27,7 +27,7 @@
         </div>
 
         {%- if post.banner.size > 0 -%}
-          <div class="post-img ml-3 rounded spinner-wrap" data-js="lazy" data-src="{{ post.banner | relative_url }}?nf_resize=fit&w=256&h=256">
+          <div class="post-img ml-3 rounded spinner-wrap bg-file" data-js="lazy" data-src="{{ post.banner | relative_url }}?nf_resize=fit&w=256&h=256">
             {% include spinner.html %}
           </div>
         {%- endif -%}

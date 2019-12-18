@@ -13,7 +13,17 @@
     </div>
     {%- if site.disqus.shortname and page.comments != false -%}
       <div class="form-inline ml-auto">
-        <div class="btn-group">
+        <div class="btn-group visible-collapse">
+          {%- if page.file.size > 0 -%}
+            {%- if page.download -%}
+              <a class="btn btn-light " href="{{ page.file }}" download={{ page.title | slugify }}>
+                <i class="fas fa-download"></i>
+              </a>
+            {%- endif -%}
+            <a class="btn btn-light " href="{{ page.file }}" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          {%- endif -%}
           <a class="btn btn-light aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
             <i class="far fa-comment-alt"></i>
           </a>
