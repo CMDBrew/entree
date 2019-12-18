@@ -1,6 +1,6 @@
 {%- assign i18n = site.data.translations -%}
 
-<div class="mb-4 text-break">
+<div class="text-break">
   <h4>{{ page.title }}</h4>
 </div>
 
@@ -11,7 +11,7 @@
 {%- endif -%}
 
 {%- if page.file.size > 0 -%}
-  <div class="mb-4">
+  <div class="mb-4 hidden-collapse">
     <div class="actions">
       <a class="btn btn-light btn-block" href="{{ page.file }}" target="_blank">
         {{- i18n.files.file.actions.view | default: 'View Original' -}}

@@ -44,6 +44,10 @@ $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-js="lazy"]').lazy({
     appendScroll: $('.overflow-y'),
+    // called before an elements gets handled
+    beforeLoad: function(element) {
+      $(element).css({ opacity: 0 });
+    } ,
     // called after an element was successfully handled
     afterLoad: function(element) {
       if($(element).hasClass('spinner-wrap')) {
@@ -51,6 +55,23 @@ $(document).ready(function() {
       } else {
         $(element).parents('.spinner-wrap').find('.loading-spinner').remove();
       }
+      $(element).addClass('loaded');
+      $(element).css({ opacity: 1 });
+    },
+    // called whenever an element could not be handled
+    onError: function(element) {
+      if($(element).hasClass('spinner-wrap')) {
+        var target = $(element).find('.loading-spinner')
+      } else {
+        var target = $(element).parents('.spinner-wrap').find('.loading-spinner')
+      }
+      $(target).html('<div class="text-danger text-center"><i class="far fa-file-image fa-2x"></i></div>');
+
+      if(!$(element).is('img')) {
+        $(element).css({ opacity: 1 });
+      }
+
+      $(element).addClass('error');
     }
   });
 

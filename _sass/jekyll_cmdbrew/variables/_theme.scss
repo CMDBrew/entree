@@ -14,13 +14,14 @@ $blockquote-border-width: 4px !default;
 $video-ratio: 56% !default;
 
 // Backgrounds
+$card-bg: #F6F8FA !default;
 $header-bg: $body-bg !default;
 $code-bg: darken($body-bg, 3%) !default;
 $aside-bg: $body-bg !default;
 $divider-bg: #F6F8FA !default;
 $cookies-alert-bg: #343A40 !default;
 $blockquote-bg: $divider-bg !default;
-$file-bg: $aside-bg !default;
+$file-bg: $card-bg !default;
 $jumbotron-bg: $file-bg !default;
 
 // Breakpoints
