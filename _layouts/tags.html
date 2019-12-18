@@ -1,7 +1,3 @@
----
-layout: default
----
-
 {%- assign i18n = site.data.translations -%}
 
 {%- if page.paginator -%}
@@ -10,24 +6,50 @@ layout: default
   {%- assign paginator = site -%}
 {%- endif -%}
 
-<div class="px-offset">
-  <div class="container mt-4">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">{{ i18n.tags.title | default: 'Tags' }}</li>
-        <li class="breadcrumb-item active" aria-current="page">{{ page.tag }}</li>
-      </ol>
-    </nav>
-  </div>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body class="layout-default">
+    {%- if site.jekyll_cmdbrew.snippets.header -%}
+      {% include {{ site.jekyll_cmdbrew.snippets.header | prepend: 'snippets/' }} %}
+    {%- endif -%}
 
-  <ul class="list-group list-group-flush mb-3">
-    {%- for post in paginator.posts -%}
-      {% include post.html post=post %}
-    {%- endfor -%}
-  </ul>
+    {%- include notice/alert.html -%}
+    <div id="wrapper" class="order-1">
+      <main id="main">
+        {%- include headers/default.html breadcrumb_collection='Tags' breadcrumb_key='tag' -%}
 
-  {%- assign tag = page.tag | slugify -%}
-  {%- capture tag_dir -%} {{ site.tag_dir | default: 'tags' }} {%- endcapture -%}
-  {%- capture path -%}{{ tag_dir | append: tag }}{%- endcapture -%}
-  {% include pagination.html path=path %}
-</div>
+        <div id="content" class="overflow-y pb-5">
+          {%-if page.custom_code.size > 0 -%}
+            {{ page.custom_code }}
+          {%- endif -%}
+
+          <!-- Content (START) -->
+          <div class="px-offset">
+            <ul class="list-group list-group-flush mb-3">
+              {%- for post in paginator.posts -%}
+                {% include post.html post=post %}
+              {%- endfor -%}
+            </ul>
+
+            {%- assign tag = page.tag | slugify -%}
+            {%- capture tag_dir -%} {{ site.tag_dir | default: 'tags' }} {%- endcapture -%}
+            {%- capture path -%}{{ tag_dir | append: tag }}{%- endcapture -%}
+            {% include pagination.html path=path %}
+          </div>
+          <!-- Content (END) -->
+
+        </div>
+      </main>
+      {%- include asides/default.html -%}
+    </div>
+
+    {%- if site.jekyll_cmdbrew.snippets.footer -%}
+      {% include {{ site.jekyll_cmdbrew.snippets.footer | prepend: 'snippets/' }} %}
+    {%- endif -%}
+    {%- include scripts/cookies_alert.html -%}
+  </body>
+</html>
+
+
+

@@ -1,18 +1,23 @@
+{%- assign i18n = site.data.translations -%}
+
 <nav id="header" class="navbar navbar-expand border-bottom">
   <div class="container">
-    <div class="form-inline">
+    <div class="form-inline overflow-hidden flex-1 pr-3 flex-nowrap">
       <a class="btn btn-light rounded-circle mr-3" href="{{ site.file_dir | default: 'files' | relative_url }}">
         <i class="fas fa-chevron-left"></i>
       </a>
-      <div class="navbar-brand">
-        <img src="{{ site.jekyll_cmdbrew.logo }}" class="logo" alt="logo"/>
+      <div class="navbar-breadcrumb flex-1 overflow-hidden justify-content-center flex-column">
+        <small class="text-secondary text-uppercase"><b>{{ i18n.files.title | default: 'Files' }}</b></small>
+        <p class="mb-0 d-block text-truncate">{{ page.title | default: page.name }}</p>
       </div>
     </div>
     {%- if site.disqus.shortname and page.comments != false -%}
       <div class="form-inline ml-auto">
-        <a class="btn btn-light rounded-circle aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="far fa-comment-alt"></i>
-        </a>
+        <div class="btn-group">
+          <a class="btn btn-light aside-toggler" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="far fa-comment-alt"></i>
+          </a>
+        </div>
       </div>
     {%- endif -%}
   </div>
