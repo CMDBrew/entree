@@ -1,16 +1,35 @@
 {%- assign i18n = site.data.translations -%}
+{%- assign breadcrumb_collection = include.breadcrumb_collection -%}
+{%- assign breadcrumb_key = include.breadcrumb_key -%}
 
 <nav id="header" class="navbar navbar-expand border-bottom">
   <div class="container">
-    <div class="form-inline">
+    <div class="form-inline overflow-hidden flex-1 pr-3 flex-nowrap">
       {%- if page.url != '/' -%}
         <a class="btn btn-light rounded-circle mr-3" href="{{ "/" | relative_url }}">
           <i class="fas fa-chevron-left"></i>
         </a>
       {%- endif -%}
-      <div class="navbar-brand">
-        <img src="{{ site.jekyll_cmdbrew.logo }}" class="logo" alt="logo"/>
-      </div>
+
+      {%- if breadcrumb_collection.size > 0 -%}
+        {%- assign collection_key = breadcrumb_collection | downcase -%}
+        {%- capture collection_name -%}
+          {{ i18n[collection_key].title | default: breadcrumb_collection }}
+        {%- endcapture -%}
+
+        <div class="navbar-breadcrumb flex-1 overflow-hidden d-flex justify-content-center flex-column">
+          {%- if breadcrumb_key.size > 0 -%}
+            <small class="text-secondary text-uppercase"><b>{{ collection_name }}</b></small>
+            <p class="mb-0 d-block text-truncate">{{ page[breadcrumb_key] | default: page.name }}</p>
+          {%- else -%}
+            <p class="navbar-brand text-truncate mb-0">{{ collection_name }}</p>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        <div class="navbar-brand">
+          <img src="{{ site.jekyll_cmdbrew.logo }}" class="logo" alt="logo"/>
+        </div>
+      {%- endif -%}
     </div>
     <div class="form-inline ml-auto">
       <a class="btn btn-primary btn-pill aside-toggler focus" href="#" data-toggle="collapse" data-target="#aside" aria-expanded="false" aria-label="Toggle navigation">

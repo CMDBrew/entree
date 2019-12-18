@@ -25,6 +25,8 @@ aside:
   copyright: CMDBrew Studio Inc. All rights reserved.
 header:
   menu: MENU
+pages:
+  title: Pages
 posts:
   title: Posts
   post:
@@ -41,6 +43,7 @@ categories:
 '404':
   button: Back to Home
 files:
+  title: Files
   file:
     no_preview: No previews available
     actions:

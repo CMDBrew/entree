@@ -1,75 +1,104 @@
-***REMOVED***
-layout: default
-***REMOVED***
-
 {%- assign i18n = site.data.translations -%}
 
-{%- if page.banner.size > 0 -%}
-  <div class="jumbotron jumbotron-fluid mb-4" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
-{%- endif -%}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body class="layout-default">
+    {%- if site.jekyll_cmdbrew.snippets.header -%}
+      {% include {{ site.jekyll_cmdbrew.snippets.header | prepend: 'snippets/' }} %}
+    {%- endif -%}
 
-<div class="px-offset">
-  <article class="post h-entry my-4" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="container">
-      <header class="post-header">
-        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-        <p class="post-meta text-secondary">
-          {%- include posts/meta.html post=page -%}
-        </p>
-      </header>
+    {%- include notice/alert.html -%}
+    <div id="wrapper" class="order-1">
+      <main id="main">
+        {%- include headers/default.html breadcrumb_collection='Posts' breadcrumb_key='title' -%}
 
-      <div class="post-content e-content" itemprop="articleBody">
-        <div class="content-html">{{ content }}</div>
-      </div>
+        <div id="content" class="overflow-y pb-5">
+          {%-if page.custom_code.size > 0 -%}
+            {{ page.custom_code }}
+          {%- endif -%}
 
-      <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+          <!-- Content (START) -->
+          {%- if page.banner.size > 0 -%}
+            <div class="jumbotron jumbotron-fluid mb-4" style="background-image: url('{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741')"></div>
+          {%- endif -%}
+
+          <div class="px-offset">
+            <article class="post h-entry my-4" itemscope itemtype="http://schema.org/BlogPosting">
+              <div class="container">
+                <header class="post-header">
+                  <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+                  <p class="post-meta text-secondary">
+                    {%- include posts/meta.html post=page -%}
+                  </p>
+                </header>
+
+                <div class="post-content e-content" itemprop="articleBody">
+                  <div class="content-html">{{ content }}</div>
+                </div>
+
+                <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+              </div>
+            </article>
+
+            {%- if page.categories.size > 0 -%}
+              <div class="container py-3 border-top">
+                <h6>{{ i18n.posts.post.categories | default: 'Categories' }}</h6>
+                <ul class="list-inline">
+                  {%- for category in page.categories -%}
+                    <li class="list-inline-item mb-2 mr-2">
+                      <a class="btn btn-sm btn-outline-primary" href="/categories/{{ category | slugify }}">{{ category }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            {%- if page.tags.size > 0 -%}
+              <div class="container py-3 border-top">
+                <h6>{{ i18n.posts.post.tags | default: 'Tags' }}</h6>
+                <ul class="list-inline">
+                  {%- for tag in page.tags -%}
+                    <li class="list-inline-item mb-2 mr-2">
+                      <a class="btn btn-sm btn-outline-primary" href="/tags/{{ tag | slugify }}">{{ tag }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            {%- if site.disqus.shortname -%}
+              <div class="container py-3 border-top">
+                {%- include disqus_comments.html -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if site.related_posts.size > 0 -%}
+            <div class="divider"></div>
+            <div class="px-offset">
+              <div class="container pt-3">
+                <h6>{{ i18n.posts.post.related | default: 'Related Posts' }}</h6>
+              </div>
+
+              <ul class="list-group list-group-flush">
+                {%- for post in site.related_posts limit: 3 -%}
+                  {% include post.html post=post %}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+          <!-- Content (END) -->
+
+        </div>
+      </main>
+      {%- include asides/default.html -%}
     </div>
-  </article>
 
-  {%- if page.categories.size > 0 -%}
-    <div class="container py-3 border-top">
-      <h6>{{ i18n.posts.post.categories | default: 'Categories' }}</h6>
-      <ul class="list-inline">
-        {%- for category in page.categories -%}
-          <li class="list-inline-item mb-2 mr-2">
-            <a class="btn btn-sm btn-outline-primary" href="/categories/{{ category | slugify }}">{{ category }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {%- endif -%}
+    {%- if site.jekyll_cmdbrew.snippets.footer -%}
+      {% include {{ site.jekyll_cmdbrew.snippets.footer | prepend: 'snippets/' }} %}
+    {%- endif -%}
+    {%- include scripts/cookies_alert.html -%}
+  </body>
+</html>
 
-  {%- if page.tags.size > 0 -%}
-    <div class="container py-3 border-top">
-      <h6>{{ i18n.posts.post.tags | default: 'Tags' }}</h6>
-      <ul class="list-inline">
-        {%- for tag in page.tags -%}
-          <li class="list-inline-item mb-2 mr-2">
-            <a class="btn btn-sm btn-outline-primary" href="/tags/{{ tag | slugify }}">{{ tag }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {%- endif -%}
-
-  {%- if site.disqus.shortname -%}
-    <div class="container py-3 border-top">
-      {%- include disqus_comments.html -%}
-    </div>
-  {%- endif -%}
-</div>
-
-{%- if site.related_posts.size > 0 -%}
-  <div class="divider"></div>
-  <div class="px-offset">
-    <div class="container pt-3">
-      <h6>{{ i18n.posts.post.related | default: 'Related Posts' }}</h6>
-    </div>
-
-    <ul class="list-group list-group-flush">
-      {%- for post in site.related_posts limit: 3 -%}
-        {% include post.html post=post %}
-      {%- endfor -%}
-    </ul>
-  </div>
-{%- endif -%}
