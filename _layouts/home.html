@@ -11,7 +11,9 @@ layout: default
 {%- assign files = site.files | where: 'list_on_index', true | sort: 'date' | reverse -%}
 
 {%- if page.banner.size > 0 -%}
-  <div class="jumbotron jumbotron-fluid" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741"></div>
+  <div class="jumbotron jumbotron-fluid spinner-wrap" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741">
+    {% include spinner.html %}
+  </div>
 {%- else -%}
   <div class="jumbotron jumbotron-default-offset"></div>
 {%- endif -%}
@@ -19,7 +21,9 @@ layout: default
 <div class="px-offset">
   <div id="brand-info" class="container">
     <div class="brand-info mb-4">
-      <div id="main-avatar" class="bg-body rounded-circle" data-js="lazy" data-src="{{ page.avatar | relative_url }}"></div>
+      <div id="main-avatar" class="bg-body rounded-circle spinner-wrap" data-js="lazy" data-src="{{ page.avatar | relative_url }}">
+        {% include spinner.html %}
+      </div>
       <div class="mt-3">
         <h3>{{ page.title | default: site.title }}</h3>
         <article>{{ page.brief | markdownify }}</article>

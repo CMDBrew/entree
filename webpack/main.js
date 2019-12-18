@@ -45,7 +45,11 @@ $(document).ready(function() {
   $('[data-js="lazy"]').lazy({
     // called after an element was successfully handled
     afterLoad: function(element) {
-      $(element).find('.loading-spinner').remove();
+      if($(element).hasClass('spinner-wrap')) {
+        $(element).find('.loading-spinner').remove();
+      } else {
+        $(element).parents('.spinner-wrap').find('.loading-spinner').remove();
+      }
     }
   });
 
