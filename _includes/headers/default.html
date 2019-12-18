@@ -1,12 +1,13 @@
 {%- assign i18n = site.data.translations -%}
 {%- assign breadcrumb_collection = include.breadcrumb_collection -%}
 {%- assign breadcrumb_key = include.breadcrumb_key -%}
+{%- assign back_url = include.back_url | default: '/' -%}
 
 <nav id="header" class="navbar navbar-expand border-bottom">
   <div class="container">
     <div class="form-inline overflow-hidden flex-1 pr-3 flex-nowrap">
       {%- if page.url != '/' -%}
-        <a class="btn btn-light rounded-circle mr-3" href="{{ "/" | relative_url }}">
+        <a class="btn btn-light rounded-circle mr-3" href="{{ back_url | relative_url }}">
           <i class="fas fa-chevron-left"></i>
         </a>
       {%- endif -%}

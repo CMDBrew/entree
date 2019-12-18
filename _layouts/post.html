@@ -1,4 +1,5 @@
 {%- assign i18n = site.data.translations -%}
+{%- assign back_url = site.post_dir | default: 'posts' -%}
 
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
@@ -11,7 +12,7 @@
     {%- include notice/alert.html -%}
     <div id="wrapper" class="order-1">
       <main id="main">
-        {%- include headers/default.html breadcrumb_collection='Posts' breadcrumb_key='title' -%}
+        {%- include headers/default.html breadcrumb_collection='Posts' breadcrumb_key='title' back_url=back_url -%}
 
         <div id="content" class="overflow-y pb-5">
           {%-if page.custom_code.size > 0 -%}
