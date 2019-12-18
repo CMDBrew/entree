@@ -43,6 +43,7 @@ $(document).ready(function() {
   $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-js="lazy"]').lazy({
+    appendScroll: $('.overflow-y'),
     // called after an element was successfully handled
     afterLoad: function(element) {
       if($(element).hasClass('spinner-wrap')) {
