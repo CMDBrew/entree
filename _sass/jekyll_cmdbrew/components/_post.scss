@@ -1,6 +1,7 @@
 .post {
   .post-img {
     @extend %background-cover;
+    position: relative;
     width: $post-img-size;
     max-width: 33%;
     overflow: hidden;
@@ -9,6 +10,13 @@
       display: block;
       padding-top: 100%;
       content: '';
+    }
+
+    .loading-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }

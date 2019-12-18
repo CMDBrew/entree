@@ -33,6 +33,12 @@ gulp.task('vendors', function(cb) {
     ])
     .pipe(gulp.dest('./assets/vendors/jquery-ui'))
 
+  // jQuery Lazy
+  gulp.src([
+      './node_modules/jquery-lazy/jquery.lazy.min.js',
+    ])
+    .pipe(gulp.dest('./assets/vendors/jquery-lazy'))
+
   // Popper
   gulp.src([
       './node_modules/popper.js/dist/umd/popper.min.*'
