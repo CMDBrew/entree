@@ -7,7 +7,9 @@
 {%- endcapture -%}
 
 {%- if whitelist contains ext -%}
-  <a class="photo" href="{{ file.url | relative_url }}" style="background-image: url('{{ preview }}?nf_resize=fit&w=512&h=512')"></a>
+  <a class="photo" href="{{ file.url | relative_url }}" data-js="lazy" data-src="{{ preview }}?nf_resize=fit&w=512&h=512">
+    {% include spinner.html %}
+  </a>
 {%- else -%}
   <a class="photo" href="{{ file.url | relative_url }}">
     <div class="placeholder">

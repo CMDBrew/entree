@@ -42,6 +42,12 @@ $(document).ready(function() {
   $('[data-js="carousel"]').appCarousel();
   $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
+  $('[data-js="lazy"]').lazy({
+    // called after an element was successfully handled
+    afterLoad: function(element) {
+      $(element).find('.loading-spinner').remove();
+    }
+  });
 
   var $alert = $('#notice-alert');
   var alert_cookie = getCookie('notice-alert');

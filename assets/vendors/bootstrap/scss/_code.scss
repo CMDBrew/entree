@@ -1,15 +1,4 @@
 // Inline code
-.highlight {
-  margin-bottom: $spacer;
-  background: $code-bg;
-  @include border-radius($border-radius-sm);
-
-  pre,
-  code {
-    margin-bottom: 0;
-  }
-}
-
 code {
   @include font-size($code-font-size);
   color: $code-color;
@@ -47,6 +36,7 @@ pre {
   // Account for some code outputs that place code tags in pre tags
   code {
     @include font-size(inherit);
+    color: inherit;
     word-break: normal;
   }
 }
