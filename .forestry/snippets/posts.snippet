@@ -1,0 +1,30 @@
+<!-- 📖Official Guide - https://jekyllrb.com/docs/liquid/filters/ -->
+<!-- Posts (START) - ❗Make sure to replace where and limit conditions -->
+
+{%- assign limit = 👉3 -%}
+{%- assign posts = site.posts | where_exp: 'item', "👉item.tags contains '👉tag'" -%}
+
+{%- if posts.size > 0 -%}
+
+  <!-- Option 1 - Using included template (START) -->
+  <ul class="list-group list-group-flush">
+    {%- for post in posts limit: limit -%}
+      {% include post.html post=post %}
+    {%- endfor -%}
+  </ul>
+  <!-- Option 1 (END) -->
+
+  <!-- Option 2 (START) -->
+  <ul>
+    {%- for post in posts limit: limit -%}
+      <!-- 👉 Replace me (START) -->
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title | default: post.name }}</a>
+      </li>
+      <!-- Replace me (END) -->
+    {%- endfor -%}
+  </ul>
+  <!-- Option 2 (END) -->
+
+{%- endif -%}
+<!-- Posts (END) -->

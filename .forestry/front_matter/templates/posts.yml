@@ -1,0 +1,118 @@
+---
+label: Posts
+hide_body: false
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: Post title, it will also be used for SEO.
+- name: list_on_index
+  type: boolean
+  label: List on index
+  default: true
+  description: Enable this to show this page in the "Posts" tab on index page.
+- name: author
+  type: text
+  config:
+    required: false
+  label: Author
+- name: excerpt
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Excerpt
+  description: Brief summary of the post.
+- name: banner
+  type: file
+  config:
+    maxSize: 5
+  label: Banner
+  description: 'File size limit: 5MB. Recommended resolution is 2244px x 741px.'
+- name: categories
+  type: tag_list
+  default: []
+  label: Categories
+  description: Categories for your posts (e.g. blogs, press, events, etc).
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+  description: Keywords for your post (e.g. tech, design, etc).
+- name: comments
+  type: boolean
+  label: Comments
+  default: true
+  description: Enable Disqus comments on this post.
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: Permalink
+  description: Only set this if an absolute URL path to this post is needed.
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+  description: Description for SEO.
+- name: custom_code
+  type: textarea
+  default: 
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: ''
+  label: Custom Code
+  description: Additional HTML, Javascripts or CSS before the content.
+- name: social_feed
+  type: field_group
+  config: {}
+  fields:
+  - name: facebook
+    type: field_group
+    config: {}
+    fields:
+    - name: enabled
+      type: boolean
+      label: Enabled
+      default: true
+    label: Facebook
+  - name: twitter
+    type: field_group
+    config: {}
+    fields:
+    - name: enabled
+      type: boolean
+      label: Enabled
+      default: true
+    - name: hashtags
+      type: boolean
+      label: Hashtags
+      description: 'Converts post tags to Twitter #hashtags when posting on Twitter.'
+      default: true
+      showOnly:
+        field: enabled
+        value: true
+    label: Twitter
+  - name: linkedin
+    type: field_group
+    config: {}
+    fields:
+    - name: enabled
+      type: boolean
+      label: Enabled
+      default: true
+    label: LinkedIn
+  label: Social Sharing
+  description: Automatically share this post to your social media.

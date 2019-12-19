@@ -1,0 +1,31 @@
+---
+label: Actions
+hide_body: true
+fields:
+- type: field_group_list
+  name: groups
+  label: Groups
+  fields:
+  - type: text
+    name: name
+    label: Title
+  - type: field_group_list
+    name: actions
+    label: Actions
+    fields:
+    - type: text
+      name: name
+      label: Display Text.
+    - type: text
+      name: url
+      label: URL
+      description: External link will need to start with "http://" or "https://".
+    - type: boolean
+      name: open_new_tab
+      label: Open New Tab
+      description: Opens a new tab when it is clicked
+    description: This can be any type of links (e.g. Google Map, Email, Telephone,
+      etc).
+  description: A group of actions that are visible to visitors all the time.
+pages:
+- _data/aside/actions.yml

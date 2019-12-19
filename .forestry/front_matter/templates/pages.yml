@@ -1,0 +1,133 @@
+---
+label: Pages
+hide_body: false
+fields:
+- name: type
+  type: select
+  default: pages
+  hidden: true
+  config:
+    required: false
+    options:
+    - pages
+    - index
+    source:
+      type: simple
+  label: Type
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: Page title, it will also be used for SEO.
+- name: group
+  type: text
+  config:
+    required: false
+  label: Group
+  description: Page group on home page.
+- name: list_on_index
+  type: boolean
+  label: List on index
+  default: true
+  description: Enable this to show this page in the "Pages" tab on index page.
+- name: avatar
+  type: file
+  config:
+    maxSize: 5
+  label: Avatar
+  description: 'File size limit: 5MB. Recommended resolution is 284px x 284px.'
+  showOnly:
+    field: type
+    value: index
+- name: banner
+  type: file
+  config:
+    maxSize: 5
+  label: Banner
+  description: 'File size limit: 5MB. Recommended resolution is 2244px x 741px.'
+  showOnly:
+    field: type
+    value: index
+- name: brief
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Brief
+  description: A brief description about your site.
+  showOnly:
+    field: type
+    value: index
+- name: default_tab
+  type: select
+  default: posts
+  config:
+    required: false
+    options:
+    - posts
+    - files
+    - about
+    - categories
+    - pages
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Default Tab
+  showOnly:
+    field: type
+    value: index
+  description: The first tab that displays when the page loads.
+- name: pinned_post
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: jekyll-posts
+      file: 
+      path: 
+  label: Pinned Post
+  showOnly:
+    field: type
+    value: index
+  description: Pinned post is a post that stay static on the top of your "Posts" tab.
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: Permalink
+  description: Only set this if an absolute URL path to this page is needed.
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+  description: For SEO only.
+- name: comments
+  type: boolean
+  label: Comments
+  description: Enable Disqus comments on this page.
+- name: custom_code
+  type: textarea
+  default: 
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: ''
+  label: Custom Code
+  description: Additional HTML, Javascripts or CSS before the content.
+pages:
+- index.md

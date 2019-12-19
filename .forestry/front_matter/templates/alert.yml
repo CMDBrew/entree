@@ -1,0 +1,53 @@
+---
+label: Alert Message
+hide_body: true
+fields:
+- type: boolean
+  name: enabled
+  label: Enabled
+  description: Enable this to display a message on the top of your site.
+- name: type
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - primary
+    - blue
+    - indigo
+    - purple
+    - pink
+    - red
+    - orange
+    - yellow
+    - green
+    - teal
+    - cyan
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Type
+  description: The colour of the alert message.
+- type: text
+  name: message
+  label: Message
+- type: field_group
+  name: link
+  label: Link
+  fields:
+  - type: text
+    name: name
+    label: Display Name
+  - type: text
+    name: url
+    label: URL
+    description: External link will need to start with "http://" or "https://".
+  - type: boolean
+    name: open_new_tab
+    label: Open New Tab
+    description: Opens a new tab when it is clicked.
+  description: Display an URL link at the end of your alert message.
+pages:
+- _data/notice/alert.yml

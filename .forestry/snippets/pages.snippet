@@ -1,0 +1,16 @@
+<!-- 📖Official Guide - https://jekyllrb.com/docs/liquid/filters/ -->
+<!-- Pages (START) - ❗Make sure to replace where and limit conditions -->
+{%- assign limit = 👉3 -%}
+{%- assign pages = site.pages | where_exp: 'item', "👉item.group contains '👉group'" -%}
+{%- if pages.size > 0 -%}
+  <ul>
+    {%- for page in pages limit: limit -%}
+      <!-- 👉 Replace me (START) -->
+      <li>
+        <a href="{{ page.url | relative_url }}">{{ page.title | default: page.name }}</a>
+      </li>
+      <!-- Replace me (END) -->
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
+<!-- Pages (END) -->

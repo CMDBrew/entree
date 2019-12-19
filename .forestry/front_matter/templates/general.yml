@@ -1,0 +1,32 @@
+---
+label: General
+hide_body: true
+fields:
+- type: field_group
+  name: call_to_action
+  label: Call To Action
+  fields:
+  - type: text
+    name: name
+    label: Display Text
+  - type: text
+    name: url
+    label: URL
+    description: External link will need to start with "http://" or "https://".
+  - type: boolean
+    name: open_new_tab
+    label: Open New Tab
+    description: Opens a new tab when it is clicked.
+  description: The primary action button you want visitors to see.
+- type: textarea
+  name: footnote
+  label: Footnote
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  description: Additional information at the bottom of your aside menu.
+pages:
+- _data/aside/general.yml
