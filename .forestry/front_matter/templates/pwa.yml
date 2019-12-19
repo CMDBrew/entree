@@ -1,0 +1,66 @@
+***REMOVED***
+label: Progressive Web App
+hide_body: true
+fields:
+- type: boolean
+  name: enabled
+  label: Enabled
+- type: text
+  name: language
+  label: Language
+- type: text
+  name: lang_direction
+  label: Lang Direction
+- type: text
+  name: name
+  label: Name
+- type: text
+  name: short_name
+  label: Short Name
+- name: theme_color
+  type: color
+  label: Theme Color
+  config:
+    required: false
+    color_format: Hex
+- name: background_color
+  type: color
+  label: Background Color
+  config:
+    required: false
+    color_format: Hex
+- name: apple_statusbar_color
+  type: select
+  label: Apple iOS Status Bar Color
+  description: 'Change the iOS status bar colour when visitors installed your app
+    with PWA. Options: default - using the theme settings for the device, black -
+    black status bar, black-translucent: use the app background colour, note the text
+    colour is white and cannot be changed.'
+  default: []
+  config:
+    required: false
+    options:
+    - default
+    - black
+    - black-translucent
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+- type: field_group
+  name: icons
+  label: Icons
+  fields:
+  - name: '192'
+    type: file
+    config:
+      maxSize: 5
+    label: 192x192
+  - name: '512'
+    type: file
+    config:
+      maxSize: 5
+    label: 512x512
+pages:
+- _data/notice/pwa.yml
