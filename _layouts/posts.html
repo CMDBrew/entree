@@ -26,11 +26,13 @@
 
           <!-- Content (START) -->
           <div class="px-offset">
-            <ul class="list-group list-group-flush mb-3">
-              {%- for post in paginator.posts -%}
-                {% include post.html post=post %}
-              {%- endfor -%}
-            </ul>
+            <div class="container px-0">
+              <ul class="list-group list-group-flush mb-3">
+                {%- for post in paginator.posts -%}
+                  {% include posts/post.html post=post %}
+                {%- endfor -%}
+              </ul>
+            </div>
 
             {%- capture post_dir -%} {{- site.post_dir | default: 'posts' -}} {%- endcapture -%}
             {%- capture path -%}{{ post_dir }}{%- endcapture -%}

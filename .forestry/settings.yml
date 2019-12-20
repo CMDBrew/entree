@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: "/admin"
-webhook_url: 
+webhook_url:
 sections:
 - type: heading
   label: Contents
@@ -51,12 +51,15 @@ sections:
   path: _data/code.yml
   label: Head Code
 - type: document
+  path: _data/configs.yml
+  label: General
+- type: document
   path: _data/translations.yml
   label: Translations
 upload_dir: uploads
 public_path: https://heuristic-borg-87cfa2.netlify.com/uploads
 front_matter_path: ''
-use_front_matter_path: 
+use_front_matter_path:
 file_template: ":filename:"
 build:
   preview_env:
