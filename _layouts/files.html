@@ -1,3 +1,6 @@
+{%- assign configs = site.data.configs -%}
+{%- assign photo_mode = configs.files.display -%}
+
 {%- if page.paginator -%}
   {%- assign paginator = page.paginator -%}
   {%- assign files = paginator.posts -%}
@@ -25,14 +28,25 @@
           {%- endif -%}
 
           <!-- Content (START) -->
-          <div class="px-offset mt-4">
-            <div class="container mb-3 px-2">
-              <div class="photos row mx-0 px-1">
-                {%- for file in files -%}
-                  <div class="col-lg-3 col-4 photo-wrap">
-                    {%- include file.html file=file -%}
-                  </div>
-                {%- endfor -%}
+          <div id="files-mode-viewport" class="px-offset mt-3 photos" data-mode="{{ photo_mode }}">
+            <div class="container mb-3 px-0">
+              {% include files/table_tools.html %}
+              <div class="list-view">
+                <ul class="list-group list-group-flush mb-3">
+                  {%- for file in files -%}
+                    {%- include files/list.html file=file -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+
+              <div class="grid-view">
+                <div class="row mx-0">
+                  {%- for file in files -%}
+                    <div class="col-lg-3 col-4 photo-wrap">
+                      {%- include files/grid.html file=file -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
               </div>
             </div>
 

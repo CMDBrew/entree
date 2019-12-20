@@ -1,0 +1,24 @@
+***REMOVED***
+label: Configs
+hide_body: true
+fields:
+- type: field_group
+  name: files
+***REMOVED***
+  fields:
+  - type: select
+    name: display
+    label: Default Display
+    default: []
+    config:
+      required: true
+      options:
+      - list
+      - grid
+      source:
+        type: simple
+        section:
+        file:
+        path:
+pages:
+- _data/configs.yml

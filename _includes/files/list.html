@@ -1,0 +1,35 @@
+{%- assign whitelist = site.jekyll_cmdbrew.file_preview_whitelist -%}
+{%- assign file =  include.file -%}
+{%- assign preview = file.thumbnail | default: file.file | relative_url -%}
+
+{%- capture ext -%}
+  {{- preview | split: '.' | last -}}
+{%- endcapture -%}
+
+<li class="list-group-item px-0 bg-transparent py-4">
+  <a class="photo text-reset text-decoration-none" href="{{ file.url | relative_url }}">
+    <div class="container">
+      <div class="media">
+        {%- if whitelist contains ext -%}
+          <div class="photo-img mr-3 rounded spinner-wrap bg-file" data-js="lazy" data-src="{{ preview }}?nf_resize=fit&w=256&h=256">
+            {% include spinner.html %}
+          </div>
+        {%- else -%}
+          <div class="photo-img mr-3 rounded spinner-wrap bg-file">
+            <div class="placeholder">
+              <i class="far fa-file-archive fa-2x mb-2"></i>
+              <p class="small mb-0">{{ file.alt | default: file.title | truncate: 15 }}</p>
+            </div>
+          </div>
+        {%- endif -%}
+        <div class="media-body">
+          <h5>{{ file.title | escape }}</h5>
+
+          {%- if site.show_excerpts -%}
+            <p class="mb-0">{{ file.excerpt | strip_html | strip_newlines | truncate: 100 }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </a>
+</li>

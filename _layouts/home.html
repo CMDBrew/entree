@@ -9,6 +9,8 @@ layout: default
 {%- assign featured_post = posts | where: 'path', page.pinned_post | first -%}
 {%- assign paginate_limit = site['paginate'] -%}
 {%- assign files = site.files | where: 'list_on_index', true | sort: 'date' | reverse -%}
+{%- assign configs = site.data.configs -%}
+{%- assign photo_mode = configs.files.display | default: 'grid' -%}
 
 {%- if page.banner.size > 0 -%}
   <div class="jumbotron jumbotron-fluid spinner-wrap" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741">
@@ -72,37 +74,39 @@ layout: default
   <div class="tab-content" data-target="#home-tabs">
     {%- if site.posts.size > 0 -%}
       {% capture posts_content %}
-        <ul class="list-group list-group-flush">
-          {%- if pinned_post and page.pinned_post.size > 0 -%}
-            {% include post.html post=pinned_post pinned=true %}
-          {%- endif -%}
+        <div class="container px-0">
+          <ul class="list-group list-group-flush">
+            {%- if pinned_post and page.pinned_post.size > 0 -%}
+              {% include posts/post.html post=pinned_post pinned=true %}
+            {%- endif -%}
 
-          {%- if posts.size > 0 -%}
-            {%- for post in posts limit: paginate_limit -%}
-              {%- include post.html post=post -%}
-            {%- endfor -%}
-          {%- else -%}
-            {%- capture posts_blank_title -%}
-              {{ i18n.home.posts.blank.title | default: "We haven't featured any posts yet" }}
-            {%- endcapture -%}
+            {%- if posts.size > 0 -%}
+              {%- for post in posts limit: paginate_limit -%}
+                {%- include posts/post.html post=post -%}
+              {%- endfor -%}
+            {%- else -%}
+              {%- capture posts_blank_title -%}
+                {{ i18n.home.posts.blank.title | default: "We haven't featured any posts yet" }}
+              {%- endcapture -%}
 
-            {%- capture posts_blank_body -%}
-              {{ i18n.home.posts.blank.body | default: "When we do, they will show up here." }}
-            {%- endcapture -%}
+              {%- capture posts_blank_body -%}
+                {{ i18n.home.posts.blank.body | default: "When we do, they will show up here." }}
+              {%- endcapture -%}
 
-            {%- include blank_slate.html title=posts_blank_title body=posts_blank_body -%}
-          {%- endif -%}
-        </ul>
-        {%- if site.posts.size > posts.size or site.posts.size > paginate_limit -%}
-          <div class="container py-3">
-            {%- capture post_dir -%} {{ site.post_dir | default: 'posts' | prepend: '/' }} {%- endcapture -%}
-            <div class="row">
-              <div class="col-lg-4 mx-auto">
-                <a class="btn btn-block btn-light" href="{{ post_dir }}">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+              {%- include blank_slate.html title=posts_blank_title body=posts_blank_body -%}
+            {%- endif -%}
+          </ul>
+          {%- if site.posts.size > posts.size or site.posts.size > paginate_limit -%}
+            <div class="py-3">
+              {%- capture post_dir -%} {{ site.post_dir | default: 'posts' | prepend: '/' }} {%- endcapture -%}
+              <div class="row">
+                <div class="col-lg-4 mx-auto">
+                  <a class="btn btn-block btn-light" href="{{ post_dir }}">{{ i18n.home.links.posts | default: "View All Posts" }}</a>
+                </div>
               </div>
             </div>
-          </div>
-        {%- endif -%}
+          {%- endif -%}
+        </div>
       {% endcapture %}
 
       {%- include tabs/pane.html key="posts" content=posts_content -%}
@@ -110,14 +114,25 @@ layout: default
 
     {%- if site.files.size > 0 -%}
       {% capture files_content %}
-        <div class="container px-0">
+        <div id="files-mode-viewport" class="container px-0 photos" data-mode="{{ photo_mode }}">
           {%- if files.size > 0 -%}
-            <div class="photos row mx-0">
-              {%- for file in files limit: paginate_limit -%}
-                <div class="col-lg-3 col-4 photo-wrap">
-                  {%- include file.html file=file -%}
-                </div>
-              {%- endfor -%}
+            {% include files/table_tools.html %}
+            <div class="list-view">
+              <ul class="list-group list-group-flush mb-3">
+                {%- for file in files -%}
+                  {%- include files/list.html file=file -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+
+            <div class="grid-view">
+              <div class="row mx-0">
+                {%- for file in files limit: paginate_limit -%}
+                  <div class="col-lg-3 col-4 photo-wrap">
+                    {%- include files/grid.html file=file -%}
+                  </div>
+                {%- endfor -%}
+              </div>
             </div>
           {%- else -%}
             {%- capture files_blank_title -%}

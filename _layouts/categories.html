@@ -28,7 +28,7 @@
           <div class="px-offset">
             <ul class="list-group list-group-flush mb-3">
               {%- for post in paginator.posts -%}
-                {% include post.html post=post %}
+                {% include posts/post.html post=post %}
               {%- endfor -%}
             </ul>
 

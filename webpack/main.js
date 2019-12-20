@@ -37,13 +37,10 @@ function sanitizeText(str) {
   return str.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
 }
 
-// Initialize application js
-$(document).ready(function() {
-  $('[data-js="carousel"]').appCarousel();
-  $('[data-toggle="popover"]').popover();
-  $('[data-toggle="tooltip"]').tooltip();
+function lazyLoadImage() {
   $('[data-js="lazy"]').lazy({
     appendScroll: $('.overflow-y'),
+    visibleOnly: true,
     // called before an elements gets handled
     beforeLoad: function(element) {
       $(element).css({ opacity: 0 });
@@ -74,7 +71,37 @@ $(document).ready(function() {
       $(element).addClass('error');
     }
   });
+}
 
+// Initialize application js
+$(document).ready(function() {
+  $('[data-js="carousel"]').appCarousel();
+  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="tooltip"]').tooltip();
+  lazyLoadImage();
+
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function() {
+    lazyLoadImage();
+  });
+
+  // Files Mode (START)
+  var mode = getCookie('files-mode');
+  if(mode) {
+    $('#files-mode-viewport').attr('data-mode', mode);
+    lazyLoadImage();
+  }
+
+  $("#files-mode-switcher .btn").on('click', function(e){
+    var mode = $(this).data('mode');
+    $('#files-mode-viewport').attr('data-mode', mode);
+    setCookie('files-mode', mode, 30);
+    lazyLoadImage();
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  // Files Mode (END)
+
+  // Alert (START)
   var $alert = $('#notice-alert');
   var alert_cookie = getCookie('notice-alert');
   var alert_msg = sanitizeText($alert.find('.message').text());
@@ -88,4 +115,5 @@ $(document).ready(function() {
   $alert.on('close.bs.alert', function() {
     setCookie('notice-alert', sanitizeText($alert.find('.message').text()), 30);
   });
+  // Alert (END)
 });
