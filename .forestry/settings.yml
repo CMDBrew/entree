@@ -57,7 +57,7 @@ sections:
   path: _data/translations.yml
   label: Translations
 upload_dir: uploads
-public_path: https://heuristic-borg-87cfa2.netlify.com/uploads
+public_path: uploads
 front_matter_path: ''
 use_front_matter_path:
 file_template: ":filename:"
