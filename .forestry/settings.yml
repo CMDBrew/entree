@@ -48,11 +48,11 @@ sections:
 - type: heading
   label: Configs
 - type: document
-  path: _data/code.yml
-  label: Head Code
-- type: document
   path: _data/configs.yml
   label: General
+- type: document
+  path: _data/code.yml
+  label: Head Code
 - type: document
   path: _data/translations.yml
   label: Translations
