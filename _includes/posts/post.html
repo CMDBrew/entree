@@ -11,15 +11,17 @@
     </div>
   {%- endif -%}
 
-  <a class="post text-reset text-decoration-none" href="{{ post.url | relative_url }}">
+  <div class="post">
     <div class="container">
       <div class="media">
         <div class="media-body">
-          <h5>{{ post.title | escape }}</h5>
+          <a class="text-reset text-decoration-none d-block" href="{{ post.url | relative_url }}">
+            <h5>{{ post.title | escape }}</h5>
 
-          {%- if site.show_excerpts -%}
-            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 100 }}</p>
-          {%- endif -%}
+            {%- if site.show_excerpts -%}
+              <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 100 }}</p>
+            {%- endif -%}
+          </a>
 
           <p class="post-meta text-secondary small mb-0">
             {%- include posts/meta.html post=post -%}
@@ -28,10 +30,10 @@
 
         {%- if post.banner.size > 0 -%}
           <div class="post-img ml-3 rounded spinner-wrap bg-file" data-js="lazy" data-src="{{ post.banner | relative_url }}?nf_resize=fit&w=256&h=256">
-            {% include spinner.html %}
+            {%- include spinner.html -%}
           </div>
         {%- endif -%}
       </div>
     </div>
-  </a>
+  </div>
 </li>
