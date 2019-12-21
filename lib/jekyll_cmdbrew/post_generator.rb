@@ -75,7 +75,8 @@ module Jekyll
         def assign_page_data(site, num_page)
           return unless Paginate::Pager.pagination_enabled?(site)
 
-          data['paginator'] = Paginate::Pager.new(site, num_page, site.posts)
+          posts = site.posts.docs.sort { |a, b| b <=> a }
+          data['paginator'] = Paginate::Pager.new(site, num_page, posts)
         end
 
       end
