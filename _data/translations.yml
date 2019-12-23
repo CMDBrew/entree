@@ -36,6 +36,7 @@ posts:
     related: Related Posts
     by: By
     via: in
+    read_time: "@time min read"
 tags:
   title: Tags
 categories:

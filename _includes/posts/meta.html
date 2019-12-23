@@ -1,10 +1,13 @@
 {%- assign i18n = site.data.translations -%}
 {%- assign post = include.post -%}
 {%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
+{%- assign read_time = post.content | strip_html | strip_newlines | reading_time -%}
 
 <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
   {{- post.date | date: date_format -}}
 </time>
+{{- " " -}}·{{- " " -}}
+<span>{{ i18n.posts.post.read_time | replace: '@time', read_time }}</span>
 {{- " " -}}·{{- " " -}}
 {%- if post.author.size > 0 -%}
   {{- i18n.posts.post.by | default: 'By' -}}{{- " " -}}
