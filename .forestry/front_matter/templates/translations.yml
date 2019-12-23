@@ -124,6 +124,9 @@ fields:
     - type: text
       name: via
       label: Via
+    - type: text
+      name: read_time
+      label: Read Time
 - type: field_group
   name: files
 ***REMOVED***
