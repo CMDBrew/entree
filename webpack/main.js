@@ -48,9 +48,13 @@ function lazyLoadImage() {
     // called after an element was successfully handled
     afterLoad: function(element) {
       if($(element).hasClass('spinner-wrap')) {
-        $(element).find('.loading-spinner').remove();
+        setTimeout(function() {
+          $(element).find('.loading-spinner').remove();
+        }, 200);
       } else {
-        $(element).parents('.spinner-wrap').find('.loading-spinner').remove();
+        setTimeout(function() {
+          $(element).parents('.spinner-wrap').find('.loading-spinner').remove();
+        }, 200);
       }
       $(element).addClass('loaded');
       $(element).css({ opacity: 1 });
