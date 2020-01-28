@@ -11,6 +11,7 @@ layout: default
 {%- assign files = site.files | where: 'list_on_index', true | sort: 'date' | reverse -%}
 {%- assign configs = site.data.configs -%}
 {%- assign photo_mode = configs.files.display | default: 'grid' -%}
+{%- assign tabs = site.data.home.tabs -%}
 
 {%- if page.banner.size > 0 -%}
   <div class="jumbotron jumbotron-fluid spinner-wrap" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741">
@@ -45,25 +46,37 @@ layout: default
               {%- assign categories_label = i18n.home.tabs.categories | default: 'Categories' -%}
               {%- assign pages_label = i18n.home.tabs.pages | default: 'Pages' -%}
 
-              {%- if site.posts.size > 0 -%}
-                {%- include tabs/link.html key="posts" content=posts_label -%}
-              {%- endif -%}
+              {%- for tab in tabs -%}
+                {%- if tab == 'posts' -%}
+                  {%- if site.posts.size > 0 -%}
+                    {%- include tabs/link.html key="posts" content=posts_label -%}
+                  {%- endif -%}
+                {%- endif -%}
 
-              {%- if site.files.size > 0 -%}
-                {%- include tabs/link.html key="files" content=files_label -%}
-              {%- endif -%}
+                {%- if tab == 'files' -%}
+                  {%- if site.files.size > 0 -%}
+                    {%- include tabs/link.html key="files" content=files_label -%}
+                  {%- endif -%}
+                {%- endif -%}
 
-              {%- if content_available.size > 0 -%}
-                {%- include tabs/link.html key="about" content=about_label -%}
-              {% endif -%}
+                {%- if tab == 'about' -%}
+                  {%- if content_available.size > 0 -%}
+                    {%- include tabs/link.html key="about" content=about_label -%}
+                  {% endif -%}
+                {% endif -%}
 
-              {%- if site.categories.size > 0 -%}
-                {%- include tabs/link.html key="categories" content=categories_label -%}
-              {%- endif -%}
+                {%- if tab == 'categories' -%}
+                  {%- if site.categories.size > 0 -%}
+                    {%- include tabs/link.html key="categories" content=categories_label -%}
+                  {%- endif -%}
+                {%- endif -%}
 
-              {%- if filtered_pages.size > 0 -%}
-                {%- include tabs/link.html key="pages" content=pages_label -%}
-              {%- endif -%}
+                {%- if tab == 'pages' -%}
+                  {%- if filtered_pages.size > 0 -%}
+                    {%- include tabs/link.html key="pages" content=pages_label -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
             </ul>
           </div>
         </div>
