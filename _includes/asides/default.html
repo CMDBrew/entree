@@ -28,7 +28,9 @@
               {{ "_self" }}
             {%- endif -%}
           {%- endcapture -%}
-          <a class="btn btn-primary btn-block btn-lg" rel="noopener" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
+          {%- if cta.url.size > 0 and cta.name.size > 0 -%}
+            <a class="btn btn-primary btn-block btn-lg" rel="noopener" href="{{ cta.url }}" target="{{ target }}" title="{{ cta.name | escape }}">{{ cta.name }}</a>
+          {%- endif -%}
         </div>
       {%- endif -%}
       {%- include asides/components/actions.html -%}
