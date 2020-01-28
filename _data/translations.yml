@@ -2,7 +2,7 @@
 home:
   tabs:
     posts: Posts
-    files: Files
+    files: Media
     about: About
     categories: Categories
     pages: Pages
@@ -18,7 +18,7 @@ home:
     others: Others
   links:
     posts: View All Posts
-    files: View All Files
+    files: View All Media
 aside:
   heading: Menu
   socials: On the web
@@ -44,7 +44,7 @@ categories:
 '404':
   button: Back to Home
 files:
-  title: Files
+  title: Media
   file:
     no_preview: No previews available
     actions:
