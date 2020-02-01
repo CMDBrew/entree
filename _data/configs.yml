@@ -1,3 +1,10 @@
 ---
 files:
-  display: list
+  display: grid
+home:
+  tabs:
+    - posts
+    - files
+    - about
+    - categories
+    - pages
