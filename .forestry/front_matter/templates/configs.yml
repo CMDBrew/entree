@@ -6,12 +6,22 @@ fields:
   name: home
   label: Home
   fields:
-  - type: list
-    name: tabs
-    label: Tabs
-    default: []
+  - name: tabs
+    type: list
     config:
       use_select: false
+      min:
+      max: '5'
+      source:
+        type: simple
+      options:
+    ***REMOVED***
+    ***REMOVED***
+      - about
+      - categories
+    ***REMOVED***
+    label: Tabs
+    description: 'Available options are: posts, files, about, categories, pages'
 - type: field_group
   name: files
 ***REMOVED***
