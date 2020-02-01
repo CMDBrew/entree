@@ -1,3 +1,10 @@
 ***REMOVED***
 files:
-  display: list
+  display: grid
+home:
+  tabs:
+  ***REMOVED***
+  ***REMOVED***
+    - about
+    - categories
+  ***REMOVED***
