@@ -1,6 +1,6 @@
 {%- assign i18n = site.data.translations -%}
 {%- assign post = include.post -%}
-{%- assign date_format = site.jekyll_cmdbrew.date_format | default: "%b %-d, %Y" -%}
+{%- assign date_format = site.entree.date_format | default: "%b %-d, %Y" -%}
 {%- assign read_time = post.content | strip_html | strip_newlines | reading_time -%}
 
 <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">

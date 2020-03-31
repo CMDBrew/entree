@@ -1,8 +1,8 @@
-***REMOVED***
+---
 layout: page
 list_on_index: true
 group: Demo
-***REMOVED***
+---
 
 - 📖Official Guide - [https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html](https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html)
 - 👨🏾‍💻Demo - [https://owlcarousel2.github.io/OwlCarousel2/demos/demos.html](https://owlcarousel2.github.io/OwlCarousel2/demos/demos.html)

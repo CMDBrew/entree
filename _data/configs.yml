@@ -1,10 +1,10 @@
-***REMOVED***
+---
 files:
   display: grid
 home:
   tabs:
-  ***REMOVED***
-  ***REMOVED***
+    - posts
+    - files
     - about
     - categories
-  ***REMOVED***
+    - pages

@@ -1,6 +1,6 @@
-***REMOVED***
+---
 layout: null
-***REMOVED***
+---
 {%- assign configs = site.social_feeds.twitter -%}
 
 <?xml version="1.0" encoding="UTF-8"?>

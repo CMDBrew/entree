@@ -1,4 +1,4 @@
-***REMOVED***
+---
 label: Head Code
 hide_body: true
 fields:
@@ -10,7 +10,7 @@ fields:
     wysiwyg: false
     schema:
       format: ''
-***REMOVED***
+  label: Head Code
   description: Additional Javascripts or CSS.
 pages:
 - _data/code.yml

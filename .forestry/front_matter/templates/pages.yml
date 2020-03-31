@@ -1,4 +1,4 @@
-***REMOVED***
+---
 label: Pages
 hide_body: false
 fields:
@@ -9,7 +9,7 @@ fields:
   config:
     required: false
     options:
-  ***REMOVED***
+    - pages
     - index
     source:
       type: simple
@@ -68,11 +68,11 @@ fields:
   config:
     required: false
     options:
-  ***REMOVED***
-  ***REMOVED***
+    - posts
+    - files
     - about
     - categories
-  ***REMOVED***
+    - pages
     source:
       type: simple
       section: 
