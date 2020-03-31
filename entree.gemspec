@@ -2,14 +2,14 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jekyll_cmdbrew/version'
+require 'entree/version'
 
 Gem::Specification.new do |spec|
-  spec.name     = 'jekyll_cmdbrew'
+  spec.name     = 'entree'
   spec.version  = Jekyll::CMDBrew::VERSION
   spec.authors  = ['Nelson Lee']
   spec.email    = ['nelson@cmdbrew.com']
-  spec.summary  = 'CMDBrew headless site theme'
+  spec.summary  = 'enTree Jekyll theme'
   spec.homepage = 'https://www.cmdbrew.com'
   spec.license  = 'CMDBrew Studio Inc.'
 

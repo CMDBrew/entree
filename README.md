@@ -4,8 +4,8 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-4.3.1-563D7C)](https://getbootstrap.com/)
 
 ## Getting started
-1. Add this line to your Jekyll site's `Gemfile` `gem "jekyll_cmdbrew"`
-1. Add this line to your Jekyll site's `_config.yml` `theme: jekyll_cmdbrew`
+1. Add this line to your Jekyll site's `Gemfile` `gem "entree"`
+1. Add this line to your Jekyll site's `_config.yml` `theme: entree`
 1. Copy the plugins in [_config.yml](_config.yml) to your Jekyll site's `_config.yml`.
 1. Add bundle config for private gems `bundle config --local GITHUB__COM {GITHUB_AUTH_KEY}`. You can find this key from heroku pipeline under `BUNDLE_GITHUB__COM`
 1. Run `bundle install`
@@ -28,7 +28,7 @@ For references see https://docs.netlify.com/large-media/setup/
 ### Customize Styles
 1. enable custom style sheets by adding the following in your [_config.yml](_config.yml)
     ```yaml
-    jekyll_cmdbrew:
+    entree:
       sass:
         custom_vars: 'custom_vars'
         custom_styles:
@@ -66,9 +66,9 @@ For references see https://docs.netlify.com/large-media/setup/
 1. Copy files in [social_feeds] to your project. For examples to enable it in your post see [2016-05-20-my-example-post.md](_posts/2016-05-20-my-example-post.md).
 
 ### Cookies Policy
-1. Enable Cookies Policy by setting `cookies_policy: true` inside `jekyll_cmdbrew` in [_config.yml](_config.yml)
+1. Enable Cookies Policy by setting `cookies_policy: true` inside `entree` in [_config.yml](_config.yml)
     ```yaml
-    jekyll_cmdbrew:
+    entree:
       cookies_policy: true
     ```
 

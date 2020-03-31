@@ -12,8 +12,8 @@ description: The requested page could not be found.
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
   <body class="layout-error">
-    {% if site.jekyll_cmdbrew.snippets.header %}
-      {% include {{ site.jekyll_cmdbrew.snippets.header | prepend: 'snippets/' }} %}
+    {% if site.entree.snippets.header %}
+      {% include {{ site.entree.snippets.header | prepend: 'snippets/' }} %}
     {% endif %}
 
     {%- include notice/alert.html -%}
