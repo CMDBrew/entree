@@ -1,10 +1,10 @@
-***REMOVED***
+---
 layout: post
 title: "This post demonstrates post content styles"
 categories: junk
 author: ''
 banner: https://placeimg.com/2244/741/any
-***REMOVED***
+---
 
 ![alt text](https://placeimg.com/2244/741/any)
 
@@ -95,7 +95,7 @@ Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet b
 ### Tables
 
 Title 1               | Title 2               | Title 3               | Title 4
-***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED*** | ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED*** | ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED*** | ***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***
+--------------------- | --------------------- | --------------------- | ---------------------
 lorem                 | lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
@@ -103,7 +103,7 @@ lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ip
 
 
 Title 1 | Title 2 | Title 3 | Title 4
-***REMOVED*** | ***REMOVED*** | ***REMOVED*** | ***REMOVED***
+--- | --- | --- | ---
 lorem | lorem ipsum | lorem ipsum dolor | lorem ipsum dolor sit
 lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur | lorem ipsum dolor sit amet | lorem ipsum dolor sit
 lorem ipsum dolor | lorem ipsum | lorem | lorem ipsum

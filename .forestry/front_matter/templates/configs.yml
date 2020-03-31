@@ -1,4 +1,4 @@
-***REMOVED***
+---
 label: Configs
 hide_body: true
 fields:
@@ -15,16 +15,16 @@ fields:
       source:
         type: simple
       options:
-    ***REMOVED***
-    ***REMOVED***
+      - posts
+      - files
       - about
       - categories
-    ***REMOVED***
+      - pages
     label: Tabs
     description: 'Available options are: posts, files, about, categories, pages'
 - type: field_group
   name: files
-***REMOVED***
+  label: Files
   fields:
   - type: select
     name: display

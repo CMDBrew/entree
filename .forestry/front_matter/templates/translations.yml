@@ -1,4 +1,4 @@
-***REMOVED***
+---
 label: Translations
 hide_body: true
 fields:
@@ -11,7 +11,7 @@ fields:
     label: Menu
 - type: field_group
   name: aside
-***REMOVED***
+  label: Aside
   fields:
   - type: text
     name: heading
@@ -32,10 +32,10 @@ fields:
     fields:
     - type: text
       name: posts
-    ***REMOVED***
+      label: Posts
     - type: text
       name: files
-    ***REMOVED***
+      label: Files
     - type: text
       name: about
       label: About
@@ -44,10 +44,10 @@ fields:
       label: Categories
     - type: text
       name: pages
-    ***REMOVED***
+      label: Pages
   - type: field_group
     name: posts
-  ***REMOVED***
+    label: Posts
     fields:
     - type: field_group
       name: blank
@@ -65,7 +65,7 @@ fields:
           wysiwyg: false
   - type: field_group
     name: files
-  ***REMOVED***
+    label: Files
     fields:
     - type: field_group
       name: blank
@@ -83,7 +83,7 @@ fields:
           wysiwyg: false
   - type: field_group
     name: pages
-  ***REMOVED***
+    label: Pages
     fields:
     - type: text
       name: others
@@ -94,10 +94,10 @@ fields:
     fields:
     - type: text
       name: posts
-    ***REMOVED***
+      label: Posts
 - type: field_group
   name: posts
-***REMOVED***
+  label: Posts
   fields:
   - type: text
     name: title
@@ -129,7 +129,7 @@ fields:
       label: Read Time
 - type: field_group
   name: files
-***REMOVED***
+  label: Files
   fields:
   - type: text
     name: title
@@ -146,7 +146,7 @@ fields:
       label: Comments
     - type: field_group
       name: actions
-    ***REMOVED***
+      label: Actions
       fields:
       - type: text
         name: view

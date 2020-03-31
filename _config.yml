@@ -33,9 +33,9 @@ timezone: 'Pacific Time (US & Canada)'
 google_analytics: null
 
 # Build settings
-theme: jekyll_cmdbrew
+theme: entree
 plugins:
-  - jekyll_cmdbrew
+  - entree
   - jekyll-environment-variables
   - jekyll-feed
   - jekyll-paginate
@@ -66,8 +66,8 @@ sass:
     - _sass
     - node_modules
 
-# jekyll_cmdbrew
-jekyll_cmdbrew:
+# entree
+entree:
   cookies_policy: true
   file_preview_whitelist:
     - jpg

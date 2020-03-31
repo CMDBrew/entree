@@ -1,6 +1,6 @@
-***REMOVED***
+---
 layout: none
-***REMOVED***
+---
 
 {%- assign pwa = site.data.notice.pwa -%}
 

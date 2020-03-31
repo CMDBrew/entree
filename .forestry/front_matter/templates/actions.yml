@@ -1,4 +1,4 @@
-***REMOVED***
+---
 label: Actions
 hide_body: true
 fields:
@@ -11,7 +11,7 @@ fields:
     label: Title
   - type: field_group_list
     name: actions
-  ***REMOVED***
+    label: Actions
     fields:
     - type: text
       name: name

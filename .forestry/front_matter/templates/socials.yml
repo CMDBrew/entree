@@ -1,10 +1,10 @@
-***REMOVED***
+---
 label: Social Links
 hide_body: true
 fields:
 - type: field_group_list
   name: links
-***REMOVED***
+  label: Social Links
   fields:
   - type: text
     name: name
