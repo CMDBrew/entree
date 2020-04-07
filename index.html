@@ -1,15 +1,174 @@
 ---
-layout: home
-brief: |-
-  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-  vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-  lacinia
-avatar: https://placeimg.com/284/284/any
-banner: https://placeimg.com/2244/1100/any
-pinned_post: _posts/2016-05-20-this-post-demonstrates-post-content-styles.md
-default_tab: files
-list_on_index: true
-group: ''
+layout: application
+module: index
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{ site.title }}</h1>
+    <p class="lead">{{ site.description }}</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>
+
+<section class="section section-info">
+  <div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">Who we are</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="false">FAQs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+      </li>
+    </ul>
+    <div class="tab-content mt-4" id="myTabContent">
+      <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+        <div class="card">
+          <div class="card-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h4 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Which plan should I choose?
+              </h4>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h4 class="mb-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Can I use enTree for free?
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h4 class="mb-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                What supports do you provide?
+              </h4>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="row">
+          <div class="col-lg-7">
+            <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          </div>
+
+          <div class="col-lg-5">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <h5>Telephone</h5>
+                <a href="#">778.888.8888</a>
+              </li>
+              <li class="list-group-item">
+                <h5>Email</h5>
+                <a href="#">hello@world.com</a>
+              </li>
+              <li class="list-group-item">
+                <h5>Address</h5>
+                <a href="#">
+                  301-3007 Glen Dr #146,
+                  <br>
+                  Coquitlam, BC V3B 0L8
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-posts">
+  <div class="container">
+    <div class="section-title heading">
+      <h1>Our Latest Updates</h1>
+      <p class="lead">Our latest web design tips, tricks, insights, and resources, hot off the presses.</p>
+    </div>
+
+    <div class="section-body">
+      <div class="owl-carousel owl-theme"
+           data-js="carousel"
+           data-owl-options='{ "responsive": { "0": { "items": 1 }, "768": { "items": 2 } }, "loop": false, "autoHeight": false }'>
+        {%- assign _posts = site.posts | where: 'hidden', false -%}
+        {%- for post in _posts limit: 5 -%}
+          {%- include posts/post.html post=post css_class="featured" -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-post-categories">
+  <div class="container">
+    <div class="section-title heading">
+      <h1>Popular</h1>
+    </div>
+
+    <div class="section-body categories">
+      {%- for category in site.categories limit: 10 -%}
+        <div class="category category-{{ category[0] | slugify }}">
+          <a href="/{{ site.entree.generators.posts.categories.dir}}/{{ category[0] | slugify }}">
+            {{- category[0] -}}
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="section-body tags">
+      {%- for tag in site.tags limit: 10 -%}
+        <div class="tag tag-{{ tag[0] | slugify }}">
+          <a href="/{{ site.entree.generators.posts.tags.dir}}/{{ tag[0] | slugify }}">
+            {{- tag[0] -}}
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<section class="section section-photos">
+  <div class="container">
+    <div class="section-title heading">
+      <h1>Behind the Scene</h1>
+      <p class="lead">Our latest web design tips, tricks, insights, and resources, hot off the presses.</p>
+    </div>
+
+    <div class="section-body">
+      <div class="photos">
+        {%- assign _photos = site.photos | where: 'hidden', false -%}
+        {%- for photo in _photos limit: 6 -%}
+          {%- include photos/photo.html photo=photo css_class="featured" -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>

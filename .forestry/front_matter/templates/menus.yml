@@ -1,0 +1,470 @@
+---
+label: Menus
+hide_body: true
+fields:
+- type: field_group
+  name: header
+  label: Header
+  fields:
+  - type: field_group
+    name: logo
+    label: Logo Menu
+    description: The dropdown menu that appears when clicking on the logo.
+    fields:
+    - type: boolean
+      name: submenu_enabled
+      label: Enable Submenu
+      default: false
+    - type: field_group_list
+      name: submenu
+      label: Submenu
+      showOnly:
+        field: submenu_enabled
+        value: true
+      fields:
+      - type: textarea
+        name: headnote
+        label: Headnote
+        config:
+          required: false
+          wysiwyg: false
+          schema:
+            format: html
+      - type: field_group_list
+        name: groups
+        label: Groups
+        fields:
+        - type: text
+          name: title
+          label: Title
+        - type: field_group_list
+          name: items
+          label: Items
+          fields:
+          - type: text
+            name: title
+            label: Title
+          - type: text
+            name: css_class
+            label: CSS Class
+          - type: text
+            name: description
+            label: Description
+          - type: text
+            name: prefix
+            label: Prefix
+          - type: text
+            name: suffix
+            label: Suffix
+          - type: text
+            name: url
+            label: URL
+          - type: boolean
+            name: new_tab
+            label: Open New Tab
+            default: false
+          - type: field_group
+            name: tracker
+            label: Trackers
+            fields:
+            - type: select
+              name: new_release
+              label: New Release
+              description: Add indicators to contents created within the past 3 days.
+              default: []
+              config:
+                required: false
+                options:
+                - posts
+                - photos
+                source:
+                  type: simple
+                  section:
+                  file:
+                  path:
+            - type: select
+              name: current
+              label: Current Page
+              default: []
+              config:
+                required: false
+                options:
+                - index
+                - posts
+                - photos
+                - pages
+                source:
+                  type: simple
+                  section:
+                  file:
+                  path:
+      - type: textarea
+        name: footnote
+        label: Footnote
+        config:
+          required: false
+          wysiwyg: false
+          schema:
+            format: html
+  - type: field_group_list
+    name: left
+    label: Left Menu
+    fields:
+    - type: text
+      name: title
+      label: Title
+    - type: text
+      name: css_class
+      label: CSS Class
+    - type: text
+      name: prefix
+      label: Prefix
+    - type: text
+      name: suffix
+      label: Suffix
+    - type: boolean
+      name: submenu_enabled
+      label: Enable Submenu
+      default: false
+    - type: text
+      name: url
+      label: URL
+      showOnly:
+        field: submenu_enabled
+        value: false
+    - type: boolean
+      name: new_tab
+      label: Open New Tab
+      default: false
+      showOnly:
+        field: submenu_enabled
+        value: false
+    - type: field_group_list
+      name: submenu
+      label: Submenu
+      showOnly:
+        field: submenu_enabled
+        value: true
+      fields:
+      - type: textarea
+        name: headnote
+        label: Headnote
+        config:
+          required: false
+          wysiwyg: false
+          schema:
+            format: html
+      - type: field_group_list
+        name: groups
+        label: Groups
+        fields:
+        - type: text
+          name: title
+          label: Title
+        - type: field_group_list
+          name: items
+          label: Items
+          fields:
+          - type: text
+            name: title
+            label: Title
+          - type: text
+            name: css_class
+            label: CSS Class
+          - type: text
+            name: description
+            label: Description
+          - type: text
+            name: prefix
+            label: Prefix
+          - type: text
+            name: suffix
+            label: Suffix
+          - type: text
+            name: url
+            label: URL
+          - type: boolean
+            name: new_tab
+            label: Open New Tab
+            default: false
+          - type: field_group
+            name: tracker
+            label: Trackers
+            fields:
+            - type: select
+              name: new_release
+              label: New Release
+              description: Add indicators to contents created within the past 3 days.
+              default: []
+              config:
+                required: false
+                options:
+                - posts
+                - photos
+                source:
+                  type: simple
+                  section:
+                  file:
+                  path:
+            - type: select
+              name: current
+              label: Current Page
+              default: []
+              config:
+                required: false
+                options:
+                - index
+                - posts
+                - photos
+                - pages
+                source:
+                  type: simple
+                  section:
+                  file:
+                  path:
+      - type: textarea
+        name: footnote
+        label: Footnote
+        config:
+          required: false
+          wysiwyg: false
+          schema:
+            format: html
+    - type: field_group
+      name: tracker
+      label: Trackers
+      fields:
+      - type: select
+        name: new_release
+        label: New Release
+        description: Add indicators to contents created within the past 3 days.
+        default: []
+        config:
+          required: false
+          options:
+          - posts
+          - photos
+          source:
+            type: simple
+            section:
+            file:
+            path:
+      - type: select
+        name: current
+        label: Current Page
+        default: []
+        config:
+          required: false
+          options:
+          - index
+          - posts
+          - photos
+          - pages
+          source:
+            type: simple
+            section:
+            file:
+            path:
+  - type: field_group_list
+    name: right
+    label: Right Menu
+    fields:
+    - type: text
+      name: title
+      label: Title
+    - type: text
+      name: css_class
+      label: CSS Class
+    - type: text
+      name: prefix
+      label: Prefix
+    - type: text
+      name: suffix
+      label: Suffix
+    - type: boolean
+      name: submenu_enabled
+      label: Enable Submenu
+      default: false
+    - type: text
+      name: url
+      label: URL
+      showOnly:
+        field: submenu_enabled
+        value: false
+    - type: boolean
+      name: new_tab
+      label: Open New Tab
+      default: false
+      showOnly:
+        field: submenu_enabled
+        value: false
+    - type: field_group_list
+      name: submenu
+      label: Submenu
+      showOnly:
+        field: submenu_enabled
+        value: true
+      fields:
+      - type: textarea
+        name: headnote
+        label: Headnote
+        config:
+          required: false
+          wysiwyg: false
+          schema:
+            format: html
+      - type: field_group_list
+        name: groups
+        label: Groups
+        fields:
+        - type: text
+          name: title
+          label: Title
+        - type: field_group_list
+          name: items
+          label: Items
+          fields:
+          - type: text
+            name: title
+            label: Title
+          - type: text
+            name: css_class
+            label: CSS Class
+          - type: text
+            name: description
+            label: Description
+          - type: text
+            name: prefix
+            label: Prefix
+          - type: text
+            name: suffix
+            label: Suffix
+          - type: text
+            name: url
+            label: URL
+          - type: boolean
+            name: new_tab
+            label: Open New Tab
+            default: false
+          - type: field_group
+            name: tracker
+            label: Trackers
+            fields:
+            - type: select
+              name: new_release
+              label: New Release
+              description: Add indicators to contents created within the past 3 days.
+              default: []
+              config:
+                required: false
+                options:
+                - posts
+                - photos
+                source:
+                  type: simple
+                  section:
+                  file:
+                  path:
+            - type: select
+              name: current
+              label: Current Page
+              default: []
+              config:
+                required: false
+                options:
+                - index
+                - posts
+                - photos
+                - pages
+                source:
+                  type: simple
+                  section:
+                  file:
+                  path:
+      - type: textarea
+        name: footnote
+        label: Footnote
+        config:
+          required: false
+          wysiwyg: false
+          schema:
+            format: html
+    - type: field_group
+      name: tracker
+      label: Trackers
+      fields:
+      - type: select
+        name: new_release
+        label: New Release
+        description: Add indicators to contents created within the past 3 days.
+        default: []
+        config:
+          required: false
+          options:
+          - posts
+          - photos
+          source:
+            type: simple
+            section:
+            file:
+            path:
+      - type: select
+        name: current
+        label: Current Page
+        default: []
+        config:
+          required: false
+          options:
+          - index
+          - posts
+          - photos
+          - pages
+          source:
+            type: simple
+            section:
+            file:
+            path:
+- type: field_group
+  name: footer
+  label: Footer
+  fields:
+  - type: field_group_list
+    name: groups
+    label: Groups
+    fields:
+    - type: text
+      name: title
+      label: Title
+    - type: field_group_list
+      name: items
+      label: Items
+      fields:
+      - type: text
+        name: title
+        label: Title
+      - type: text
+        name: css_class
+        label: CSS Class
+      - type: text
+        name: prefix
+        label: Prefix
+      - type: text
+        name: suffix
+        label: Suffix
+      - type: text
+        name: url
+        label: URL
+      - type: boolean
+        name: new_tab
+        label: Open New Tab
+        default: false
+  - type: textarea
+    name: footnote
+    label: Footnote
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: html
+pages:
+- _data/menus.yml

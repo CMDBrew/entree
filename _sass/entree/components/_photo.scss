@@ -1,0 +1,40 @@
+.photos {
+  @include make-row;
+
+  .photo {
+    @include make-col-ready;
+    display: block;
+    float: left;
+    width: 100%;
+    padding: $photo-gutter;
+
+    @each $_media, $_cols in $photo-col-sizes {
+      @include media-breakpoint-up($_media) {
+        @include make-col($_cols);
+      }
+    }
+  }
+}
+
+.photo {
+  position: relative;
+
+  .item-title {
+    @extend #{$photo-item-title-class} !optional;
+    margin-bottom: 0;
+  }
+
+  .item-content { padding: map-get($spacers, 2) 0; }
+
+  .item-img {
+    @extend %background-cover;
+    position: relative;
+    border-radius: $photo-img-border-radius;
+
+    &::before {
+      display: block;
+      padding-top: $photo-img-ratio;
+      content: '';
+    }
+  }
+}

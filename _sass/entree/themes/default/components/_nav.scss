@@ -1,0 +1,33 @@
+@mixin tab-underline {
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: $nav-tabs-border-color;
+    content: '';
+  }
+}
+
+.nav-tabs {
+  position: relative;
+
+  .nav-link {
+    position: relative;
+    padding: map-get($spacers, 3) map-get($spacers, 4);
+    margin-bottom: 0;
+    font-size: $h4-font-size;
+    font-weight: $font-weight-bold;
+    color: $secondary;
+    background: transparent;
+    border: 0;
+
+    &:focus { outline: 0; }
+    &.active { @include tab-underline; }
+  }
+
+  .nav-item {
+    margin-bottom: 0;
+  }
+}

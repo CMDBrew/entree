@@ -1,0 +1,44 @@
+---
+layout: application
+module: pages
+---
+
+{%- assign groups = page.paginator.posts | group_by_exp: "item", "item.title | truncate: 1, ''" -%}
+
+{%- capture _content -%}
+  {%- assign _pinned_pages = page.paginator.posts | where: 'pinned', true -%}
+
+  {%- if _pinned_pages.size > 0 -%}
+    <div class="section section-pinned">
+      <h2 class="section-title">{{ site.data.locales.layouts.index.pinned | default: 'Pinned' | replace: '@title', site.data.locales[page.module].title  }}</h2>
+      <div class="section-body pages">
+        {%- for page in _pinned_pages -%}
+          {%- include pages/pinned.html page=page -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="section section-collection">
+    <h2 class="section-title">{{ site.data.locales.layouts.index.all | default: 'All' | replace: '@title', site.data.locales[page.module].title  }}</h2>
+    <div class="section-body pages">
+      {%- for group in groups -%}
+        <div class="group">
+          <h2 class="group-title">{{ group.name }}</h2>
+          <div class="items">
+            {%- for page in group.items -%}
+              {%- include pages/page.html page=page -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+  {%- include pagination.html path=page.dir -%}
+{%- endcapture -%}
+
+{%- capture _aside -%}
+  {%- include pages/aside.html translations=site.data.locales.pages -%}
+{%- endcapture -%}
+
+{%- include layouts/index.html content=_content aside=_aside translations=site.data.locales.pages -%}

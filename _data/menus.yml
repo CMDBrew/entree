@@ -1,0 +1,157 @@
+---
+header:
+  logo:
+    submenu_enabled: false
+    submenu:
+      headnote: null
+      groups: null
+      footnote: null
+  left:
+    - url: /
+      title: Home
+      new_tab: false
+      css_class: null
+      tracker:
+        new_release: null
+        current: index
+      prefix: null
+      suffix: null
+      submenu_enabled: false
+      submenu: null
+    - url: /posts
+      title: Posts
+      new_tab: false
+      css_class: null
+      tracker:
+        new_release: posts
+        current: posts
+      prefix: null
+      suffix: null
+      submenu_enabled: false
+      submenu: null
+    - url: /pages
+      title: Pages
+      new_tab: false
+      css_class: null
+      tracker:
+        new_release: null
+        current: pages
+      prefix: null
+      suffix: null
+      submenu_enabled: false
+      submenu: null
+    - url: /photos
+      title: Photos
+      new_tab: false
+      css_class: null
+      tracker:
+        new_release: photos
+        current: photos
+      prefix: null
+      suffix: null
+      submenu_enabled: false
+      submenu: null
+  right:
+    - url: /
+      title: Contact
+      new_tab: false
+      css_class: null
+      prefix: ''
+      suffix: ''
+      submenu_enabled: false
+      submenu: null
+    - url: /
+      title: Get started
+      new_tab: false
+      css_class: 'btn btn-primary'
+      prefix: ''
+      suffix: ''
+      submenu_enabled: false
+      submenu:
+        groups:
+          - title: Test
+            items:
+            - url: '/'
+              title: Test Link
+              new_tab: true
+              css_class: null
+              tracker:
+                new_release: null
+                current: pages
+              prefix: null
+              suffix: null
+        footnote: 123
+
+footer:
+  groups:
+    - title: Company
+      items:
+        - title: About
+          url: /
+          new_tab: false
+          css_class: ''
+        - title: Jobs
+          url: /
+          new_tab: false
+          css_class: ''
+        - title: Sitemap
+          url: /
+          new_tab: false
+          css_class: ''
+        - title: Become an Affliate
+          url: /
+          new_tab: false
+          css_class: ''
+    - title: Terms & Policies
+      items:
+        - title: Terms of service
+          url: /
+          new_tab: false
+          css_class: ''
+          prefix: ''
+          suffix: ''
+        - title: Privacy Policy
+          url: /
+          new_tab: false
+          css_class: ''
+          prefix: ''
+          suffix: ''
+        - title: Cookie Policy
+          url: /
+          new_tab: false
+          css_class: ''
+          prefix: ''
+          suffix: ''
+        - title: Cookie Preferences
+          url: /
+          new_tab: false
+          css_class: ''
+          prefix: ''
+          suffix: ''
+    - title: Follow Us
+      items:
+        - title: Facebook
+          url: https://www.facebook.com
+          new_tab: true
+          css_class: ''
+          prefix: <i class="fab fa-facebook-f"></i>
+          suffix: ''
+        - title: Twitter
+          url: https://www.twitter.com
+          new_tab: true
+          css_class: ''
+          prefix: <i class="fab fa-twitter"></i>
+          suffix: ''
+        - title: Instagram
+          url: https://www.instagram.com
+          new_tab: true
+          css_class: ''
+          prefix: <i class="fab fa-instagram"></i>
+          suffix: ''
+        - title: Youtube
+          url: https://www.youtube.com
+          new_tab: true
+          css_class: ''
+          prefix: <i class="fab fa-youtube"></i>
+          suffix: ''
+  footnote: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua

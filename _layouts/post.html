@@ -1,111 +1,19 @@
-{%- assign i18n = site.data.translations -%}
-{%- assign back_url = site.post_dir | default: 'posts' -%}
+---
+layout: application
+---
 
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {%- include head.html -%}
-  <body class="layout-default">
-    {%- if site.entree.snippets.header -%}
-      {% include {{ site.entree.snippets.header | prepend: 'snippets/' }} %}
-    {%- endif -%}
+{%- capture _meta -%}
+  {%- include posts/meta.html post=page -%}
+{%- endcapture -%}
 
-    {%- include notice/alert.html -%}
-    <div id="wrapper" class="order-1">
-      <main id="main" class="h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-        {%- include headers/default.html breadcrumb_collection='Posts' breadcrumb_key='title' back_url=back_url -%}
+{%- capture _related -%}
+  {%- for post in site.related_posts limit: 3 -%}
+    {%- include posts/related.html post=post -%}
+  {%- endfor -%}
+{%- endcapture -%}
 
-        <div id="content" class="overflow-y pb-5">
-          {%-if page.custom_code.size > 0 -%}
-            {{ page.custom_code }}
-          {%- endif -%}
-
-          <!-- Content (START) -->
-          <div class="px-offset my-4">
-            <div class="container">
-              <header class="post-header">
-                <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-                <p class="post-meta text-secondary">
-                  {%- include posts/meta.html post=page -%}
-                </p>
-              </header>
-            </div>
-          </div>
-
-          {%- if page.banner.size > 0 -%}
-            <div class="jumbotron jumbotron-fluid mb-4 spinner-wrap" data-js="lazy" data-src="{{ page.banner | relative_url }}?nf_resize=fit&w=2244&h=741">
-              {% include spinner.html %}
-            </div>
-          {%- endif -%}
-
-          <div class="px-offset">
-            <article class="post my-3">
-              <div class="container">
-                <div class="post-content e-content" itemprop="articleBody">
-                  <div class="content-html">{{ content }}</div>
-                </div>
-
-                <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-              </div>
-            </article>
-
-            {%- if page.categories.size > 0 -%}
-              <div class="container py-3 border-top">
-                <h6>{{ i18n.posts.post.categories | default: 'Categories' }}</h6>
-                <ul class="list-inline">
-                  {%- for category in page.categories -%}
-                    <li class="list-inline-item mb-2 mr-2">
-                      <a class="btn btn-sm btn-outline-primary" href="/categories/{{ category | slugify }}">{{ category }}</a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            {%- endif -%}
-
-            {%- if page.tags.size > 0 -%}
-              <div class="container py-3 border-top">
-                <h6>{{ i18n.posts.post.tags | default: 'Tags' }}</h6>
-                <ul class="list-inline">
-                  {%- for tag in page.tags -%}
-                    <li class="list-inline-item mb-2 mr-2">
-                      <a class="btn btn-sm btn-outline-primary" href="/tags/{{ tag | slugify }}">{{ tag }}</a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            {%- endif -%}
-
-            {%- if site.disqus.shortname -%}
-              <div class="container py-3 border-top">
-                {%- include disqus_comments.html -%}
-              </div>
-            {%- endif -%}
-          </div>
-
-          {%- if site.related_posts.size > 0 -%}
-            <div class="divider"></div>
-            <div class="px-offset">
-              <div class="container pt-3">
-                <h6>{{ i18n.posts.post.related | default: 'Related Posts' }}</h6>
-              </div>
-
-              <ul class="list-group list-group-flush">
-                {%- for post in site.related_posts limit: 3 -%}
-                  {% include posts/post.html post=post %}
-                {%- endfor -%}
-              </ul>
-            </div>
-          {%- endif -%}
-          <!-- Content (END) -->
-
-        </div>
-      </main>
-      {%- include asides/default.html -%}
-    </div>
-
-    {%- if site.entree.snippets.footer -%}
-      {% include {{ site.entree.snippets.footer | prepend: 'snippets/' }} %}
-    {%- endif -%}
-    {%- include scripts/cookies_alert.html -%}
-  </body>
-</html>
-
+{%- include layouts/show.html
+            title=page.title banner=page.banner content=content meta=_meta
+            category=page.category categories_dir=site.entree.generators.posts.categories.dir
+            tags=page.tags tags_dir=site.entree.generators.posts.tags.dir
+            related=_related -%}

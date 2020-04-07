@@ -1,0 +1,9 @@
+#entree-badge {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: map-get($spacers, 1) map-get($spacers, 3);
+  font-size: $entree-font-size;
+  color: color-yiq($entree-bg);
+  background: $entree-bg;
+}

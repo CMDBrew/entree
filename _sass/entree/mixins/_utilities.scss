@@ -1,9 +1,0 @@
-@mixin transition($value...) {
-  transition: #{$value};
-  -webkit-transition: #{$value};
-}
-
-@mixin transform($value...) {
-  transform: #{$value};
-  -webkit-transform: #{$value};
-}

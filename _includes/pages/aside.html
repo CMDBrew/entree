@@ -1,0 +1,9 @@
+{%- assign _pages = site.pages | where: 'hidden', false -%}
+{%- assign _categories = _pages | map: 'category' | compact | uniq | sort -%}
+{%- assign _tags = _pages | map: 'tags' | compact | uniq | sort -%}
+
+{%- include aside.html
+            categories=_categories categories_dir=site.entree.generators.pages.categories.dir
+            tags=_tags tags_dir=site.entree.generators.pages.tags.dir
+            collection_dir=site.entree.generators.pages.index.dir
+            translations=include.translations -%}

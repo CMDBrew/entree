@@ -17,45 +17,28 @@ sections:
   templates:
   - posts
 - type: directory
-  path: _files
-  label: Files
+  path: _photos
+  label: Photos
   create: documents
   match: "**/*"
   templates:
-  - files
+  - photos
 - type: heading
-  label: Aside
+  label: Components
 - type: document
-  path: _data/aside/general.yml
-  label: General
+  path: _data/menus.yml
+  label: Menus
 - type: document
-  path: _data/aside/actions.yml
-  label: Actions
-- type: document
-  path: _data/aside/socials.yml
-  label: Social Links
+  path: _data/notices.yml
+  label: Notices
 - type: heading
-  label: Notice
+  label: Settings
 - type: document
-  path: _data/notice/alert.yml
-  label: Alert Message
-- type: document
-  path: _data/notice/pwa.yml
-  label: Progressive Web App
-- type: document
-  path: _data/notice/smartbanner.yml
-  label: Smart App Banner
-- type: heading
-  label: Configs
+  path: _data/locales.yml
+  label: Locales
 - type: document
   path: _data/configs.yml
   label: General
-- type: document
-  path: _data/code.yml
-  label: Head Code
-- type: document
-  path: _data/translations.yml
-  label: Translations
 upload_dir: uploads
 public_path: uploads
 front_matter_path: ''

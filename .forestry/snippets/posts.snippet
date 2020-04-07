@@ -4,7 +4,7 @@
 {%- assign limit = 👉3 -%}
 {%- assign posts = site.posts | where_exp: 'item', "👉item.tags contains '👉tag'" -%}
 
-{%- if posts.size > 0 -%}
+{%- if posts.doc.size > 0 -%}
 
   <!-- Option 1 - Using included template (START) -->
   <ul class="list-group list-group-flush">

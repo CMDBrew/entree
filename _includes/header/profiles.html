@@ -1,0 +1,12 @@
+{%- if include.items.submenu_enabled -%}
+  <div class="dropdown no-caret">
+    <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown">
+      <img src="{{ site.entree.logo | relative_url }}" class="logo d-inline-block" alt="logo"/>
+    </a>
+    {%- include header/dropdown_menu.html items=include.items -%}
+  </div>
+{%- else -%}
+  <a href="/" class="navbar-brand">
+    <img src="{{ site.entree.logo | relative_url }}" class="logo d-inline-block" alt="logo"/>
+  </a>
+{%- endif -%}

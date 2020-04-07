@@ -1,0 +1,54 @@
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  {%- if include.submenu.headnote.size > 0 -%}
+    <div class="group headnote">
+      <div>{{- include.submenu.headnote -}}</div>
+    </div>
+  {%- endif -%}
+
+  {%- for group in include.submenu.groups -%}
+    <div class="group">
+      {%- if group.title.size > 0 -%}
+        <h5 class="group-title">{{ group.title }}</h5>
+      {%- endif -%}
+
+      {%- for item in group.items -%}
+        {%- capture new_release_tracker -%}
+          {%- if item.tracker.new_release == 'posts' -%}
+            data-js="new-release" data-date="{{ nav_posts.first.date | date_to_xmlschema }}"
+          {%- elsif item.tracker.new_release == 'photos' -%}
+            data-js="new-release" data-date="{{ nav_photos.first.date | date_to_xmlschema }}"
+          {%- endif -%}
+        {%- endcapture -%}
+
+        <a class="dropdown-item"
+           href="{{ item.url }}"
+           target="{{ item.new_tab | matches: true, '_blank', '_self' }}" {{ new_release_tracker }}>
+          <div class="{{ item.css_class | prepend: 'media item ' | strip }}">
+            {%- if item.prefix.size > 0 -%}
+              <div class="prefix">
+                {{- item.prefix }}
+              </div>
+            {%- endif -%}
+            <div class="media-body">
+              <h6 class="title">{{ item.title }}</h6>
+              {%- if item.description.size > 0 -%}
+                <div class="desc">{{ item.description }}</div>
+              {%- endif -%}
+            </div>
+            {%- if item.suffix.size > 0 -%}
+              <div class="suffix">
+                {{- item.suffix }}
+              </div>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  {%- endfor -%}
+
+  {%- if include.submenu.footnote.size > 0 -%}
+    <div class="group footnote">
+      <div>{{- include.submenu.footnote -}}</div>
+    </div>
+  {%- endif -%}
+</div>

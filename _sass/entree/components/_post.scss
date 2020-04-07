@@ -1,14 +1,24 @@
 .post {
-  .post-img {
+  margin-bottom: $spacer;
+
+  .item-title { @extend #{$post-item-title-class} !optional; }
+
+  .item-meta,
+  .item-category {
+    font-size: $small-font-size;
+    color: $secondary;
+  }
+
+  .item-img {
     @extend %background-cover;
     position: relative;
     width: $post-img-size;
-    max-width: 33%;
-    overflow: hidden;
+    margin-left: $spacer;
+    border-radius: $post-img-border-radius;
 
     &::before {
       display: block;
-      padding-top: 100%;
+      padding-top: $post-img-ratio;
       content: '';
     }
   }

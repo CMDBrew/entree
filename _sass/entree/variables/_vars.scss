@@ -1,0 +1,92 @@
+// Layout
+$layout-index-content-wrapper-class: '.container, .my-3, .my-lg-4' !default;
+$layout-show-content-wrapper-class: '.container, .my-3, .my-lg-5' !default;
+
+// Header
+$header-breakpoint: lg !default;
+$header-height: 64px !default;
+$header-class: '.sticky-top' !default;
+$header-logo-height: 30px !default;
+$header-bg: $white !default;
+$header-logo-menu-max-width: 320px !default;
+$header-dropdown-group-title-class: '.h5' !default;
+$header-dropdown-item-title-class: '.h6' !default;
+$header-dropdown-item-class: '.align-items-center' !default;
+$header-dropdown-item-desc-class: '.small, .text-secondary' !default;
+$header-dropdown-item-prefix-class: '.thumbnail, .thumbnail-xs, .mr-3' !default;
+$header-dropdown-item-suffix-class: '.thumbnail, .thumbnail-xs, .ml-3' !default;
+
+// Footer
+$footer-class: '.bg-light, .py-4' !default;
+$footer-copyright-class: '.small' !default;
+$footer-menus-group-title-class: '.h4' !default;
+$footer-menus-group-item-class: '.align-items-center, .text-muted' !default;
+$footer-menus-group-item-title-class: '.h6, .mb-0' !default;
+$footer-menus-group-item-prefix-class: '.mr-1' !default;
+$footer-menus-group-item-suffix-class: '.ml-1' !default;
+$footer-menus-group-ul-class: '.list-unstyled' !default;
+$footer-menus-group-li-class: null !default;
+$footer-menus-group-col-sizes: (
+  'lg': 4
+) !default;
+
+// Jumbotron
+$jumbotron-banner-ratio: 45% !default;
+
+// Aside
+$aside-sticky-offset-top: 80px !default;
+$aside-breakpoint: lg !default;
+$aside-width: 320px !default;
+$aside-group-class: '.mb-3' !default;
+$aside-group-title-class: '.h5' !default;
+$aside-collapse-toggle-class: '.btn, .btn-light, .btn-block, .mb-4' !default;
+$aside-more-toggle-class: null !default;
+$aside-categories-ul-class: '.list-unstyled' !default;
+$aside-categories-li-class: null !default;
+$aside-tags-ul-class: '.list-unstyled' !default;
+$aside-tags-li-class: null !default;
+$aside-years-ul-class: '.list-unstyled' !default;
+$aside-years-li-class: null !default;
+
+// Page
+$page-group-title-class: '.h2' !default;
+$page-item-title-class: '.h6' !default;
+
+// Post
+$post-item-title-class: '.h3' !default;
+$post-img-ratio: 100% !default;
+$post-img-size: 142px !default;
+$post-img-border-radius: 0 !default;
+
+// Photo
+$photo-item-title-class: '.h6, .mb-0' !default;
+$photo-img-ratio: 100% !default;
+$photo-img-border-radius: 0 !default;
+$photo-gutter: calc(#{$grid-gutter-width} / 2) !default;
+$photo-col-sizes: (
+  'sm': 6,
+  'lg': 4
+) !default;
+
+// New Release Indicator
+$new-release-bg: $mark-bg !default;
+
+// Blockquote
+$blockquote-border-color: $border-color !default;
+$blockquote-border-width: 4px !default;
+
+// Code
+$code-bg: $light !default;
+
+// Thumbnails
+$thumbnail-default-size: sm !default;
+$thumbnail-sizes: (
+  'xs': 32px,
+  'sm': 48px,
+  'md': 100px,
+  'lg': 142px,
+) !default;
+
+// Entree Badge
+$entree-bg: $dark !default;
+$entree-font-size: $font-size-base !default;

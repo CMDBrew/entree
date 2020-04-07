@@ -7,17 +7,34 @@ fields:
   config:
     required: false
   label: Title
-  description: Post title, it will also be used for SEO.
-- name: list_on_index
-  type: boolean
-  label: List on index
-  default: true
-  description: Enable this to show this page in the "Posts" tab on index page.
+  description: The title of the post.
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: Permalink
+  description: The last part of the URL. Defaults to the title of the post.
 - name: author
   type: text
   config:
     required: false
   label: Author
+- name: banner
+  type: file
+  config:
+    maxSize: 5
+  label: Banner
+  description: 'File size limit: 5MB. Recommended resolution is 2400px x 1080px.'
+- name: category
+  type: text
+  default: ''
+  label: Category
+  description: The type of the post (e.g. blogs, press, events, etc).
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+  description: The keywords of the post (e.g. tech, design, etc).
 - name: excerpt
   type: textarea
   default: ''
@@ -28,33 +45,6 @@ fields:
       format: markdown
   label: Excerpt
   description: Brief summary of the post.
-- name: banner
-  type: file
-  config:
-    maxSize: 5
-  label: Banner
-  description: 'File size limit: 5MB. Recommended resolution is 2244px x 741px.'
-- name: categories
-  type: tag_list
-  default: []
-  label: Categories
-  description: Categories for your posts (e.g. blogs, press, events, etc).
-- name: tags
-  type: tag_list
-  default: []
-  label: Tags
-  description: Keywords for your post (e.g. tech, design, etc).
-- name: comments
-  type: boolean
-  label: Comments
-  default: true
-  description: Enable Disqus comments on this post.
-- name: permalink
-  type: text
-  config:
-    required: false
-  label: Permalink
-  description: Only set this if an absolute URL path to this post is needed.
 - name: description
   type: textarea
   default: ''
@@ -64,10 +54,20 @@ fields:
     schema:
       format: markdown
   label: Description
-  description: Description for SEO.
+  description: A short description of the post's content.
+- name: comments
+  type: boolean
+  label: Comments
+  default: true
+  description: Enable comments on this post.
+- name: hidden
+  type: boolean
+  label: Hidden
+  default: false
+  description: Hide this post from post indexes/feeds.
 - name: custom_code
   type: textarea
-  default: 
+  default:
   config:
     required: false
     wysiwyg: false
@@ -114,5 +114,5 @@ fields:
       label: Enabled
       default: true
     label: LinkedIn
-  label: Social Sharing
-  description: Automatically share this post to your social media.
+  label: Social Feeds
+  description: Include this post in auto-generated social media feeds.

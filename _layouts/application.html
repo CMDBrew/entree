@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body class="layout-application module-{{ page.module }}">
+    {%- if site.entree.snippets.header -%}
+      {%- include {{ site.entree.snippets.header | prepend: 'snippets/' }} -%}
+    {%- endif -%}
+
+    {%- include notices/alert.html -%}
+    {%- include header.html current_page=page.module -%}
+
+    <div id="wrapper">
+      <div id="page-code">
+        {%- if page.custom_code.size > 0 -%}
+          {{- page.custom_code -}}
+        {%- endif -%}
+      </div>
+      <main id="main">
+        {{- content -}}
+      </main>
+    </div>
+
+    {%- include footer.html -%}
+
+    {%- if site.entree.snippets.footer -%}
+      {%- include {{ site.entree.snippets.footer | prepend: 'snippets/' }} -%}
+    {%- endif -%}
+
+    {%- if site.data.configs.code.footer.size > 0 -%}
+      <!-- Footer Code (START) -->
+      {{- site.data.configs.code.footer -}}
+      <!-- Footer Code (END) -->
+    {%- endif -%}
+
+    {%- include entree_badge.html -%}
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.jumbotron {
+  position: relative;
+
+  &.banner {
+    @extend %background-cover;
+    padding: 0;
+
+    &::before {
+      display: block;
+      padding-top: $jumbotron-banner-ratio;
+      content: '';
+    }
+  }
+}

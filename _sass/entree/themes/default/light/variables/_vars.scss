@@ -1,0 +1,92 @@
+// // Layout
+// $layout-index-content-wrapper-class: '.container, .my-3, .my-lg-5' !default;
+// $layout-show-content-wrapper-class: '.container, .my-3, .my-lg-5' !default;
+
+// // Header
+// $header-breakpoint: lg !default;
+// $header-height: 64px !default;
+$header-class: false !default;
+$header-logo-height: 30px !default;
+// $header-bg: $white !default;
+// $header-logo-menu-max-width: 320px !default;
+$header-dropdown-group-title-class: '.small, .font-weight-bold, .mb-2, .text-uppercase, .text-secondary' !default;
+// $header-dropdown-item-title-class: '.h6' !default;
+// $header-dropdown-item-class: '.align-items-center' !default;
+// $header-dropdown-item-desc-class: '.small, .text-secondary' !default;
+// $header-dropdown-item-prefix-class: '.thumbnail, .thumbnail-xs, .mr-3' !default;
+// $header-dropdown-item-suffix-class: '.thumbnail, .thumbnail-xs, .ml-3' !default;
+
+// // Footer
+$footer-class: '.py-5, .bg-dark, .text-white' !default;
+// $footer-copyright-class: '.small' !default;
+$footer-menus-group-title-class: '.h5, .mb-3' !default;
+$footer-menus-group-item-class: '.align-items-center, .text-secondary' !default;
+$footer-menus-group-item-title-class: '.mb-0' !default;
+// $footer-menus-group-item-prefix-class: '.mr-1' !default;
+// $footer-menus-group-item-suffix-class: '.ml-1' !default;
+// $footer-menus-group-ul-class: '.list-unstyled' !default;
+$footer-menus-group-li-class: '.py-2' !default;
+// $footer-menus-group-col-sizes: (
+//   'lg': 4
+// ) !default;
+
+// // Jumbotron
+// $jumbotron-banner-ratio: 45% !default;
+
+// // Aside
+// $aside-sticky-offset-top: 80px !default;
+// $aside-breakpoint: lg !default;
+$aside-width: 340px !default;
+$aside-group-class: '.mb-5' !default;
+$aside-group-title-class: '.h5, .mb-2' !default;
+$aside-more-toggle-class: '.btn, .btn-outline-secondary, .mt-3' !default;
+$aside-categories-ul-class: '.list-group' !default;
+$aside-categories-li-class: '.list-group-item' !default;
+// $aside-tags-ul-class: '.list-unstyled' !default;
+$aside-tags-li-class: '.mr-2, .mb-2' !default;
+$aside-years-ul-class: '.list-group' !default;
+$aside-years-li-class: '.list-group-item' !default;
+
+// // Page
+// $page-group-title-class: '.h2' !default;
+$page-item-title-class: '.h5, .py-3' !default;
+
+// // Post
+$post-item-title-class: '.h4' !default;
+$post-img-ratio: 100% !default;
+$post-img-size: 142px !default;
+$post-img-border-radius: 0 !default;
+
+// // Photo
+// $photo-item-title-class: '.h6' !default;
+$photo-img-ratio: 75% !default;
+$photo-img-border-radius: 0 !default;
+$photo-gutter: 0.5rem !default;
+$photo-col-sizes: (
+  'sm': 12,
+  'lg': 6,
+  'xl': 4
+) !default;
+
+// New Release Indicator
+$new-release-bg: map-get($theme-colors, 'primary-soft') !default;
+
+// // Blockquote
+// $blockquote-border-color: $border-color !default;
+// $blockquote-border-width: 4px !default;
+
+// // Code
+// $code-bg: $light !default;
+
+// // Thumbnails
+// $thumbnail-default-size: sm !default;
+// $thumbnail-sizes: (
+//   'xs': 32px,
+//   'sm': 48px,
+//   'md': 100px,
+//   'lg': 142px,
+// ) !default;
+
+// // Entree Badge
+// $entree-bg: $dark !default;
+// $entree-font-size: 13px !default;

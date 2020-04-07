@@ -1,0 +1,24 @@
+<article class="photo h-entry item item-{{ forloop.index | default: 0 }} {{ include.css_class }}"
+         data-js="new-release" data-date={{ include.photo.date | date_to_xmlschema }}
+         itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="photo-body">
+    <div data-js='visible' data-target='.photo'></div>
+    <a href={{ include.photo.url | relative_url }} class="text-reset text-decoration-none">
+      <div class="item-img spinner-wrap"
+          data-js="lazy" data-src="{{ include.photo.file }}?nf_resize=fit&w=800&h=800">
+        {%- include indicators/spinner.html -%}
+      </div>
+    </a>
+    <div class="item-content">
+      <h3 class="item-title text-truncate p-name" itemprop="name headline">
+        <a href={{ include.photo.url | relative_url }} class="new-release-indicator">{{ include.photo.title }}</a>
+      </h3>
+
+      <small class="item-meta text-muted text-truncate">
+        {%- include photos/meta.html photo=include.photo -%}
+      </small>
+    </div>
+  </div>
+
+  {{- include.extra -}}
+</article>

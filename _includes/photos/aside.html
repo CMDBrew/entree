@@ -1,0 +1,11 @@
+{%- assign _photos = site.photos | where: 'hidden', false -%}
+{%- assign _categories = _photos | map: 'category' | compact | uniq | sort -%}
+{%- assign _tags = _photos | map: 'tags' | compact | uniq | sort -%}
+{%- assign _years = _photos | map: 'date' | map_strftime: '%Y' | compact | uniq | sort | reverse -%}
+
+{%- include aside.html
+            categories=_categories categories_dir=site.entree.generators.photos.categories.dir
+            tags=_tags tags_dir=site.entree.generators.photos.tags.dir
+            collection_dir=site.entree.generators.photos.index.dir
+            years=_years years_dir=site.entree.generators.photos.years.dir
+            translations=include.translations -%}

@@ -3,42 +3,29 @@ label: Configs
 hide_body: true
 fields:
 - type: field_group
-  name: home
-  label: Home
+  name: code
+  label: Custom Code
+  description: Code you add here will be added to every page of your site. Use the page setting's custom code areas to add code you only need on specific pages.
   fields:
-  - name: tabs
-    type: list
+  - name: head
+    type: textarea
+    default:
     config:
-      use_select: true
-      min:
-      max: '5'
-      source:
-        type: simple
-      options:
-      - posts
-      - files
-      - about
-      - categories
-      - pages
-    label: Tabs
-    description: 'Available options are: posts, files, about, categories, pages'
-- type: field_group
-  name: files
-  label: Files
-  fields:
-  - type: select
-    name: display
-    label: Default Display
-    default: []
+      required: false
+      wysiwyg: false
+      schema:
+        format: ''
+    label: Header Code
+    description: Code that is entered in the Head tag is applied to your entire site and is a way to link external resources, add meta data, and use custom styles in your document.
+  - name: footer
+    type: textarea
+    default:
     config:
-      required: true
-      options:
-      - list
-      - grid
-      source:
-        type: simple
-        section:
-        file:
-        path:
+      required: false
+      wysiwyg: false
+      schema:
+        format: ''
+    label: Footer Code
+    description: Code that is entered in the Body tag is applied to your entire site and is a way to add things like scripts to your site.
 pages:
 - _data/configs.yml

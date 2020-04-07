@@ -1,0 +1,36 @@
+{%- assign cta = site.data.menus.header.cta -%}
+
+<nav id="header" class="navbar" data-js="scrolled-by">
+  <div class="logo">
+    {%- if site.data.menus.header.logo_menu.submenu_enabled -%}
+      <div class="dropdown no-caret">
+        <a href="/" class="navbar-brand dropdown-toggle" data-toggle="dropdown">
+          <img src="{{ site.entree.logo | relative_url }}" class="logo-img d-inline-block" alt="logo"/>
+        </a>
+        {%- include header/dropdown_menu.html submenu=site.data.menus.header.logo.submenu -%}
+      </div>
+    {%- else -%}
+      <a href="/" class="navbar-brand">
+        <img src="{{ site.entree.logo | relative_url }}" class="logo-img d-inline-block" alt="logo"/>
+      </a>
+    {%- endif -%}
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menus" aria-controls="menus" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="menus" class="collapse navbar-collapse">
+    <ul class="navbar-nav left-menus">
+      {%- for item in site.data.menus.header.left -%}
+        {%- include header/nav_item.html item=item -%}
+      {%- endfor -%}
+    </ul>
+
+    <ul class="navbar-nav ml-auto right-menus">
+      {%- for item in site.data.menus.header.right -%}
+        {%- include header/nav_item.html item=item -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</nav>

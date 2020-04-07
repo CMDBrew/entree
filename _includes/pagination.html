@@ -1,38 +1,38 @@
-{%- assign path = include.path -%}
-
 {%- if paginator.total_pages > 1 -%}
   <nav>
-    <div class="container my-3">
-      <ul class="pagination justify-content-center">
-        {% if paginator.previous_page %}
-          <li class="page-item">
-            <a class="page-link" href="{{ paginator.previous_page_path | prepend: path | relative_url }}">&laquo; Prev</a>
-          </li>
-        {% endif %}
+    <ul class="pagination">
+      {% if paginator.previous_page %}
+        <li class="page-item">
+          <a class="page-link" href="{{ paginator.previous_page_path | prepend: include.path | relative_url }}">
+            {{- site.data.locales.includes.paginations.previous -}}
+          </a>
+        </li>
+      {% endif %}
 
-        {% for page in (1..paginator.total_pages) %}
-          {%- capture page_url -%}
-            {%- if page == 1 -%}
-              {{ paginator.previous_page_path | prepend: path | relative_url }}
-            {%- else -%}
-              {{ site.paginate_path | prepend: path | relative_url | replace: ':num', page }}
-            {%- endif -%}
-          {%- endcapture -%}
-          <li class="page-item">
-            {%- if page == paginator.page -%}
-              <a class="page-link active" href="{{ page_url }}">{{ page }}</a>
-            {%- else -%}
-              <a class="page-link" href="{{ page_url }}">{{ page }}</a>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
+      {% for page in (1..paginator.total_pages) %}
+        {%- capture page_url -%}
+          {%- if page == 1 -%}
+            {{ paginator.previous_page_path | prepend: include.path | relative_url }}
+          {%- else -%}
+            {{ site.paginate_path | prepend: include.path | relative_url | replace: ':num', page }}
+          {%- endif -%}
+        {%- endcapture -%}
+        <li class="page-item">
+          {%- if page == paginator.page -%}
+            <a class="page-link active" href="{{ page_url }}">{{ page }}</a>
+          {%- else -%}
+            <a class="page-link" href="{{ page_url }}">{{ page }}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
 
-        {%- if paginator.next_page -%}
-          <li class="page-item">
-            <a class="page-link" href="{{ paginator.next_page_path | prepend: path | relative_url }}">Next &raquo;</a>
-          </li>
-        {%- endif -%}
-      </ul>
-    </div>
+      {%- if paginator.next_page -%}
+        <li class="page-item">
+          <a class="page-link" href="{{ paginator.next_page_path | prepend: include.path | relative_url }}">
+            {{- site.data.locales.includes.paginations.next -}}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
   </nav>
 {%- endif -%}

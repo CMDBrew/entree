@@ -1,0 +1,72 @@
+---
+label: Photos
+hide_body: true
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: The title of the photo.
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: Permalink
+  description: The last part of the URL. Defaults to the title of the photo.
+- type: datetime
+  name: date
+  label: Date
+  description: The creation date for this photo.
+  hidden: false
+  config:
+    date_format: MM/DD/YYYY
+    time_format: h:mm A Z
+    display_utc: false
+    export_format: YYYY-MM-DDThh:mm:ssZ
+- name: file
+  type: file
+  config:
+    maxSize: 5
+  label: Image
+  description: 'File size limit: 5MB.'
+- name: category
+  type: text
+  default: ''
+  label: Category
+  description: The type of the photo (e.g. blogs, press, events, etc).
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+  description: The keywords of the photo (e.g. tech, design, etc).
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Description
+  description: A short description of the photo.
+- name: comments
+  type: boolean
+  label: Comments
+  default: true
+  description: Enable comments on this photo.
+- name: hidden
+  type: boolean
+  label: Hidden
+  default: false
+  description: Hide this photo from photo indexes.
+- name: custom_code
+  type: textarea
+  default:
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: ''
+  label: Custom Code
+  description: Additional HTML, Javascripts or CSS before the content.

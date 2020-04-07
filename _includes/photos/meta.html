@@ -1,0 +1,7 @@
+{%- assign _date_format = site.entree.date_format | default: "%B %-d, %Y" -%}
+
+{%- if include.photo.date -%}
+  <time class="dt-published" datetime="{{ include.photo.date | date_to_xmlschema }}" itemprop="datePublished">
+    {{- include.photo.date | date: _date_format -}}
+  </time>
+{%- endif -%}

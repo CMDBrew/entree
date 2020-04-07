@@ -1,0 +1,149 @@
+---
+label: Locales
+hide_body: true
+fields:
+- type: field_group
+  name: layouts
+  label: Layouts
+  fields:
+  - type: field_group
+    name: index
+    label: Index
+    fields:
+    - type: text
+      name: pinned
+      label: Pinned
+    - type: text
+      name: all
+      label: All
+  - type: field_group
+    name: show
+    label: Show
+    fields:
+    - type: text
+      name: next
+      label: Next
+    - type: text
+      name: previous
+      label: Previous
+    - type: text
+      name: related
+      label: Related
+- type: field_group
+  name: includes
+  label: Partials
+  fields:
+  - type: field_group
+    name: paginations
+    label: Paginations
+    fields:
+    - type: text
+      name: next
+      label: Next
+    - type: text
+      name: previous
+      label: Previous
+  - type: field_group
+    name: aside
+    label: Aside
+    fields:
+    - type: field_group
+      name: btns
+      label: Buttons
+      fields:
+      - type: text
+        name: more
+        label: More
+      - type: text
+        name: less
+        label: Less
+  - type: field_group
+    name: footer
+    label: Footer
+    fields:
+    - type: text
+      name: copyright
+      label: Copryright
+- type: field_group
+  name: pages
+  label: Pages
+  fields:
+  - type: text
+    name: title
+    label: Title
+  - type: field_group
+    name: categories
+    label: Categories
+    fields:
+    - type: text
+      name: title
+      label: Title
+  - type: field_group
+- type: field_group
+  name: posts
+  label: Posts
+  fields:
+  - type: text
+    name: title
+    label: Title
+  - type: field_group
+    name: categories
+    label: Categories
+    fields:
+    - type: text
+      name: title
+      label: Title
+  - type: field_group
+    name: tags
+    label: Tags
+    fields:
+    - type: text
+      name: title
+      label: Title
+  - type: field_group
+    name: years
+    label: Years
+    fields:
+    - type: text
+      name: title
+      label: Title
+  - type: field_group
+    name: post
+    label: Post
+    fields:
+    - type: text
+      name: by
+      label: By
+    - type: text
+      name: read_time
+      label: Read Time
+- type: field_group
+  name: photos
+  label: Photos
+  fields:
+  - type: text
+    name: title
+    label: Title
+  - type: field_group
+    name: categories
+    label: Categories
+    fields:
+    - type: text
+      name: title
+      label: Title
+  - type: field_group
+    name: tags
+    label: Tags
+    fields:
+    - type: text
+      name: title
+      label: Title
+  - type: field_group
+    name: years
+    label: Years
+    fields:
+    - type: text
+      name: title
+      label: Title
+pages:
+- _data/locales.yml

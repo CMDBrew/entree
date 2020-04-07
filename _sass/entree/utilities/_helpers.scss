@@ -1,0 +1,18 @@
+.thumbnail {
+  @extend %background-cover;
+  @extend %thumbnail;
+
+  width: map-get($thumbnail-sizes, $thumbnail-default-size);
+  height: map-get($thumbnail-sizes, $thumbnail-default-size);
+  line-height: map-get($thumbnail-sizes, $thumbnail-default-size);
+}
+
+@each $_key, $_value in $thumbnail-sizes {
+  .thumbnail.thumbnail-#{$_key} {
+    @include square($_value);
+  }
+}
+
+.background-cover {
+  @extend %background-cover;
+}

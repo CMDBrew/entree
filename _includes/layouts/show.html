@@ -1,0 +1,84 @@
+<div class="layout-show">
+  <article class="h-entry show-content-wrapper article" itemscope itemtype="http://schema.org/BlogPosting">
+    {%- if page.custom_code.size > 0 -%}
+      {{- page.custom_code -}}
+    {%- endif -%}
+
+    <header class="header">
+      {%- if include.category -%}
+        <a class="p-category category" href="/{{ site.entree.generators[page.module].categories.dir }}/{{ page.category | slugify }}" itemprop="genre">
+          {{- page.category -}}
+        </a>
+      {%- endif -%}
+
+      {%- if include.title -%}
+        <h1 class="p-name title" itemprop="name headline">{{ include.title | escape }}</h1>
+      {%- endif -%}
+
+      {%- if include.meta -%}
+        <p class="meta">
+          <small class="text-muted">{{ include.meta }}</small>
+        </p>
+      {%- endif -%}
+    </header>
+
+    {%- if include.banner.size > 0 -%}
+      <div class="jumbotron jumbotron-fluid spinner-wrap banner main-banner"
+            role="img"
+            data-js="lazy" data-src="{{ include.banner }}?nf_resize=fit&w=2400">
+        {%- include indicators/spinner.html -%}
+      </div>
+    {%- endif -%}
+
+    <div class="e-content body" itemprop="articleBody">
+      {{- include.content -}}
+    </div>
+
+    {%- if include.tags.size > 0 -%}
+      <ul class="list-inline tags">
+        {%- for tag in include.tags -%}
+          <li class="list-inline-item tag">
+            <a href="/{{ include.tags_dir }}/{{ tag | slugify }}" class="tag">{{- tag -}}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  </article>
+
+  <section class="extra">
+    <div class="show-content-wrapper comments">
+      {%- include disqus_comments.html -%}
+    </div>
+
+    <div class="show-content-wrapper pager">
+      <ul class="pagination">
+        {%- if page.previous.url -%}
+          <div class="page-item">
+            <a class="page-link" href="{{ page.previous.url }}">
+              <div class="prefix">{{- site.data.locales.layouts.show.previous -}}</div>
+              <h5 class="title">{{ page.previous.title | escape | truncate: 50 }}</h5>
+            </a>
+          </div>
+        {%- endif -%}
+
+        {%- if page.next.url -%}
+          <div class="page-item">
+            <a class="page-link" href="{{ page.next.url }}">
+              <div class="prefix">{{- site.data.locales.layouts.show.next -}}</div>
+              <h5 class="title">{{ page.next.title | escape | truncate: 50 }}</h5>
+            </a>
+          </div>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    {%- if include.related.size > 0 -%}
+      <div class="show-content-wrapper related">
+        <h2 class="section-title">{{ site.data.locales.layouts.show.related | replace: '@title', site.data.locales[page.module].title }}</h2>
+        <div class="section-body">{{- include.related -}}</div>
+      </div>
+    {%- endif -%}
+  </section>
+</div>

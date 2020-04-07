@@ -2,7 +2,7 @@
 layout: none
 ---
 
-{%- assign pwa = site.data.notice.pwa -%}
+{%- assign pwa = site.data.notices.pwa -%}
 
 {
   "lang": "{{ pwa.language }}",

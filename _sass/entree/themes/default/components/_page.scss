@@ -1,0 +1,20 @@
+.pages {
+  .page {
+    @include slide-in-animation;
+
+    &.pinned {
+      padding: 0 map-get($spacers, 3);
+      margin-bottom: map-get($spacers, 3);
+      border: 1px solid map-get($theme-colors, 'featured');
+    }
+
+    &:not(.pinned) {
+      border-bottom: 1px solid $hr-border-color;
+    }
+
+    .item-title a { color: inherit; }
+  }
+
+  .group { margin-bottom: map-get($spacers, 6); }
+  .group-title { color: $text-muted; }
+}

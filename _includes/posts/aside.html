@@ -1,0 +1,11 @@
+{%- assign _posts = site.posts | where: 'hidden', false -%}
+{%- assign _categories = _posts | map: 'category' | compact | uniq | sort -%}
+{%- assign _tags = _posts | map: 'tags' | compact | uniq | sort -%}
+{%- assign _years = _posts | map: 'date' | map_strftime: '%Y' | compact | uniq | sort | reverse -%}
+
+{%- include aside.html
+            categories=_categories categories_dir=site.entree.generators.posts.categories.dir
+            tags=_tags tags_dir=site.entree.generators.posts.tags.dir
+            years=_years years_dir=site.entree.generators.posts.years.dir
+            collection_dir=site.entree.generators.posts.index.dir
+            translations=include.translations -%}

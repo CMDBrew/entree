@@ -1,0 +1,11 @@
+{%- assign _alert = site.data.notices.alert -%}
+
+{%- if _alert.enabled -%}
+  <div id="alert" style="display:none;" class="alert alert-{{ _alert.type }} alert-dismissible rounded-0 mb-0" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="content">{{ _alert.content | markdownify }}</div>
+  </div>
+{%- endif -%}

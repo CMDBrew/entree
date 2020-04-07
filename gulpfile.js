@@ -45,12 +45,6 @@ gulp.task('vendors', function(cb) {
     ])
     .pipe(gulp.dest('./assets/vendors/popper'))
 
-  // SmartBanner
-  gulp.src([
-      './node_modules/smartbanner.js/dist/smartbanner.min.*'
-    ])
-    .pipe(gulp.dest('./assets/vendors/smartbanner'))
-
   // Font Awesome
   gulp.src([
       './node_modules/@fortawesome/**/*',

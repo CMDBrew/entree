@@ -1,0 +1,17 @@
+---
+layout: application
+module: photos
+---
+
+{%- capture _html -%}
+  <div class="spinner-wrap">
+    <img data-js="lazy" data-src="{{ page.file | relative_url }}?nf_resize=fit&w=2400" alt="{{ page.alt | default: page.title }}"/>
+    {%- include indicators/spinner.html -%}
+  </div>
+  <div class="mt-4">{{ page.description | markdownify }}</div>
+{%- endcapture -%}
+
+{%- include layouts/show.html
+            title=page.title content=_html
+            category=page.category categories_dir=site.entree.generators.photos.categories.dir
+            tags=page.tags tags_dir=site.entree.generators.photos.tags.dir -%}

@@ -1,10 +1,4 @@
 ---
-files:
-  display: grid
-home:
-  tabs:
-    - posts
-    - files
-    - about
-    - categories
-    - pages
+code:
+  head: ''
+  footer: ''

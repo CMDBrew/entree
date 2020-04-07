@@ -1,0 +1,145 @@
+{%- assign categories_limit = 10 -%}
+{%- assign tags_limit = 10 -%}
+{%- assign years_limit = 10 -%}
+{%- assign current_tab = page.current_scope | default: 'categories' -%}
+
+{%- capture current_category -%}
+  {%- if page.current_scope == 'categories' -%}
+    {{ page.current }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture current_tag -%}
+  {%- if page.current_scope == 'tags' -%}
+    {{ page.current }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture current_year -%}
+  {%- if page.current_scope == 'years' -%}
+    {{ page.current }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{{- include.header_extra -}}
+
+{%- if include.categories.size > 0 -%}
+  <section class="aside-group">
+    <h3 class="group-title">{{ include.translations.categories.title | default: 'Categories' }}</h3>
+    <div class="categories">
+      <ul class="mb-0">
+        {%- for category in include.categories limit: categories_limit -%}
+          <li>
+            <a href="/{{ include.categories_dir }}/{{ category | slugify }}" class="category {{ current_category | matches: category, 'active' }}">
+              {{- category -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if include.categories.size > categories_limit -%}
+        <ul class="mb-0 collapse more-categories">
+          {%- for category in include.categories offset: categories_limit -%}
+            <li>
+              <a href="/{{ include.categories_dir }}/{{ category | slugify }}" class="category {{ current_category | matches: category, 'active' }}">
+                {{- category -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div class="actions">
+          <a class="aside-more" data-toggle="collapse" data-target=".more-categories" href="#" role="button" aria-expanded="false">
+            <span class="no-animate collapse show more-categories">
+              {{- site.data.locales.includes.aside.btns.more -}}
+            </span>
+            <span class="no-animate collapse more-categories">
+              {{- site.data.locales.includes.aside.btns.less -}}
+            </span>
+          </a>
+        </div>
+      {%- endif -%}
+      </div>
+  </section>
+{%- endif -%}
+
+{%- if include.tags.size > 0 -%}
+  <section class="aside-group">
+    <h3 class="group-title">{{ include.translations.tags.title | default: 'Tags' }}</h3>
+    <div class="tags">
+      <ul class="mb-0">
+        {%- for tag in include.tags limit: tags_limit -%}
+          <li>
+            <a href="/{{ include.tags_dir }}/{{ tag | slugify }}" class="tag {{ current_tag | matches: tag, 'active' }}">
+              {{- tag -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if include.tags.size > tags_limit -%}
+        <ul class="mb-0 collapse more-tags">
+          {%- for tag in include.tags offset: tags_limit -%}
+            <li>
+              <a href="/{{ include.tags_dir }}/{{ tag | slugify }}" class="tag {{ current_tag | matches: tag, 'active' }}">
+                {{- tag -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <div class="actions">
+          <a class="aside-more" data-toggle="collapse" data-target=".more-tags" href="#" role="button" aria-expanded="false">
+            <span class="no-animate collapse show more-tags">
+              {{- site.data.locales.includes.aside.btns.more -}}
+            </span>
+            <span class="no-animate collapse more-tags">
+              {{- site.data.locales.includes.aside.btns.less -}}
+            </span>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{%- if include.years.size > 0 -%}
+  <section class="aside-group">
+    <h3 class="group-title">{{ include.translations.years.title | default: 'Years' }}</h3>
+    <div class="years">
+      <ul class="mb-0">
+        {%- for year in include.years limit: years_limit -%}
+          <li>
+            <a href="/{{ include.years_dir }}/{{ year | slugify }}" class="year {{ current_year | matches: year, 'active' }}">
+              {{- year -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if include.years.size > years_limit -%}
+        <ul class="mb-0 collapse more-years">
+          {%- for year in include.years offset: years_limit -%}
+            <li>
+              <a href="/{{ include.years_dir }}/{{ year | slugify }}" class="year {{ current_year | matches: year, 'active' }}">
+                {{- year -}}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <div class="actions">
+          <a class="aside-more" data-toggle="collapse" data-target=".more-years" href="#" role="button" aria-expanded="false">
+            <span class="no-animate collapse show more-years">
+              {{- site.data.locales.includes.aside.btns.more -}}
+            </span>
+            <span class="no-animate collapse more-years">
+              {{- site.data.locales.includes.aside.btns.less -}}
+            </span>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{{- include.footer_extra -}}

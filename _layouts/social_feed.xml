@@ -14,8 +14,9 @@ layout: null
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
     {%- assign platform = page.title | downcase -%}
+    {%- assign posts = site.posts | where: 'hidden', false -%}
 
-    {%- for post in site.posts limit:10 -%}
+    {%- for post in posts limit:10 -%}
       {%- if post.social_feed.twitter.hashtags and platform == 'twitter' -%}
         {%- assign format_parsed = configs.format | replace: '@title', post.title | replace: '@url', '' | replace: '@tags', '' | size -%}
         {%- assign post_tags = '' -%}

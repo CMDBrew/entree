@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
+title: Welcome to enTree
 author: GitHub User
 email: your-email@domain.com
 description: > # this means to ignore newlines until "show_excerpts:"
@@ -49,16 +49,30 @@ defaults:
       type: pages
     values:
       layout: page
+      module: pages
+      hidden: true
   - scope:
       path: ''
       type: posts
     values:
       layout: post
+      module: posts
+      hidden: false
+      social_feed:
+        facebook:
+          enabled: true
+        twitter:
+          enabled: true
+          hashtags: true
+        linkedin:
+          enabled: true
   - scope:
       path: ''
-      type: files
+      type: photos
     values:
-      layout: file
+      layout: photo
+      module: photos
+      hidden: false
 
 # Specify sass files paths
 sass:
@@ -68,40 +82,72 @@ sass:
 
 # entree
 entree:
-  cookies_policy: true
-  file_preview_whitelist:
-    - jpg
-    - jpeg
-    - gif
-    - png
-    - svg
+  logo: /assets/img/entree/logo.png
+  favicon: /assets/img/entree/favicon.ico
+  theme: default/light
   sass:
     custom_vars: null
     custom_styles: null
   snippets:
     footer: null
     header: null
-  logo: https://placeimg.com/284/284/any
-  favicon: https://placeimg.com/128/128/any
-  date_format: "%b %-d, %Y"
-
-# Collection Directories
-post_dir: posts
-tag_dir: tags
-post_dir: posts
-file_dir: files
+  date_format: "%B %-d, %Y"
+  generators:
+    pages:
+      index:
+        layout: pages.html
+        dir: pages
+      tags:
+        layout: pages.html
+        dir: pages/tags
+      categories:
+        layout: pages.html
+        dir: pages/categories
+    posts:
+      index:
+        layout: posts.html
+        dir: posts
+      tags:
+        layout: posts.html
+        dir: posts/tags
+      categories:
+        layout: posts.html
+        dir: posts/categories
+      years:
+        layout: posts.html
+        dir: posts/years
+    photos:
+      index:
+        layout: photos.html
+        dir: photos
+      tags:
+        layout: photos.html
+        dir: photos/tags
+      categories:
+        layout: photos.html
+        dir: photos/categories
+      years:
+        layout: photos.html
+        dir: photos/years
 
 # Collections
 collections:
-  files:
+  photos:
     output: true
+    sort_by: date
 
 # Disqus comments
 disqus:
-  shortname: null
+  shortname: ilung
+  enabled: true
 
 # Pagination
-paginate: 20
+paginate: 10
+
+# Exclude when compiling
+exclude:
+ - config/
+ - README.md
 
 # Social Feed
 feed:

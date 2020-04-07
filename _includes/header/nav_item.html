@@ -1,0 +1,48 @@
+{%- assign nav_posts = site.posts | where: 'hidden', false -%}
+{%- assign nav_photos = site.photos | where: 'hidden', false -%}
+
+{%- capture new_release_tracker -%}
+  {%- if include.item.tracker.new_release == 'posts' -%}
+    data-js="new-release" data-date="{{ nav_posts.first.date | date_to_xmlschema }}"
+  {%- elsif include.item.tracker.new_release == 'photos' -%}
+    data-js="new-release" data-date="{{ nav_photos.first.date | date_to_xmlschema }}"
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if include.item.submenu_enabled -%}
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle {{ include.item.css_class }} {{ include.item.tracker.current | matches: page.module, 'active' }}"
+        title="{{ include.item.title }}"
+        target="{{ include.item.new_tab | matches: true, '_blank', '_self' }}"
+        data-toggle="dropdown"
+        href="{{ include.item.url }}" {{ new_release_tracker }}>
+      {%- if include.item.prefix.size > 0 -%}
+        <span class="prefix">{{- include.item.prefix }}</span>
+      {%- endif -%}
+
+      <span class="title new-release-indicator">{{ include.item.title }}</span>
+
+      {%- if include.item.suffix.size > 0 -%}
+        <span class="suffix">{{- include.item.suffix }}</span>
+      {%- endif -%}
+    </a>
+
+    {%- include header/dropdown_menu.html submenu=include.item.submenu -%}
+{%- else -%}
+  <li class="nav-item">
+    <a class="nav-link {{ include.item.css_class }} {{ include.item.tracker.current | matches: page.module, 'active' }}"
+      title="{{ include.item.title }}"
+      target="{{ include.item.new_tab | matches: true, '_blank', '_self' }}"
+      href="{{ include.item.url }}" {{ new_release_tracker }}>
+      {%- if include.item.prefix.size > 0 -%}
+        <span class="prefix">{{- include.item.prefix }}</span>
+      {%- endif -%}
+
+      <span class="title new-release-indicator">{{ include.item.title }}</span>
+
+      {%- if include.item.suffix.size > 0 -%}
+        <span class="suffix">{{- include.item.suffix }}</span>
+      {%- endif -%}
+    </a>
+  </li>
+{%- endif -%}

@@ -1,0 +1,56 @@
+{%- assign year = site.time | date: '%Y' -%}
+{%- assign groups = site.data.menus.footer.groups -%}
+{%- assign footnote = site.data.menus.footer.footnote -%}
+
+<footer id="footer">
+  <div class="container">
+    <div class="menus">
+      {%- if groups.size > 0 -%}
+        <div class="groups">
+          {%- for group in groups -%}
+            <div class="group">
+              {%- if group.title.size > 0 -%}
+                <h4 class="group-title">{{ group.title }}</h4>
+              {%- endif -%}
+
+              <ul>
+                {%- for item in group.items -%}
+                  <li>
+                    <a href="{{ item.url }}" target="{{ item.new_tab | matches: true, '_blank', '_self' }}"
+                       class="{{ item.css_class | prepend: 'media item ' | strip }}">
+                      {%- if item.prefix.size > 0 -%}
+                        <div class="prefix">
+                          {{- item.prefix }}
+                        </div>
+                      {%- endif -%}
+                      <div class="media-body">
+                        <div class="title">{{ item.title }}</div>
+                      </div>
+                      {%- if item.suffix.size > 0 -%}
+                        <div class="suffix">
+                          {{- item.suffix }}
+                        </div>
+                      {%- endif -%}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if footnote.size > 0 -%}
+          <div class="footnote">
+            {{- footnote -}}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    <div class="attributes">
+      {%- if site.data.locales.includes.footer.copyright.size > 0 -%}
+        <p class="copyright">{{ site.data.locales.includes.footer.copyright | replace: '@year', year }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>

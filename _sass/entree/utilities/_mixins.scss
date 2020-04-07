@@ -1,0 +1,17 @@
+@mixin transition($value...) {
+  transition: #{$value};
+  -webkit-transition: #{$value};
+}
+
+@mixin transform($value...) {
+  transform: #{$value};
+  -webkit-transform: #{$value};
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+  max-width: $size;
+  max-height: $size;
+  line-height: $size;
+}

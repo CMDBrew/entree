@@ -1,0 +1,4 @@
+.no-animate {
+  &:not(.show) { display: none; }
+  @include transition(none);
+}

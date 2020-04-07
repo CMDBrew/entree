@@ -11,7 +11,7 @@ class Carousel {
       mouseDrag: true,
       autoplay: true,
       autoWidth: false,
-      autoplayTimeout: 4000,
+      autoplayTimeout: 10000,
       autoplayHoverPause: true,
       loop: true,
       nav: false,

@@ -1,0 +1,46 @@
+---
+layouts:
+  index:
+    pinned: Pinned @title
+    all: All @title
+  show:
+    next: Next ⭢
+    previous: ⭠ Previous
+    related: Related @title
+includes:
+  paginations:
+    next: Next ⭢
+    previous: ⭠ Previous
+  aside:
+    btns:
+      more: See More <i class="mdi mdi-chevron-down"></i>
+      less: See Less <i class="mdi mdi-chevron-up"></i>
+  footer:
+    copyright: © @year CMDBrew Studio Inc. All rights reserved.
+pages:
+  title: Pages
+  categories:
+    title: Categories
+  tags:
+    title: Tags
+posts:
+  title: Posts
+  categories:
+    title: Categories
+  tags:
+    title: Tags
+  years:
+    title: Archives
+  post:
+    by: by
+    read_time: "@time min read"
+photos:
+  title: Photos
+  pinned:
+    title: Pinned
+  categories:
+    title: Categories
+  tags:
+    title: Tags
+  years:
+    title: Archives

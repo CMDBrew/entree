@@ -1,0 +1,9 @@
+.photos { margin: 0;}
+
+.photo {
+  @include slide-in-animation;
+  padding: map-get($spacers, 2);
+
+  .item-content { display: none; }
+  .item-title a { color: inherit; }
+}

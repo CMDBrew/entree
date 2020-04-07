@@ -1,0 +1,136 @@
+.module-index {
+  #wrapper { padding-bottom: 0; }
+
+  .section {
+    padding: map-get($spacers, 6) 0;
+
+    &.section-post-categories {
+      padding-top: 0;
+
+      .category {
+        display: inline-block;
+        font-size: $display4-size;
+        font-weight: $font-weight-bold;
+
+        a {  color: inherit; }
+
+        &:not(:first-child)::before {
+          content: ', ';
+        }
+      }
+
+      .tags {
+        margin-top: map-get($spacers, 4);
+
+        .tag {
+          @extend #{$theme-tags-class} !optional;
+          margin-right: map-get($spacers, 2);
+          margin-bottom: map-get($spacers, 2);
+          font-size: $h5-font-size;
+          a { color: inherit; }
+        }
+      }
+    }
+
+    &.section-photos {
+      background: map-get($theme-colors, 'warning-soft');
+
+      .photos { margin: 0 -#{map-get($spacers, 2)}; }
+
+      .photos .photo {
+        display: block;
+        float: left;
+        width: 100%;
+        padding: map-get($spacers, 2);
+
+        @include media-breakpoint-up(md) {
+          @include make-col(6);
+        }
+
+        @include media-breakpoint-up(lg) {
+          @include make-col(4);
+        }
+      }
+    }
+  }
+
+  .section-info { padding: 0; }
+
+  .section-title {
+    margin-bottom: map-get($spacers, 4);
+
+    &.heading {
+      border-bottom: 1px solid map-get($theme-colors, 'featured');
+    }
+  }
+}
+
+#index-breadcrumb {
+  padding: map-get($spacers, 2) 0;
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+
+  .breadcrumb {
+    padding: 0;
+    padding-bottom: map-get($spacers, 3);
+    margin: 0;
+    background: transparent;
+    border-bottom: 2px solid $dark;
+  }
+}
+
+#wrapper {
+  padding-bottom: map-get($spacers, 5);
+}
+
+.main-body {
+  .section-title { margin-bottom: map-get($spacers, 3); }
+  .section { margin-bottom: map-get($spacers, 6); }
+}
+
+.layout-show {
+  .header { margin-bottom: map-get($spacers, 6); }
+
+  .category {
+    font-weight: $font-weight-bold;
+    color: $secondary;
+    text-transform: uppercase;
+   }
+
+  .pager .pagination {
+    $_breakpoint: md;
+    margin-bottom: map-get($spacers, 6);
+
+    .page-link {
+      height: 100%;
+      padding: map-get($spacers, 3);
+      color: inherit;
+    }
+
+    .title {
+      font-size: $h4-font-size;
+      font-weight: $font-weight-bold;
+     }
+
+    .page-item { width: 100%; }
+
+    @include media-breakpoint-up($_breakpoint) {
+      .page-item:last-child { text-align: right; }
+    }
+
+    @include media-breakpoint-down($_breakpoint) {
+      flex-direction: column;
+    }
+  }
+
+  .tags {
+    li {
+      @extend #{$theme-tags-class} !optional;
+
+      padding: map-get($spacers, 2) map-get($spacers, 3);
+      font-size: $font-size-base;
+
+      a { color: inherit; }
+    }
+  }
+}

@@ -3,9 +3,9 @@ const path = require("path");
 module.exports = {
   mode: "production",
   watch: true,
-  entry: './webpack/main.js',
+  entry: './webpack/application.js',
   output: {
-    filename: "[name]-bundle.js",
+    filename: "application-bundle.js",
     path: path.resolve(__dirname, "assets/js"),
   },
   module: {

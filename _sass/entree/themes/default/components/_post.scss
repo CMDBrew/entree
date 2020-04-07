@@ -1,0 +1,26 @@
+.post {
+  @include slide-in-animation;
+
+  &.featured,
+  &.pinned {
+    padding: map-get($spacers, 3);
+    margin-bottom: map-get($spacers, 3);
+    overflow: hidden;
+    border: 1px solid map-get($theme-colors, 'featured');
+  }
+
+  &:not(.pinned):not(.featured) {
+    padding: map-get($spacers, 5) 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid $hr-border-color;
+  }
+
+  .item-title a { color: inherit; }
+  .item-excerpt { margin-bottom: map-get($spacers, 2); }
+
+  .item-category {
+    display: block;
+    margin-bottom: map-get($spacers, 2);
+    text-transform: uppercase;
+  }
+}

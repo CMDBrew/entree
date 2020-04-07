@@ -1,0 +1,20 @@
+#aside {
+  .tags {
+    li {
+      @extend #{$theme-tags-class} !optional;
+
+      padding: map-get($spacers, 2) map-get($spacers, 3);
+      font-size: $font-size-base;
+
+      a { color: inherit; }
+    }
+  }
+
+  .years,
+  .categories {
+    li a {
+      display: block;
+      color: inherit;
+    }
+  }
+}

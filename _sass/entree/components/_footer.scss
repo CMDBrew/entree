@@ -1,0 +1,31 @@
+#footer {
+  @extend #{$footer-class} !optional;
+
+  .groups {
+    @include make-row;
+
+    .group {
+      @include make-col-ready;
+
+      @each $_media, $_cols in $footer-menus-group-col-sizes {
+        @include media-breakpoint-up($_media) {
+          @include make-col($_cols);
+        }
+      }
+
+      .group-title { @extend #{$footer-menus-group-title-class} !optional; }
+      ul { @extend #{$footer-menus-group-ul-class} !optional; }
+      li { @extend #{$footer-menus-group-li-class} !optional; }
+    }
+
+    .item {
+      @extend #{$footer-menus-group-item-class} !optional;
+
+      .title { @extend #{$footer-menus-group-item-title-class} !optional; }
+      .prefix { @extend #{$footer-menus-group-item-prefix-class} !optional; }
+      .suffix { @extend #{$footer-menus-group-item-suffix-class} !optional; }
+    }
+  }
+
+  .attributes .copyright { @extend #{$footer-copyright-class} !optional; }
+}

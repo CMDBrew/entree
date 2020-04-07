@@ -1,0 +1,19 @@
+body.layout-application {
+  .show-content-wrapper { @extend #{$layout-show-content-wrapper-class} !optional; }
+  .index-content-wrapper { @extend #{$layout-index-content-wrapper-class} !optional; }
+
+  main {
+    img,
+    audio,
+    video {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .aside-body,
+  .main-body {
+    padding: 0;
+  }
+}

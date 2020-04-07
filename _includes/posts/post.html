@@ -1,40 +1,47 @@
-{%- assign post =  include.post -%}
-{%- assign i18n = site.data.translations -%}
+{%- assign _img = include.post | cover_img -%}
+{%- assign _excerpt = include.post.excerpt | default: include.post.content | strip_html | strip_newlines | truncate: 100 -%}
 
-<li class="list-group-item px-0 bg-transparent py-4">
-  {%- if include.pinned -%}
-    <div class="container">
-      <div class="text-primary small mb-2">
-        <i class="fas fa-thumbtack mr-2"></i>
-        {{- i18n.posts.post.pinned -}}
-      </div>
-    </div>
-  {%- endif -%}
+{%- capture _meta -%}
+  {%- include posts/meta.html post=include.post -%}
+{%- endcapture -%}
 
-  <div class="post">
-    <div class="container">
-      <div class="media">
-        <div class="media-body">
-          <a class="text-reset text-decoration-none d-block" href="{{ post.url | relative_url }}">
-            <h5>{{ post.title | escape }}</h5>
 
-            {%- if site.show_excerpts -%}
-              <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 100 }}</p>
-            {%- endif -%}
+<article
+   class="post h-entry item item-{{ forloop.index | default: 0 }} {{ include.css_class }}"
+   itemscope itemtype="http://schema.org/BlogPosting"
+   data-js="new-release" data-date={{ include.post.date | date_to_xmlschema }}>
+  <div data-js='visible' data-target='.post'></div>
+  <div class="media">
+    <div class="media-body">
+      <a class="p-category item-category" href="/{{ site.entree.generators.posts.categories.dir }}/{{ post.category | slugify }}" itemprop="genre">
+        {{- post.category -}}
+      </a>
+
+      {%- if include.post.title.size > 0 -%}
+        <h2 class="item-title p-name" itemprop="name headline">
+          <a href={{ include.post.url | relative_url }} class="new-release-indicator">
+            {{- include.post.title -}}
           </a>
+        </h2>
+      {%- endif -%}
 
-          <p class="post-meta text-secondary small mb-0">
-            {%- include posts/meta.html post=post -%}
-          </p>
-        </div>
+      {%- if _excerpt.size > 0 -%}
+        <p class="item-excerpt e-content" itemprop="articleBody">{{ _excerpt }}</p>
+      {%- endif -%}
 
-        {%- if post.banner.size > 0 -%}
-          <a href="{{ post.url | relative_url }}" class="post-img ml-3 rounded spinner-wrap bg-file text-reset"
-             data-js="lazy" data-src="{{ post.banner | relative_url }}?nf_resize=fit&w=256&h=256">
-            {%- include spinner.html -%}
-          </a>
-        {%- endif -%}
-      </div>
+      {%- if _meta.size > 0 -%}
+        <p class="item-meta">{{ _meta }}</p>
+      {%- endif -%}
     </div>
+
+    {%- if _img.size > 0 -%}
+      <a class="item-img spinner-wrap text-reset text-decoration-none"
+        href="{{ include.post.url | relative_url }}"
+        data-js="lazy" data-src="{{ _img }}?nf_resize=fit&w=800&h=800">
+        {%- include indicators/spinner.html -%}
+      </a>
+    {%- endif -%}
   </div>
-</li>
+
+  {{- include.extra -}}
+</article>

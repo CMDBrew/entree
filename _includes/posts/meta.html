@@ -1,28 +1,12 @@
-{%- assign i18n = site.data.translations -%}
-{%- assign post = include.post -%}
-{%- assign date_format = site.entree.date_format | default: "%b %-d, %Y" -%}
-{%- assign read_time = post.content | strip_html | strip_newlines | reading_time -%}
+{%- assign _i18n = site.data.locales -%}
+{%- assign _date_format = site.entree.date_format | default: "%B %-d, %Y" -%}
+{%- assign _read_time = include.post.content | strip_html | strip_newlines | reading_time -%}
 
-<time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-  {{- post.date | date: date_format -}}
-</time>
-{{- " " -}}·{{- " " -}}
-<span>{{ i18n.posts.post.read_time | replace: '@time', read_time }}</span>
-{{- " " -}}·{{- " " -}}
-{%- if post.author.size > 0 -%}
-  {{- i18n.posts.post.by | default: 'By' -}}{{- " " -}}
+<time class="dt-published" datetime="{{ include.post.date | date_to_xmlschema }}" itemprop="datePublished">{{ include.post.date | date: _date_format }}</time>
+{%- if include.post.author.size > 0 -%}
   <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <span class="p-author h-card" itemprop="name">{{- post.author | escape -}}</span>
+    <span>{{ _i18n.posts.post.by | default: 'by' }}</span>
+    <span class="p-author h-card" itemprop="name">{{ include.post.author | escape }}</span>
   </span>
-  {{- " " -}}{{- i18n.posts.post.via | default: 'in' -}}{{- " " -}}
 {%- endif -%}
-
-{%- if post.categories.size > 0 -%}
-  {%- assign cats = post.categories -%}
-  {%- for cat in cats -%}
-    <a href="/categories/{{ cat | slugify }}">{{- cat -}}</a>
-    {%- unless forloop.last -%}
-      {{ ", " }}
-    {%- endunless -%}
-  {%- endfor -%}
-{%- endif -%}
+<span>&nbsp;·&nbsp;<i class="mdi mdi-clock-outline mr-1"></i>{{ _i18n.posts.post.read_time | replace: '@time', _read_time }}</span>

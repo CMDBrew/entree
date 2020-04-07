@@ -1,0 +1,18 @@
+#header {
+  .dropdown-menu .prefix { border-radius: 50%; }
+  .right-menus .dropdown-menu { @extend #{$theme-header-menus-right-dropdown-class} !optional; }
+
+  &.scrolled-by {
+    @supports (position: sticky) {
+      position: sticky;
+      top: 0;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  @include media-breakpoint-up($header-breakpoint) {
+    &:not(.scrolled-by) {
+      padding: map-get($spacers, 4);
+    }
+  }
+}

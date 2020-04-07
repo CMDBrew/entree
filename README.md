@@ -9,9 +9,16 @@
 1. Copy the plugins in [_config.yml](_config.yml) to your Jekyll site's `_config.yml`.
 1. Add bundle config for private gems `bundle config --local GITHUB__COM {GITHUB_AUTH_KEY}`. You can find this key from heroku pipeline under `BUNDLE_GITHUB__COM`
 1. Run `bundle install`
-1. Copy sample data files from [_data](_data) directory to your project
-1. Copy sample configs from [_config.yml](_config.yml) to your project
-1. Copy [404.html](404.html) to your project.
+1. Create `Rakefile` in your project directory and add the followings:
+    ```ruby
+        # frozen_string_literal: true
+        require 'bundler'
+        Bundler.setup
+
+        entree = Gem::Specification.find_by_name 'entree'
+        load "#{entree.gem_dir}/Rakefile"
+    ```
+1. Run setup task— `rake entree:install`. To list out all available tasks you can run `rake -T`.
 1. Run `jekyll server` to start up server.
 
 ### Setup Netlify
@@ -30,51 +37,46 @@ For references see https://docs.netlify.com/large-media/setup/
     ```yaml
     entree:
       sass:
-        custom_vars: 'custom_vars'
+        custom_vars:
+          - variables/_vars
+          - variables/_bootstrap_vars
+          - variables/_theme # if you are using a theme
         custom_styles:
-          - 'custom_style'
+          - custom_style
     ```
 1. `custom_vars` is used for variable overrides.
 1. `custom_styles` are used for additional styles that overrides defined styles.
 
-### Customize Aside
-1. Copy [installs.yml](_data/aside.yml) to your project.
-1. Customize the call to action:
-    1. The call to action is under key `call_to_action`.
-1. Customize actions:
-    1. The action items are under key `actions`.
-1. Customize social links:
-    1. The action items are under key `socials`.
-    1. We are using FontAwesome 5. You can use free icons from https://fontawesome.com/icons?d=gallery&m=free.
-    1. You can search social network brand colors from https://brandcolors.net/.
-1. Customize the footnote:
-    1. The footnote is under key `footnote`.
+### Customize Menus
+1. Customize menus in [menus.yml](_data/menus.yml).
+1. Customize the header:
+    1. The header configs are under key `header`.
+        1. Customize profiles under key `profiles`.
+        1. Customize menus under key `menus`.
+        1. Customize cta under key `cta`.
+1. Customize the footer:
+    1. The footer configs are under key `footer`.
+        1. Customize groups under key `groups`.
+        1. Customize footnote under key `footnote`.
 
-### Enable Installs
+### Enable Notices
+1. Customize notices in [notices.yml](_data/notices.yml).
+1. Enable Alert
+    1. The alert configs are under key `alert`.
 1. Enable PWA:
-    1. Copy [pwa.yml](_data/pwa.yml) to your project.
-    1. Make sure you have `pwa` enabled set to `true` inside your [pwa.yml](_data/pwa.yml).
+    1. The pwa configs are under key `pwa`.
+    1. Make sure you have `pwa` enabled set to `true`.
     1. Copy [serviceworker.js](serviceworker.js) and [manifest.json](manifest.json) to your project.
-1. Enable Smart Banner:
-    1. Copy [smartbanner.yml](_data/smartbanner.yml) to your project.
-    1. Make sure you have `smartbanner` enabled set to `true` inside your [installs.yml](_data/smartbanner.yml).
 
-### Update translations
-1. Copy [translations.yml](_data/translations.yml) to your project.
+### Update Locales
+1. Customize locales in [locales.yml](_data/locales.yml).
 
 ### Add Social Sharing
 1. Copy files in [social_feeds] to your project. For examples to enable it in your post see [2016-05-20-my-example-post.md](_posts/2016-05-20-my-example-post.md).
 
-### Cookies Policy
-1. Enable Cookies Policy by setting `cookies_policy: true` inside `entree` in [_config.yml](_config.yml)
-    ```yaml
-    entree:
-      cookies_policy: true
-    ```
-
 ## Development
 1. Run `gulp` to copy npm packages to `assets/vendors`.
-1. Run `npm start` to compile js to `main-bundle.js`.
+1. Run `npm start` to compile js to `application-bundle.js`.
 1. Run `jekyll server` to start the server.
 
 ## Frameworks
