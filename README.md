@@ -7,7 +7,6 @@
 1. Add this line to your Jekyll site's `Gemfile` `gem "entree"`
 1. Add this line to your Jekyll site's `_config.yml` `theme: entree`
 1. Copy the plugins in [_config.yml](_config.yml) to your Jekyll site's `_config.yml`.
-1. Add bundle config for private gems `bundle config --local GITHUB__COM {GITHUB_AUTH_KEY}`. You can find this key from heroku pipeline under `BUNDLE_GITHUB__COM`
 1. Run `bundle install`
 1. Copy sample data files from [_data](_data) directory to your project
 1. Copy sample configs from [_config.yml](_config.yml) to your project
@@ -18,8 +17,6 @@
 For references see https://docs.netlify.com/large-media/setup/
 
 1. Connect your site to your github repo.
-1. Update your build settings
-    1. Add `BUNDLE_GITHUB__COM` variable.
 1. `netlify link`
 1. `netlify lm:setup`
 1. `git lfs track "uploads/**"`
